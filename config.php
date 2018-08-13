@@ -1,7 +1,7 @@
 <?php
 require 'enviroment.php';
 
-define("HOME", "http://localhost/juri");
+define("HOME", "http://localhost/astrajuri");
 
 global $config;
 
