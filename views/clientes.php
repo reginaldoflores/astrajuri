@@ -27,7 +27,7 @@
 					
 				</div>
 				<div class="col-sm-6">
-					<a href="http://localhost/astrajuri/producao/addCliente.php" class="btn btn-primary pull-right h2">Novo Cliente</a>
+                                    <a href="<?= HOME; ?>/clientes/addCliente" class="btn btn-primary pull-right h2">Novo Cliente</a>
 				</div>
 			</div> <!-- /#top -->
  
@@ -47,13 +47,19 @@
                                             </tr>
                                     </thead>
                                     <tbody>
+                                    <?php foreach ($clientes as $cliente): ?>
 					<tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-						
+                                            <td><?= $cliente['cpf']; ?></td>
+                                            <td><?= utf8_encode($cliente['Nome']); ?></td>
+                                            <td>Jes</td>
+                                            <td>01/01/2015</td>
+                                            <td class="actions">
+                                                <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
+                                                <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                                <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            </td>
+                                        </tr>
+				    <?php endforeach; ?>
 					</tbody>
 				</table>
 			</div>

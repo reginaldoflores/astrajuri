@@ -30,7 +30,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><span>Astrajuri</span></a>
+                <a href="<?= HOME; ?>" class="site_title"><span>Astrajuri</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -42,7 +42,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem Vindo,</span>
-                <h2>Usuário</h2>
+                <h2><?= utf8_encode($viewData['dados_user']['contato']['Nome']); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -56,7 +56,7 @@
                 <ul class="nav side-menu">
 				
                     <li><a href="#.html"><i class="fa fa-calendar"></i> Agenda </a></li>
-                    <li><a href="http://localhost/astrajuri/producao/listaCliente.php"><i class="fa fa-users"></i> Clientes </a></li>
+                    <li><a href="<?= HOME; ?>/clientes"><i class="fa fa-users"></i> Clientes </a></li>
                     <li><a href="#.html"><i class="fa fa-folder"></i> Processos </a></li>
                     <li><a href="#.html"><i class="fa fa-user"></i> Usuários </a></li>
                     <li><a href="#.html"><i class="fa fa-money"></i> Despesas Fixas </a></li>
@@ -82,7 +82,7 @@
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
 
-              <a data-toggle="tooltip" data-placement="top" title="Sair" href="http://localhost/astrajuri/producao/sair.php">
+                <a data-toggle="tooltip" data-placement="top" title="Sair" href="<?= HOME; ?>/login/logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -101,7 +101,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?= HOME; ?>/assets/images/img.jpg" alt="">Usuário
+                    <img src="<?= HOME; ?>/assets/images/img.jpg" alt=""><?= utf8_encode($viewData['dados_user']['contato']['Nome']); ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -113,7 +113,7 @@
                       </a>
                     </li>
 
-                    <li><a href="http://localhost/astrajuri/producao/sair.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                    <li><a href="<?= HOME; ?>/login/logout"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                   </ul>
                 </li>
 

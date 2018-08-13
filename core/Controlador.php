@@ -11,7 +11,7 @@ class Controlador{
 
     public function loadView($viewName, $viewData = array()){
         extract($viewData);
-        include "views/";$viewName.".php";
+        include "views/".$viewName.".php";
     }
 
     public function loadTemplate($viewName, $viewData = array()){
