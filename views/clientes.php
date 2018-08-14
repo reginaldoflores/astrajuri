@@ -27,7 +27,7 @@
 					
 				</div>
 				<div class="col-sm-6">
-                                    <a href="<?= HOME; ?>/clientes/addCliente" class="btn btn-primary pull-right h2">Novo Cliente</a>
+                                    <a href="<?= HOME; ?>/clientes/add" class="btn btn-primary pull-right h2">Novo Cliente</a>
 				</div>
 			</div> <!-- /#top -->
  
@@ -54,9 +54,9 @@
                                             <td>Jes</td>
                                             <td>01/01/2015</td>
                                             <td class="actions">
-                                                <a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-                                                <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                                <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                                <a class="btn btn-success btn-xs" href="<?= HOME; ?>/clientes/view/<?= $cliente['idContato']; ?>">Visualizar</a>
+                                                <a class="btn btn-warning btn-xs" href="<?= HOME; ?>/clientes/edit/<?= $cliente['idContato']; ?>">Editar</a>
+                                                <a class="btn btn-danger btn-xs"  href="<?= HOME; ?>/clientes/del/<?= $cliente['idContato']; ?>" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                             </td>
                                         </tr>
 				    <?php endforeach; ?>
@@ -79,7 +79,7 @@
 		 </div> <!-- /#main -->
 
 		 Modal 
-		<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+		<div class="modal fade" id="delete-modal" tabindex="1" role="dialog" aria-labelledby="modalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
