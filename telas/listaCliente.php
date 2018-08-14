@@ -73,35 +73,48 @@
  	
 			<div id="list" class="row">
 			
-			<div class="table-responsive col-md-12">
-				<table class="table table-striped" cellspacing="0" cellpadding="0">
-                                    <thead>
-                                            <tr>
-                                                    <th>CPF / CNPJ</th>
-                                                    <th>Cliente</th>
-                                                    <th>Advogado</th>
-                                                    <th>Data</th>
-                                                    <th class="actions">Ações</th>
-                                            </tr>
-                                    </thead>
-                                    <tbody>
-					<?php foreach($c->getClientesFisico() as $cliente): ?>
-                                        <tr>
-                                            <td><?= $cliente['CPF']; ?></td>
-                                            <td><?= $cliente['nome']; ?> | Empresa</td>
-                                            <td>Jes</td>
-                                            <td>01/01/2015</td>
-                                            <td class="actions">
-                                                    <a class="btn btn-success btn-xs" href="http://localhost/astrajuri/producao/visualizarCliente.php?s=<?= $cliente['idPessoa_Fisica']; ?>">Visualizar</a>
-                                                    <a class="btn btn-warning btn-xs" href="http://localhost/astrajuri/producao/editarCliente.php?s=<?= $cliente['idPessoa_Fisica']; ?>">Editar</a>
-                                                    <a class="btn btn-danger btn-xs"  href="http://localhost/astrajuri/producao/deletarCliente.php?s=<?= $cliente['Contato_idContato']; ?>" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                            </td>
-                                        </tr>
-                                        <?php endforeach; ?>
-						
-					</tbody>
-				</table>
-			</div>
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>Lista de Varas</h2>
+						<div class="clearfix"></div>
+					</div>
+					
+					<div class="x_content">
+				
+						<div class="table-responsive col-md-12">
+								<table class="table table-striped" cellspacing="0" cellpadding="0">
+									
+									<thead>
+										<tr>
+											<th>CPF / CNPJ</th>
+											<th>Cliente</th>
+											<th>Advogado</th>
+											<th>Data</th>
+											<th class="actions">Ações</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+									<?php foreach($c->getClientesFisico() as $cliente): ?>
+										<tr>
+											<td><?= $cliente['CPF']; ?></td>
+											<td><?= $cliente['nome']; ?></td>
+											<td>Jes</td>
+											<td>01/01/2015</td>
+											<td class="actions">
+											<a class="btn btn-success btn-xs" href="http://localhost/astrajuri/producao/visualizarCliente.php?s=<?= $cliente['idPessoa_Fisica']; ?>">Visualizar</a>
+											<a class="btn btn-warning btn-xs" href="http://localhost/astrajuri/producao/editarCliente.php?s=<?= $cliente['idPessoa_Fisica']; ?>">Editar</a>
+											<a class="btn btn-danger btn-xs"  href="http://localhost/astrajuri/producao/deletarCliente.php?s=<?= $cliente['Contato_idContato']; ?>" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+										    </td>
+										</tr>
+									<?php endforeach; ?>
+									</tbody>
+									
+								</table>
+						</div>
+					</div>
+
+				</div>
 			</div> <!-- /#list -->
 	
 			<div id="bottom" class="row">
@@ -117,7 +130,7 @@
 			</div> <!-- /#bottom -->
 		 </div> <!-- /#main -->
 
-		 Modal 
+		 <!--Modal -->
 		<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
