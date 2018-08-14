@@ -36,13 +36,22 @@
 			<div id="list" class="row">
 			
 			<div class="table-responsive col-md-12">
+			
+			
+			<div class="x_panel">
+					
+						<div class="x_title">
+							<h2></h2>
+							<div class="clearfix"></div>
+						 </div>
+						  
+						<div class="x_content">
+						
 				<table class="table table-striped" cellspacing="0" cellpadding="0">
                                     <thead>
                                             <tr>
                                                     <th>CPF / CNPJ</th>
                                                     <th>Cliente</th>
-                                                    <th>Advogado</th>
-                                                    <th>Data</th>
                                                     <th class="actions">Ações</th>
                                             </tr>
                                     </thead>
@@ -51,8 +60,7 @@
 					<tr>
                                             <td><?= $cliente['cpf']; ?></td>
                                             <td><?= utf8_encode($cliente['Nome']); ?></td>
-                                            <td>Jes</td>
-                                            <td>01/01/2015</td>
+											
                                             <td class="actions">
                                                 <a class="btn btn-success btn-xs" href="<?= HOME; ?>/clientes/view/<?= $cliente['idContato']; ?>">Visualizar</a>
                                                 <a class="btn btn-warning btn-xs" href="<?= HOME; ?>/clientes/edit/<?= $cliente['idContato']; ?>">Editar</a>
@@ -62,6 +70,9 @@
 				    <?php endforeach; ?>
 					</tbody>
 				</table>
+				
+				</div>
+				</div>
 			</div>
 			</div> <!-- /#list -->
 	
@@ -78,7 +89,7 @@
 			</div> <!-- /#bottom -->
 		 </div> <!-- /#main -->
 
-		 Modal 
+		 <!--Modal -->
 		<div class="modal fade" id="delete-modal" tabindex="1" role="dialog" aria-labelledby="modalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">

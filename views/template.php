@@ -59,7 +59,9 @@
                     <li><a href="<?= HOME; ?>/clientes"><i class="fa fa-users"></i> Clientes </a></li>
                     <li><a href="#.html"><i class="fa fa-folder"></i> Processos </a></li>
                     <li><a href="#.html"><i class="fa fa-user"></i> Usuários </a></li>
-                    <li><a href="#.html"><i class="fa fa-money"></i> Despesas Fixas </a></li>
+                    <li><a href="#.html"><i class="fa fa-user"></i> Advogados </a></li>
+					<li><a href="#.html"><i class="fa fa-money"></i> Comarcas </a></li>
+					<li><a href="#.html"><i class="fa fa-money"></i> Despesas Fixas </a></li>
 
                     <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
