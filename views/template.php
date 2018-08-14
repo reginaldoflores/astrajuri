@@ -22,6 +22,10 @@
     <link href="<?= HOME ?>/assets/css/custom.min.css" rel="stylesheet">
     <!-- Dropzone.js -->
     <link href="<?= HOME; ?>/assets/bootstrap/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    
+    <!-- FullCalendar -->
+    <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
 
 </head>
 <body class="nav-md">
