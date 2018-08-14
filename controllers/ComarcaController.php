@@ -24,4 +24,15 @@ class ComarcaController extends Controlador{
         $this->loadTemplate("comarca", $dados);
     }
     
+    public function add(){
+        $dados = array();
+        $usuario = new Usuario();
+        $dados['dados_user'] = $usuario->getDadosUser();
+        //-----------------------------------------------------------------//
+        
+        
+        
+        $this->loadTemplate("addComarca", $dados);
+    }
+    
 }
