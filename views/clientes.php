@@ -59,7 +59,7 @@
                                     <?php foreach ($clientes as $cliente): ?>
 					<tr>
                                             <td><?= $cliente['cpf']; ?></td>
-                                            <td><?= utf8_encode($cliente['Nome']); ?></td>
+                                            <td><?= utf8_encode($cliente['nome']); ?></td>
 											
                                             <td class="actions">
                                                 <a class="btn btn-success btn-xs" href="<?= HOME; ?>/clientes/view/<?= $cliente['idContato']; ?>">Visualizar</a>

@@ -19,6 +19,7 @@ class HomeController extends Controlador{
         $dados['dados_user'] = $usuario->getDadosUser();
         //-----------------------------------------------------------------//
         
+        
         $this->loadTemplate("home", $dados);
     }
 

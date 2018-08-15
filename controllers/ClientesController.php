@@ -102,7 +102,7 @@ class ClientesController extends Controlador{
             $comp = utf8_decode(addslashes($_POST['complement']));
             
             if ($email == $confirm_email) {
-                $cliente->updateCliente($nome, $tipo, $email, $phone, $cp, $dataNascimento, $nameRua, $cep, $number, $bairro, $cidade, $uf, $comp, $id);
+                $cliente->updateCliente($nome, $tipo, $email, $phone, $cp, $dataNascimento, $nameRua, $number, $bairro, $cidade, $uf, $comp, $id);
                 header("Location: ".HOME."/clientes");
             }else{
                 $dados['erro'] = "E-mails diferentes!!!";

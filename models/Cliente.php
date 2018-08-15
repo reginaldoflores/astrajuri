@@ -3,8 +3,7 @@
 class Cliente extends Model{
 
     public function updateCliente($nome, $tipo, $email, $phone, $cp, $dataNascimento, $nameRua, $number, $bairro, $cidade, $uf, $comp, $id) {
-        $sql = $this->db->prepare("UPDATE contato contato SET Nome = :nome, Email = :email WHERE idContato = :id");
-        $sql->bindValue(":nome", $nome);
+        $sql = $this->db->prepare("UPDATE contato contato SET Email = :email WHERE idContato = :id");
         $sql->bindValue(":email", $email);
         $sql->bindValue(":id", $id);
         $sql->execute();
@@ -28,7 +27,8 @@ class Cliente extends Model{
         $sql->execute();
         
         if ($tipo == "cpf" || $tipo == "CPF") {
-            $sql = $this->db->prepare("UPDATE pessoa_fisica SET Data_Nasc = :nascimento, CPF = :cpf WHERE Contato_idContato = :contato");
+            $sql = $this->db->prepare("UPDATE pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, CPF = :cpf WHERE Contato_idContato = :contato");
+            $sql->bindValue(":nome", $nome);
             $sql->bindValue(":nascimento", $dataNascimento);
             $sql->bindValue(":cpf", $cp);
             $sql->bindValue(":contato", $id);
@@ -54,10 +54,8 @@ class Cliente extends Model{
         
         $idEndereco = $this->db->lastInsertId();
         
-        $sql = $this->db->prepare("INSERT INTO contato SET Nome = :nome, Email = :email, Cliente = :cliente, idEndereco = :endereco");
-        $sql->bindValue(":nome", $nome);
+        $sql = $this->db->prepare("INSERT INTO contato SET Email = :email, idEndereco = :endereco");
         $sql->bindValue(":email", $email);
-        $sql->bindValue(":cliente", 1);
         $sql->bindValue(":endereco", $idEndereco);
         $sql->execute();
         
@@ -69,8 +67,9 @@ class Cliente extends Model{
         $sql->execute();
         
         if ($tipo == "cpf") {
-            $sql = $this->db->prepare("INSERT INTO pessoa_fisica SET Data_Nasc = :nascimento, CPF = :cpf, RG = :rg, Contato_idContato = :contato");
+            $sql = $this->db->prepare("INSERT INTO pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, CPF = :cpf, RG = :rg, Contato_idContato = :contato");
             $sql->bindValue(":nascimento", $dataNascimento);
+            $sql->bindValue(":nome", $nome);
             $sql->bindValue(":cpf", $cp);
             $sql->bindValue(":rg", $rg);
             $sql->bindValue(":contato", $idContato);
@@ -87,7 +86,10 @@ class Cliente extends Model{
     public function getClientes() {
         $array = array();
         
-        $sql = $this->db->prepare("SELECT *, (select pessoa_fisica.CPF from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as cpf FROM contato WHERE Cliente = 1");
+        $sql = $this->db->prepare("SELECT *, "
+                . "(select pessoa_fisica.CPF from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as cpf, "
+                . "(select pessoa_fisica.Nome from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as nome"
+                . " FROM contato");
         $sql->execute();
         
         if ($sql->rowCount() > 0) {
@@ -115,6 +117,7 @@ class Cliente extends Model{
         
         $sql = $this->db->prepare("SELECT *, "
                 . "(select pessoa_fisica.CPF from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as cpf, "
+                . "(select pessoa_fisica.CPF from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as Nome, "
                 . "(select pessoa_fisica.Data_Nasc from pessoa_fisica where pessoa_fisica.Contato_idContato = contato.idContato) as nascimento"
                 . " FROM contato WHERE idContato = :id");
         $sql->bindValue(":id", $id);

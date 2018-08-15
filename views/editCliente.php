@@ -43,7 +43,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" value="<?= utf8_encode($cliente['Nome']); ?>" data-validate-words="2" name="nome" placeholder="Ex: Reginaldo Silva" required="required" type="text">
+                                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" value="<?= utf8_encode($cliente['pessoa']['Nome']); ?>" data-validate-words="2" name="nome" placeholder="Ex: Reginaldo Silva" required="required" type="text">
                                         </div>
                                     </div>
 
@@ -79,7 +79,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="number" id="cpf" name="cp" size="11" required="required" value="<?= $cliente['pessoa']['CPF']; ?>" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="cpf" name="cp" size="11" required="required" value="<?= $cliente['pessoa']['CPF']; ?>" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
@@ -142,9 +142,59 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select id="data_nasc" name="uf" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
                                                 <option value="0" disabled selected>Selecione um Estado</option>
-                                                <?php foreach ($estados as $estado): ?>
-                                                    <option <?= ($cliente['endereco']['UF'] == $estado['idEstado']) ? 'selected="selected"' : ''; ?> value="<?= $estado['idEstado']; ?>"><?= $estado['Nome']; ?></option>
-                                                <?php endforeach; ?>
+                                                
+                                                    <option <?= ($cliente['endereco']['UF'] == 'AC') ? 'selected="selected"' : ''; ?> value="AC">Acre</option>
+                                                    <option <?= ($cliente['endereco']['UF'] == 'AL') ? 'selected="selected"' : ''; ?> value="AL">Alagoas</option>
+                                                    <option <?= ($cliente['endereco']['UF'] == 'AP') ? 'selected="selected"' : ''; ?> value="AP">Amapá</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'AM') ? 'selected="selected"' : ''; ?> value="AM">Amazonas</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'BA') ? 'selected="selected"' : ''; ?> value="BA">Bahia</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'CE') ? 'selected="selected"' : ''; ?> value="CE">Ceará</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'DF') ? 'selected="selected"' : ''; ?> value="DF">Distrito Federal</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'ES') ? 'selected="selected"' : ''; ?> value="ES">Espírito Santo</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'GO') ? 'selected="selected"' : ''; ?> value="GO">Goiás</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'MA') ? 'selected="selected"' : ''; ?> value="MA">Maranhão</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'MT') ? 'selected="selected"' : ''; ?> value="MT">Mato Grosso</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'MS') ? 'selected="selected"' : ''; ?> value="MS">Mato Grosso do Sul</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'MG') ? 'selected="selected"' : ''; ?> value="MG">Minas Gerais</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'PA') ? 'selected="selected"' : ''; ?> value="PA">Pará</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'PB') ? 'selected="selected"' : ''; ?> value="PB">Paraíba</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'PR') ? 'selected="selected"' : ''; ?> value="PR">Paraná</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'PE') ? 'selected="selected"' : ''; ?> value="PE">Pernambuco</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'PI') ? 'selected="selected"' : ''; ?> value="PI">Piauí</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'RJ') ? 'selected="selected"' : ''; ?> value="RJ">Rio de Janeiro</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'RN') ? 'selected="selected"' : ''; ?> value="RN">Rio Grande do Norte</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'RS') ? 'selected="selected"' : ''; ?> value="RS">Rio Grande do Sul</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'RO') ? 'selected="selected"' : ''; ?> value="RO">Rondônia</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'RR') ? 'selected="selected"' : ''; ?> value="RR">Roraima</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'SC') ? 'selected="selected"' : ''; ?> value="SC">Santa Catarina</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'SP') ? 'selected="selected"' : ''; ?> value="SP">São Paulo</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'SE') ? 'selected="selected"' : ''; ?> value="SE">Sergipe</option>
+
+                                                    <option <?= ($cliente['endereco']['UF'] == 'TO') ? 'selected="selected"' : ''; ?> value="TO">Tocantins</option>
+                                                
                                             </select>
                                         </div>
                                     </div>

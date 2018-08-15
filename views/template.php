@@ -46,7 +46,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem Vindo,</span>
-                <h2><?= utf8_encode($viewData['dados_user']['contato']['Nome']); ?></h2>
+                <h2><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -107,7 +107,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?= HOME; ?>/assets/images/img.jpg" alt=""><?= utf8_encode($viewData['dados_user']['contato']['Nome']); ?>
+                    <img src="<?= HOME; ?>/assets/images/img.jpg" alt=""><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

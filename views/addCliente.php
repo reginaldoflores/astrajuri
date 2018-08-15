@@ -79,7 +79,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="number" id="cpf" name="cp" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="cpf" name="cp" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
@@ -87,7 +87,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="number" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
@@ -157,9 +157,59 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select id="data_nasc" name="uf" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
                                                 <option value="0" disabled selected>Selecione um Estado</option>
-                                                <?php foreach ($estados as $estado): ?>
-                                                    <option value="<?= $estado['idEstado']; ?>"><?= $estado['Nome']; ?></option>
-                                                <?php endforeach; ?>
+                                                <option value="AC">Acre</option>
+
+                                                <option value="AL">Alagoas</option>
+
+                                                <option value="AP">Amapá</option>
+
+                                                <option value="AM">Amazonas</option>
+
+                                                <option value="BA">Bahia</option>
+
+                                                <option value="CE">Ceará</option>
+
+                                                <option value="DF">Distrito Federal</option>
+
+                                                <option value="ES">Espírito Santo</option>
+
+                                                <option value="GO">Goiás</option>
+
+                                                <option value="MA">Maranhão</option>
+
+                                                <option value="MT">Mato Grosso</option>
+
+                                                <option value="MS">Mato Grosso do Sul</option>
+
+                                                <option value="MG">Minas Gerais</option>
+
+                                                <option value="PA">Pará</option>
+
+                                                <option value="PB">Paraíba</option>
+
+                                                <option value="PR">Paraná</option>
+
+                                                <option value="PE">Pernambuco</option>
+
+                                                <option value="PI">Piauí</option>
+
+                                                <option value="RJ">Rio de Janeiro</option>
+
+                                                <option value="RN">Rio Grande do Norte</option>
+
+                                                <option value="RS">Rio Grande do Sul</option>
+
+                                                <option value="RO">Rondônia</option>
+
+                                                <option value="RR">Roraima</option>
+
+                                                <option value="SC">Santa Catarina</option>
+
+                                                <option value="SP">São Paulo</option>
+
+                                                <option value="SE">Sergipe</option>
+
+                                                <option value="TO">Tocantins</option>
                                             </select>
                                         </div>
                                     </div>
