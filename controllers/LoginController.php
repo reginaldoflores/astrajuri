@@ -5,6 +5,14 @@ class LoginController extends Controlador{
     public function index() {
         $dados = array();
         
+        
+        
+        $this->loadView("inicio", $dados);
+    }
+    
+    public function login() {
+        $dados = array();
+        
         $usuario = new Usuario();
         
         if ((isset($_POST['login']) && !empty($_POST['login'])) && (isset($_POST['senha']) && !empty($_POST['senha']))) {
