@@ -36,7 +36,7 @@
 					<div class="x_panel">
 					
 						<div class="x_title">
-							<h2>Cadastrar Comarca</h2>
+							<h2>Editar Comarca</h2>
 							<div class="clearfix"></div>
 						 </div>
 						  
@@ -50,7 +50,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comarca">Comarca: <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="data_nasc" name="comarca" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                            <input type="text" value="<?= utf8_encode($comc['Nome']); ?>" id="data_nasc" name="comarca" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 					  
@@ -58,7 +58,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">Endereço: <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="data_nasc" name="endereco" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                          <input type="text" value="<?= utf8_encode($comc['Endereco']); ?>" id="data_nasc" name="endereco" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 					  
@@ -67,7 +67,7 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-						  <button id="send" type="submit" class="btn btn-primary">Cadastrar</button>
+						  <button id="send" type="submit" class="btn btn-primary">Atualizar</button>
                           <button type="reset" class="btn btn-default">Cancelar</button>
                         </div>
                       </div>

@@ -10,7 +10,6 @@ class HomeController extends Controlador{
         if (!$usuario->isLogged()) {
             header("Location: ".HOME."/login");
         }
-        
     }
     
     public function index(){

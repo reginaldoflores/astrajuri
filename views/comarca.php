@@ -43,18 +43,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Niterói</td>
-							<td>
-							<p>Visconde de Sepetiba 519 9º andar, Niterói - Rio de Janeiro</p>
-							</td>
-							<td class="actions">
-								<a class="btn btn-success btn-xs" href="view.html">Visualizar</a>
-								<a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-								<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-							</td>
-						</tr>
-						
+                                            <?php foreach ($comarcas as $comarca): ?>
+                                            <tr>
+                                                <td><?= utf8_encode($comarca['Nome']); ?></td>
+                                                <td>
+                                                    <p><?= utf8_encode($comarca['Endereco']); ?></p>
+                                                </td>
+                                                <td class="actions">
+                                                    <a class="btn btn-success btn-xs" href="<?= HOME; ?>/comarca/view/<?= $comarca['idComarca']; ?>">Visualizar</a>
+                                                    <a class="btn btn-warning btn-xs" href="<?= HOME; ?>/comarca/edit/<?= $comarca['idComarca']; ?>">Editar</a>
+                                                    <a class="btn btn-danger btn-xs"  href="<?= HOME; ?>/comarca/del/<?= $comarca['idComarca']; ?>" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach; ?>
 					</tbody>
 					</table>
 						  </div>
