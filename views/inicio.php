@@ -20,6 +20,9 @@
 
     <!-- Custom Theme Style -->
     <link href="<?= HOME; ?>/assets/css/custom.min.css" rel="stylesheet">
+	
+	  <!-- Custom Theme Style -->
+    <link href="<?= HOME; ?>/img/logo.png" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -32,6 +35,9 @@
           <section class="login_content">
 
 			<div>
+			
+			<img width="125" height="125" src="<?= HOME; ?>/img/logo.png" alt="" class="">
+
 				<h1><!--<i class="ícone"></i>--> Astrajuri </h1>
                 <p text align="justify"> O ASTRAJURI é uma proposta de desenvolvimento de uma solução para escritórios de advocacia de 
 				pequeno e médio porte que procuram agilizar o acesso às informações de seus processos. Em um mercado tão 
@@ -43,15 +49,10 @@
 		                
 			<div class="separator">
 				<p class="change_link">Gostaria de acessar o sistema ?
-                                    <a href="<?= HOME; ?>/login/login" class="to_register"> Acessar </a>
+                    <a href="<?= HOME; ?>/login/login" class="to_register"> Acessar </a>
 				</p>
 
 				<div class="clearfix"></div>
-				<br />
-
-				<div>
-					<p>©2018 Todos os direitos reservados.</p>
-				</div>
             </div>
 
           </section>
