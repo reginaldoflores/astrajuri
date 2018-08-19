@@ -2,9 +2,7 @@
 		
     <div class="clearfix"></div>
 			
-    <div id="main" class="container-fluid" style="margin-top: 50px">
- 
-	<div id="top" class="row">
+	<div class="row">
             <div class="col-sm-3">
 					
 		<div class="input-group h2">
@@ -23,8 +21,7 @@
             </div>
             
         </div> <!-- /#top -->
- 
-	<hr/>        
+    
  	
 	<div id="list" class="row">	
             <div class="table-responsive col-md-12">

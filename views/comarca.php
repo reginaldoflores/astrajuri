@@ -1,29 +1,25 @@
 <div class="right_col" role="main">
-		
-			
-            <div class="clearfix"></div>
-
- 
-			
-		<div class="row">
-						<div class="col-sm-3">
+    <div class="clearfix"></div>
+            
+    <div class="row">
+	<div class="col-sm-3">
 							
-							<div class="input-group h2">
-								<input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Comarca">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="submit">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
+            <div class="input-group h2">
+		<input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Comarca">
+		<span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">
+			<span class="glyphicon glyphicon-search"></span>
+                    </button>
+		</span>
+            </div>
 							
-						</div>
+	</div>
 						
-						<div class="col-sm-3">
-                                                    <a href="<?= HOME; ?>/comarca/add" class="btn btn-primary btn-xs pull-right h2">Nova Comarca</a>
-						</div>
+	<div class="col-sm-6">
+            <a href="<?= HOME; ?>/comarca/add" class="btn btn-primary btn-medium pull-right h2">Nova Comarca</a>
+	</div>
 						
-			</div> 
+    </div> 
 				
 			<div class="row">
 					  <div class="col-md-12 col-sm-12 col-xs-12">
@@ -63,6 +59,17 @@
 					  </div>
 			</div>
 
+                        <div id="bottom" class="row">
+				<div class="col-md-12">
+					<ul class="pagination">
+						<li class="disabled"><a>&lt; Anterior</a></li>
+						<li class="disabled"><a>1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+					</ul><!-- /.pagination -->
+				</div>
+	</div> <!-- /#bottom -->
 			
 					
 		</div> <!-- /#main -->

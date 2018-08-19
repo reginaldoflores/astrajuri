@@ -1,9 +1,5 @@
 <div class="right_col" role="main">	
-    <div class="clearfix"></div>			
-        
-    <div id="main" class="container-fluid" style="margin-top: 50px">
-    
-    <hr/>        
+    <div class="clearfix"></div>			      
 
 	<div class="row">
             <div class="col-md-12">
@@ -35,8 +31,6 @@
 		</div>
             </div>
         </div>
-    
-    <hr />
 	
         <div id="actions" class="row">
             <div class="col-md-12">
