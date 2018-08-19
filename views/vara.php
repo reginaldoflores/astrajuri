@@ -112,4 +112,4 @@
     <script src="<?= HOME; ?>/assets/bootstrap/dropzone/dist/min/dropzone.min.js"></script>
 	
   </body>
-</html><h1>VARA</h1>
+</html>
