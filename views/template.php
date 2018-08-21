@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Astrajuri</title>
-
+    
     <!-- Bootstrap -->
     <link href="<?= HOME; ?>/assets/bootstrap/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,6 +27,8 @@
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
 
+    <link href="<?= HOME ?>/assets/css/template.css" rel="stylesheet">
+    
 </head>
 <body class="nav-md">
 <div class="container body">

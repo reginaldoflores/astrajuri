@@ -43,35 +43,37 @@
                                         </div>
                                     </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nome" placeholder="Ex: Reginaldo Silva" required="required" type="text">
+                                    <div id="pessoa" >
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Nome <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nome" placeholder="Ex: Reginaldo Silva" required="required" type="text">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirmar Email <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="email" id="email2" name="email2" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirmar Email <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="email" id="email2" name="email2" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="date" id="data_nasc" name="data_nasc" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="date" id="data_nasc" name="data_nasc" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
                                     </div>
 
