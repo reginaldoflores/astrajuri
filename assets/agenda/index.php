@@ -149,20 +149,26 @@ $resultado_events = mysqli_query($conn, $result_events);
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="inputEmail3" class="col-sm-2 control-label">Cor</label>
+									<label for="inputEmail3" class="col-sm-2 control-label">Nível de Prioridade</label>
 									<div class="col-sm-10">
 										<select name="color" class="form-control" id="color">
-											<option value="">Selecione</option>			
-											<option style="color:#FFD700;" value="#FFD700">Amarelo</option>
-											<option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
-											<option style="color:#FF4500;" value="#FF4500">Laranja</option>
-											<option style="color:#8B4513;" value="#8B4513">Marrom</option>	
-											<option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
-											<option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
-											<option style="color:#A020F0;" value="#A020F0">Roxo</option>
-											<option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>										
-											<option style="color:#228B22;" value="#228B22">Verde</option>
-											<option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+											<option value="">Selecione</option>		
+											<option style="color:#0071c5;" value="#0071c5">Baixa</option>
+                                                                                        <option style="color:#FFD700;" value="#FFD700">Médio</option>
+                                                                                        <option style="color:#8B0000;" value="#8B0000">Alta</option>
+											<option style="color:#FF4500;" value="#FF4500">Muito Alta</option>
+                                                                                        
+											<!--<option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                                                                        <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                                                                        <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                                                                        <option style="color:#8B4513;" value="#8B4513">Marrom</option>	
+                                                                                        <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                                                                        <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                                                                        <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                                                                        <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>										
+                                                                                        <option style="color:#228B22;" value="#228B22">Verde</option>
+                                                                                        <option style="color:#8B0000;" value="#8B0000">Vermelho-->
+											
 										</select>
 									</div>
 								</div>
@@ -210,11 +216,18 @@ $resultado_events = mysqli_query($conn, $result_events);
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">Cor</label>
+								<label for="inputEmail3" class="col-sm-2 control-label">Nível de Prioridade</label>
 								<div class="col-sm-10">
 									<select name="color" class="form-control" id="color">
-										<option value="">Selecione</option>			
-										<option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+										<option value="">Selecione</option>	
+                                                                                
+                                                                                <option value="">Selecione</option>		
+                                                                                <option style="color:#0071c5;" value="#0071c5">Baixa</option>
+                                                                                <option style="color:#FFD700;" value="#FFD700">Médio</option>
+                                                                                <option style="color:#8B0000;" value="#8B0000">Alta</option>
+                                                                                <option style="color:#FF4500;" value="#FF4500">Muito Alta</option>
+                                                                                        
+										<!--<option style="color:#FFD700;" value="#FFD700">Amarelo</option>
 										<option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
 										<option style="color:#FF4500;" value="#FF4500">Laranja</option>
 										<option style="color:#8B4513;" value="#8B4513">Marrom</option>	
@@ -223,7 +236,7 @@ $resultado_events = mysqli_query($conn, $result_events);
 										<option style="color:#A020F0;" value="#A020F0">Roxo</option>
 										<option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>										
 										<option style="color:#228B22;" value="#228B22">Verde</option>
-										<option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+										<option style="color:#8B0000;" value="#8B0000">Vermelho</option>-->
 									</select>
 								</div>
 							</div>

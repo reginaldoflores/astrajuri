@@ -110,7 +110,7 @@
     <!-- FullCalendar -->
     <script src="<?= HOME; ?>/assets/bootstrap/moment/min/moment.min.js"></script>
     <script src="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.min.js"></script>
-	<script src="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/lang/pt-br.js"></script>
+    <script src="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/lang/pt-br.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="<?= HOME; ?>/assets//js/custom.min.js"></script>

@@ -1,32 +1,21 @@
 <div class="right_col" role="main">
-
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Novo Cliente </h3>
-            </div>
-        </div>
-    </div>
-
-
     <div class="clearfix"></div>
 
     <div id="main" class="container-fluid">
-
-
         <form method="post" class="form-horizontal form-label-left" novalidate>
-
             <form  method="post">
                 <div class="row">
-
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
-                            <div class="x_content">
+                            
+                            <div class="x_title">
+                                <h2>Novo Cliente</h2>
+                                <div class="clearfix"></div>
+                             </div>
 
-                                </br>
+                                <div class="x_content">
 
-                                <form method="post" class="form-horizontal form-label-left" novalidate>
-
+                                    <form method="post" class="form-horizontal form-label-left" novalidate>
 
                                     <div class="item form-group">
                                         <div class="col-md-6 col-md-offset-3">
@@ -38,7 +27,14 @@
                                         </div>
                                     </div>			
 
-
+                                    <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
+                                            <input type="text" id="cpf" name="cp" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nome <span class="required">*</span>
                                         </label>
@@ -74,15 +70,6 @@
                                         </div>
                                     </div>
 
-
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="cpf" name="cp" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
-                                        </div>
-                                    </div>
-
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
                                         </label>
@@ -94,12 +81,14 @@
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-2 col-sm-6 col-xs-12">
+                                        <div class="col-md-3 col-sm-6 col-xs-12">
                                             <input type="date" id="data_nasc" name="dataNascimento" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
-                                    <!-- ENDEREÇO --> </br></br>
+                                        
+                                        
+                                    <!-- ENDEREÇO --> </br>
 
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cep">CEP <span class="required">*</span>
@@ -110,7 +99,7 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Logradouro <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Logradouro <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nameRua" placeholder="Ex: Rua, Avenida" required="required" type="text">
@@ -122,13 +111,13 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-10"  for="">Número 
                                         </label>
                                         <div class="col-md-2 col-sm-6 col-xs-12">
-                                            <input type="number" id="number" name="number"  >
+                                            <input type="text" id="number" name="number"  >
                                         </div>
                                     </div>
 
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Bairro <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Bairro <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" id="bairro" name="bairro" data-validate-linked="bairro" required="required" class="form-control col-md-7 col-xs-12">
@@ -144,73 +133,18 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">Cidade <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">Cidade <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" id="cpf" name="cidade" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">UF <span class="required">*</span>
+                                   <div class="item form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">Estado <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select id="data_nasc" name="uf" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
-                                                <option value="0" disabled selected>Selecione um Estado</option>
-                                                <option value="AC">Acre</option>
-
-                                                <option value="AL">Alagoas</option>
-
-                                                <option value="AP">Amapá</option>
-
-                                                <option value="AM">Amazonas</option>
-
-                                                <option value="BA">Bahia</option>
-
-                                                <option value="CE">Ceará</option>
-
-                                                <option value="DF">Distrito Federal</option>
-
-                                                <option value="ES">Espírito Santo</option>
-
-                                                <option value="GO">Goiás</option>
-
-                                                <option value="MA">Maranhão</option>
-
-                                                <option value="MT">Mato Grosso</option>
-
-                                                <option value="MS">Mato Grosso do Sul</option>
-
-                                                <option value="MG">Minas Gerais</option>
-
-                                                <option value="PA">Pará</option>
-
-                                                <option value="PB">Paraíba</option>
-
-                                                <option value="PR">Paraná</option>
-
-                                                <option value="PE">Pernambuco</option>
-
-                                                <option value="PI">Piauí</option>
-
-                                                <option value="RJ">Rio de Janeiro</option>
-
-                                                <option value="RN">Rio Grande do Norte</option>
-
-                                                <option value="RS">Rio Grande do Sul</option>
-
-                                                <option value="RO">Rondônia</option>
-
-                                                <option value="RR">Roraima</option>
-
-                                                <option value="SC">Santa Catarina</option>
-
-                                                <option value="SP">São Paulo</option>
-
-                                                <option value="SE">Sergipe</option>
-
-                                                <option value="TO">Tocantins</option>
-                                            </select>
+                                            <input type="text" id="cpf" name="estado" size="11" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
