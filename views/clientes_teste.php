@@ -17,17 +17,6 @@
 
                                     <form method="post" class="form-horizontal form-label-left" novalidate>
 
-<!--                                    <div class="item form-group">
-                                        <div class="col-md-6 col-md-offset-3">
-                                            <label class="radio-inline control-label col-md-3 col-sm-3 col-xs-12"><input type="radio" name="tipo" id="inlineRadio1" checked value="cpf"> Pessoa Física
-                                            </label>
-
-                                            <label class="radio-inline control-label col-md-3 col-sm-3 col-xs-12"><input type="radio" name="tipo" id="inlineRadio2" value="cnpj"> Pessoa Jurídica
-                                            </label>
-                                        </div>
-                                    </div>			-->
-
-                                    <div class="erro">CPF e/ou CNPJ Inválido</div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: <span class="required">*</span>
                                         </label>
@@ -108,7 +97,7 @@
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Telefone Residencial: <span class="required"></span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
                                             <input type="tel" id="tel" name="tel" pattern="\(\d{2}\)\d{4}-\d{4}" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
@@ -121,12 +110,13 @@
                                         </div>
                                     </div>
 
+                                    </br>
+                                    </br>
                                         
-                                        
-                                     ENDEREÇO  
-                                     
-                                     </br>
-                                     </br>
+                                    <div class="x_title">
+                                        <h2>Endereço</h2>
+                                        <div class="clearfix"></div>
+                                    </div>
                                      
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cep">CEP <span class="required">*</span>
