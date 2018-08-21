@@ -35,7 +35,8 @@ class ajaxController extends Controlador{
             'cnh' => '',
             'titulo_de_eleitor' => '',
             'rg' => '',
-            'email' => ''
+            'email' => '',
+            'erro' => false
         );
 
         $c = new Cliente();
@@ -45,15 +46,15 @@ class ajaxController extends Controlador{
             
             $brasil = array();
             
-            if (strlen($pessoa) > 11) {
+            if ($c->validar_cnpj($pessoa) && (strlen($pessoa) == 14)) {
                 $brasil = $c->getPessoaJuridicaByCNPJ($pessoa);
-                
+                                
                 $dados['cnpj'] = $brasil['CNPJ'];
                 $dados['nome_fantasia'] = $brasil['Nome_Fantasia'];
                 $dados['insc_estadual'] = $brasil['Insc_Estadual'];
                 $dados['insc_municipal'] = $brasil['Insc_Municipal'];
                 
-            }else{
+            }elseif(($c->validaCPF($pessoa)) && (strlen($pessoa) == 11)){
                 $brasil = $c->getPessoaFisicaByCPF($pessoa);
                 
                 $dados['cpf'] = $brasil['CPF'];
@@ -62,8 +63,11 @@ class ajaxController extends Controlador{
                 $dados['cnh'] = $brasil['CNH'];
                 $dados['titulo_de_eleitor'] = $brasil['Titulo_de_Eleitor'];
                 $dados['rg'] = $brasil['RG'];
+            }else{
+                $dados['erro'] = true;
+                echo json_encode($dados);exit;
             }
-            $dados['celular'] = $brasil['telefone']['Celular'];
+                $dados['celular'] = $brasil['telefone']['Celular'];
                 $dados['residencial'] = $brasil['telefone']['Residencial'];
                 $dados['comercial'] = $brasil['telefone']['Comercial'];
                 $dados['uf'] = $brasil['endereco']['UF'];
@@ -75,7 +79,7 @@ class ajaxController extends Controlador{
                 $dados['complemento'] = $brasil['endereco']['Complemento'];
                 $dados['email'] = $brasil['email'];
         }
-                
+        
         echo json_encode($dados);
         exit;
     }

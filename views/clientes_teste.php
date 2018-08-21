@@ -27,6 +27,7 @@
                                         </div>
                                     </div>			-->
 
+                                    <div class="erro">CPF e/ou CNPJ Inválido</div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: <span class="required">*</span>
                                         </label>
@@ -42,7 +43,6 @@
                                             <input id="nome" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="nome" placeholder="" required="required" type="text">
                                         </div>
                                     </div>
-            
                                     
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email: 
@@ -51,37 +51,57 @@
                                             <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
-
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CNH: <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
-                                        </div>
-                                    </div>
                                     
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">Inscrição Municipal: <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                    <div id="pessoaJuridica">
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="insc_municipal">Inscrição Municipal: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="insc_municipal" name="insc_municipal" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+
+                                         <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="insc_estadual">Inscrição Estadual: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="insc_estadual" name="insc_estadual" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
                                     </div>
-
-                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">Inscrição Estadual: <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                    <div id="pessoaFisica">
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento:
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="date" id="data_nasc" name="data_nasc" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cnh">CNH: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="cnh" name="cnh" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="titulo_de_eleitor">Titulo Eleitoral: <span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="text" id="titulo_de_eleitor" name="titulo_de_eleitor" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento:
+                                            </label>
+                                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                                <input type="date" id="data_nasc" name="data_nasc" required="required" data-validate-length-range="8" class="form-control col-md-7 col-xs-12">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -94,10 +114,10 @@
                                     </div>
                                     
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Celular: <span class="required"></span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular">Celular: <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="tel" id="tel" name="tel" pattern="\(\d{2}\)\d{4}-\d{4}" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                                            <input type="tel" id="celular" name="celular" pattern="\(\d{2}\)\d{4}-\d{4}" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 

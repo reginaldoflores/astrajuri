@@ -8,22 +8,51 @@ $(function (){
             data:{pessoa:pessoa},
             dataType: 'json',
             success:function(json){
-                $('#pessoa').css('display', 'block');
-                $('#cpf_cnpf').val(json.cpf);
-                $('#nome').val(json.nome);
-                $('#email').val(json.email);
-                $('#email2').val(json.email);
-                $('#tel').val(json.residencial);
-                $('#rg').val(json.rg);
-                $('#data_nasc').val(json.data_nasc);
-                $('#cep').val(json.cep);
-                $('#logradouro').val(json.logradouro);
-                $('#numero').val(json.numero);
-                $('#bairro').val(json.bairro);
-                $('#complemento').val(json.complemento);
-                $('#cidade').val(json.cidade);
-                $('#estado').val(json.uf);
-                $('#situacao').val("update");
+                
+                if (json.erro === false) {
+                    if (pessoa.length > 11) {
+                        $('#pessoaJuridica').css('display', 'block');
+                        $('#cpf_cnpf').val(json.cnpj);
+                        $('#nome').val(json.nome_fantasia);
+                        $('#insc_estadual').val(json.insc_estadual);
+                        $('#insc_municipal').val(json.insc_municipal);
+                        $('#email').val(json.email);
+                        $('#tel').val(json.residencial);
+                        $('#celular').val(json.celular);
+                        $('#rg').val(json.rg);
+                        $('#cnh').val(json.cnh);
+                        $('#titulo_de_eleitor').val(json.titulo_de_eleitor);
+                        $('#data_nasc').val(json.data_nasc);
+                        $('#cep').val(json.cep);
+                        $('#logradouro').val(json.logradouro);
+                        $('#numero').val(json.numero);
+                        $('#bairro').val(json.bairro);
+                        $('#complemento').val(json.complemento);
+                        $('#cidade').val(json.cidade);
+                        $('#estado').val(json.uf);
+                        $('#situacao').val("update");
+                    }else{
+                        $('#pessoaFisica').css('display', 'block');
+                        $('#cpf_cnpf').val(json.cpf);
+                        $('#nome').val(json.nome);
+                        $('#email').val(json.email);
+                        $('#tel').val(json.residencial);
+                        $('#celular').val(json.celular);
+                        $('#rg').val(json.rg);
+                        $('#data_nasc').val(json.data_nasc);
+                        $('#cep').val(json.cep);
+                        $('#logradouro').val(json.logradouro);
+                        $('#numero').val(json.numero);
+                        $('#bairro').val(json.bairro);
+                        $('#complemento').val(json.complemento);
+                        $('#cidade').val(json.cidade);
+                        $('#estado').val(json.uf);
+                        $('#situacao').val("update");
+                    }
+                }else{
+                    $(".erro").css('display', 'block');
+                }
+                
             }
         });
     });
