@@ -23,7 +23,7 @@ class ClientesController extends Controlador{
         
         
         if (isset($_POST['situacao']) && !empty($_POST['situacao'])) {
-            print_r($_POST);exit;
+            
         }
         
         

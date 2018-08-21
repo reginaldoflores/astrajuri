@@ -8,6 +8,7 @@ $(function (){
             data:{pessoa:pessoa},
             dataType: 'json',
             success:function(json){
+                $('#pessoa').css('display', 'block');
                 $('#cpf_cnpf').val(json.cpf);
                 $('#nome').val(json.nome);
                 $('#email').val(json.email);

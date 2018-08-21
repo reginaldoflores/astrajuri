@@ -53,14 +53,6 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG: <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
-                                        </div>
-                                    </div>
-
-                                    <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CNH: <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -94,7 +86,7 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Telefone Residencial <span class="required"></span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Telefone Residencial: <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="tel" id="tel" name="tel" pattern="\(\d{2}\)\d{4}-\d{4}" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
@@ -102,7 +94,7 @@
                                     </div>
                                     
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Celular <span class="required"></span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Celular: <span class="required"></span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="tel" id="tel" name="tel" pattern="\(\d{2}\)\d{4}-\d{4}" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
