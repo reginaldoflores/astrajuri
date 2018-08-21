@@ -21,9 +21,13 @@ class ClientesController extends Controlador{
 
         $cliente = new Cliente();
         
-        $dados['clientes'] = $cliente->getClientes();
         
-        $this->loadTemplate("clientes", $dados);
+        if (isset($_POST['situacao']) && !empty($_POST['situacao'])) {
+            print_r($_POST);exit;
+        }
+        
+        
+        $this->loadTemplate("clientes_teste", $dados);
     }
 
     public function add() {
