@@ -20,9 +20,63 @@ class ClientesController extends Controlador{
         //-----------------------------------------------------------------//
 
         $cliente = new Cliente();
-        
-        
+                
         if (isset($_POST['situacao']) && !empty($_POST['situacao'])) {
+            $situacao = addslashes($_POST['situacao']);
+            
+                $cpf_cnpj = addslashes($_POST['cpf_cnpf']);
+                $nome = utf8_decode(addslashes($_POST['nome']));
+                $email = addslashes($_POST['email']);
+                
+                $telefone = addslashes($_POST['tel']);
+                $celular = addslashes($_POST['celular']);
+                
+                $rg = addslashes($_POST['rg']);
+                $cnh = addslashes($_POST['cnh']);
+                $titulo_de_eleitor = addslashes($_POST['titulo_de_eleitor']);
+                $data_nasc = addslashes($_POST['data_nasc']);
+                
+                $insc_municipal = addslashes($_POST['insc_municipal']);
+                $insc_estadual = addslashes($_POST['insc_estadual']);
+                
+                $cep = addslashes($_POST['cep']);
+                $logradouro = utf8_decode(addslashes($_POST['logradouro']));
+                $numero = addslashes($_POST['numero']);
+                $bairro = utf8_decode(addslashes($_POST['bairro']));
+                $complemento = utf8_decode(addslashes($_POST['complemento']));
+                $cidade = utf8_decode(addslashes($_POST['cidade']));
+                $estado = addslashes($_POST['estado']);
+                
+                    if (isset($_POST['excluir']) && !empty($_POST['excluir'])) {
+
+                        if (strlen($cpf_cnpj) == 11) {
+                            $cliente->deletePessoaFisica($cpf_cnpj);
+                        }elseif (strlen($cpf_cnpj) == 14) {
+                            $cliente->deletePessoaJuridica($cpf_cnpj);
+                        }
+                        header("Location: ".HOME."/clientes");
+                    }           
+                
+                
+            if ($situacao == "add") {
+                    
+                if ((isset($cpf_cnpj) && !empty($cpf_cnpj)) && strlen($cpf_cnpj) == 11) {
+                    $cliente->addPessoaFisica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $cpf_cnpj);
+                }elseif ((isset($cpf_cnpj) && !empty($cpf_cnpj)) && strlen($cpf_cnpj) == 14) {
+                    $cliente->addPessoaJuridica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $insc_municipal, $insc_estadual, $cpf_cnpj);
+                }
+                
+            }elseif ($situacao == "update") {
+                
+                if ((isset($cpf_cnpj) && !empty($cpf_cnpj)) && strlen($cpf_cnpj) == 11) {
+                    $cliente->updatePessoaFisica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $cpf_cnpj);
+                }elseif ((isset($cpf_cnpj) && !empty($cpf_cnpj)) && strlen($cpf_cnpj) == 14){
+                    $cliente->updatePessoaJuridica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $insc_municipal, $insc_estadual, $cpf_cnpj);
+                }
+                
+            }else{
+                $dados['error'] = "Não Existe!";
+            }
             
         }
         
@@ -119,9 +173,21 @@ class ClientesController extends Controlador{
         $this->loadTemplate("editCliente", $dados);
     }
     
-    public function del($id) {
+    public function del($cpf_cnpj) {
         $cliente  = new Cliente();
-        $cliente->deleteCliente($id);
+        
+        print_r($_POST);exit;
+        
+        if (isset($_POST['cpf_cnpf']) && !empty($_POST['cpf_cnpf'])) {
+            $cpf_cnpj = addslashes($_POST['cpf_cnpf']);
+            
+            if (strlen($cpf_cnpj) == 11) {
+                $cliente->deletePessoaFisica($cpf_cnpj);
+            }elseif (strlen($cpf_cnpj) == 14) {
+                $cliente->deletePessoaJuridica($cpf_cnpj);
+            }
+        }
+        
     }
     
 }

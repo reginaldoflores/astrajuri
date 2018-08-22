@@ -19,10 +19,6 @@ $(function (){
                         $('#email').val(json.email);
                         $('#tel').val(json.residencial);
                         $('#celular').val(json.celular);
-                        $('#rg').val(json.rg);
-                        $('#cnh').val(json.cnh);
-                        $('#titulo_de_eleitor').val(json.titulo_de_eleitor);
-                        $('#data_nasc').val(json.data_nasc);
                         $('#cep').val(json.cep);
                         $('#logradouro').val(json.logradouro);
                         $('#numero').val(json.numero);
@@ -33,6 +29,9 @@ $(function (){
                         $('#situacao').val("update");
                     }else{
                         $('#pessoaFisica').css('display', 'block');
+                        $('#rg').val(json.rg);
+                        $('#cnh').val(json.cnh);
+                        $('#titulo_de_eleitor').val(json.titulo_de_eleitor);
                         $('#cpf_cnpf').val(json.cpf);
                         $('#nome').val(json.nome);
                         $('#email').val(json.email);
@@ -55,5 +54,21 @@ $(function (){
                 
             }
         });
+    });
+});
+
+$(function (){
+    $("#cpf_cnpf").on("change", function(){
+        var pessoa = $("#cpf_cnpf").val();
+        
+        
+        if (pessoa.length == 11) {
+            $('#pessoaFisica').css('display', 'block');
+        }else if(pessoa.length == 14){
+            $('#pessoaJuridica').css('display', 'block');
+        }else{
+            $(".erro").css('display', 'block');
+        }
+        
     });
 });

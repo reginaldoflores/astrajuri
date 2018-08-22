@@ -16,7 +16,7 @@
                                 <div class="x_content">
 
                                     <form method="post" class="form-horizontal form-label-left" novalidate>
-
+                                    <div class="erro">CPF e/ou CNPJ Inválido</div>
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: <span class="required">*</span>
                                         </label>
@@ -62,7 +62,7 @@
                                     <div id="pessoaFisica">
                                         
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">RG <span class="required">*</span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rg">RG <span class="required">*</span>
                                             </label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
                                                 <input type="text" id="rg" name="rg" size="9" required="required" data-validate-length-range="11" class="form-control col-md-7 col-xs-12">
@@ -212,6 +212,7 @@
                                         <div class="col-md-6 col-md-offset-3">
                                             <button id="send" type="submit" class="btn btn-primary">Atualizar</button>
                                             <button type="reset" class="btn btn-default">Cancelar</button>
+                                            <button class="btn btn-danger" id="botaoExcluir" name="excluir" value="deletar">Excluir</button>
                                         </div>
                                     </div>
                                 </form>

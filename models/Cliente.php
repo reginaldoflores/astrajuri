@@ -2,54 +2,85 @@
 
 class Cliente extends Model{
 
-    public function updateCliente($nome, $tipo, $email, $phone, $cp, $dataNascimento, $nameRua, $number, $bairro, $cidade, $uf, $comp, $id) {
-        $sql = $this->db->prepare("UPDATE contato contato SET Email = :email WHERE idContato = :id");
+    public function updatePessoaFisica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $cpf_cnpj) {
+        $pessoaFisica = $this->getPessoaFisicaByCPF($cpf_cnpj);
+        
+        $sql = $this->db->prepare("UPDATE contato SET Email = :email WHERE idContato = :id");
         $sql->bindValue(":email", $email);
-        $sql->bindValue(":id", $id);
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
         $sql->execute();
         
-        $sql = $this->db->prepare("UPDATE telefone SET Residencial = :telefone WHERE Contato_idContato = :contato");
-        $sql->bindValue(":telefone", $phone);
-        $sql->bindValue(":contato", $id);
+        $sql = $this->db->prepare("UPDATE telefone SET Residencial = :telefone, Celular = :celular WHERE Contato_idContato = :contato");
+        $sql->bindValue(":telefone", $telefone);
+        $sql->bindValue(":celular", $celular);
+        $sql->bindValue(":contato", $pessoaFisica['Contato_idContato']);
         $sql->execute();
         
-        $endereco = $this->getFullClienteById($id);
-        $idEndereco = $endereco['endereco']['idEndereco'];
-        
-        $sql = $this->db->prepare("UPDATE endereco SET Numero = :numero, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf WHERE idEndereco = :id");
-        $sql->bindvalue(":numero", $number);
+        $sql = $this->db->prepare("UPDATE endereco SET Numero = :numero, CEP = :cep, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf WHERE idEndereco = :id");
+        $sql->bindvalue(":numero", $numero);
+        $sql->bindvalue(":cep", $cep);
         $sql->bindvalue(":bairro", $bairro);
         $sql->bindvalue(":cidade", $cidade);
-        $sql->bindvalue(":comp", $comp);
-        $sql->bindvalue(":rua", $nameRua);
-        $sql->bindvalue(":uf", $uf);
-        $sql->bindvalue(":id", $idEndereco);
+        $sql->bindvalue(":comp", $complemento);
+        $sql->bindvalue(":rua", $logradouro);
+        $sql->bindvalue(":uf", $estado);
+        $sql->bindvalue(":id", $pessoaFisica['idEndereco']);
         $sql->execute();
         
-        if ($tipo == "cpf" || $tipo == "CPF") {
-            $sql = $this->db->prepare("UPDATE pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, CPF = :cpf WHERE Contato_idContato = :contato");
+        $sql = $this->db->prepare("UPDATE pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, RG = :rg, Titulo_de_Eleitor = :titulo, CNH = :cnh WHERE CPF = :cpf AND Contato_idContato = :contato");
+            $sql->bindValue(":nascimento", $data_nasc);
             $sql->bindValue(":nome", $nome);
-            $sql->bindValue(":nascimento", $dataNascimento);
-            $sql->bindValue(":cpf", $cp);
-            $sql->bindValue(":contato", $id);
+            $sql->bindValue(":cpf", $cpf_cnpj);
+            $sql->bindValue(":rg", $rg);
+            $sql->bindValue(":titulo", $titulo_de_eleitor);
+            $sql->bindValue(":cnh", $cnh);
+            $sql->bindValue(":contato", $pessoaFisica['Contato_idContato']);
             $sql->execute();
-        } else {
-            $sql = $this->db->prepare("UPDATE pessoa_juridica SET CNPJ = :cnpj WHERE Contato_idContato = :contato");
-            $sql->bindValue(":cnpj", $cp);
-            $sql->bindValue(":contato", $id);
-            $sql->execute();
-        }
     }
     
-    public function addCliente($tipo, $nome, $email, $phone, $cp, $rg, $dataNascimento, $nameRua, $cep, $number, $bairro, $cidade, $uf, $comp) {
-        $sql = $this->db->prepare("INSERT INTO endereco SET CEP = :cep, Numero = :numero, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf");
+    public function updatePessoaJuridica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $insc_municipal, $insc_estadual, $cpf_cnpj) {
+        $pessoaFisica = $this->getPessoaJuridicaByCNPJ($cpf_cnpj);
+        
+        $sql = $this->db->prepare("UPDATE contato SET Email = :email WHERE idContato = :id");
+        $sql->bindValue(":email", $email);
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("UPDATE telefone SET Residencial = :telefone, Celular = :celular WHERE Contato_idContato = :contato");
+        $sql->bindValue(":telefone", $telefone);
+        $sql->bindValue(":celular", $celular);
+        $sql->bindValue(":contato", $pessoaFisica['Contato_idContato']);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("UPDATE endereco SET Numero = :numero, CEP = :cep, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf WHERE idEndereco = :id");
+        $sql->bindvalue(":numero", $numero);
         $sql->bindvalue(":cep", $cep);
-        $sql->bindvalue(":numero", $number);
         $sql->bindvalue(":bairro", $bairro);
         $sql->bindvalue(":cidade", $cidade);
-        $sql->bindvalue(":comp", $comp);
-        $sql->bindvalue(":rua", $nameRua);
-        $sql->bindvalue(":uf", $uf);
+        $sql->bindvalue(":comp", $complemento);
+        $sql->bindvalue(":rua", $logradouro);
+        $sql->bindvalue(":uf", $estado);
+        $sql->bindvalue(":id", $pessoaFisica['idEndereco']);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("UPDATE pessoa_juridica SET Nome_Fantasia = :nome, Insc_Estadual = :estadual, Insc_Municipal = :municipal WHERE CNPJ = :cnpj AND Contato_idContato = :contato");
+            $sql->bindValue(":cnpj", $cpf_cnpj);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue(":estadual", $insc_estadual);
+            $sql->bindValue(":municipal", $insc_municipal);
+            $sql->bindValue(":contato", $pessoaFisica['Contato_idContato']);
+            $sql->execute();
+    }
+    
+    public function addPessoaFisica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $cpf_cnpj){
+        $sql = $this->db->prepare("INSERT INTO endereco SET CEP = :cep, Numero = :numero, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf");
+        $sql->bindvalue(":cep", $cep);
+        $sql->bindvalue(":numero", $numero);
+        $sql->bindvalue(":bairro", $bairro);
+        $sql->bindvalue(":cidade", $cidade);
+        $sql->bindvalue(":comp", $complemento);
+        $sql->bindvalue(":rua", $logradouro);
+        $sql->bindvalue(":uf", $estado);
         $sql->execute();
         
         $idEndereco = $this->db->lastInsertId();
@@ -61,28 +92,58 @@ class Cliente extends Model{
         
         $idContato = $this->db->lastInsertId();
         
-        $sql = $this->db->prepare("INSERT INTO telefone SET Residencial = :telefone, Contato_idContato = :contato");
-        $sql->bindValue(":telefone", $phone);
+        $sql = $this->db->prepare("INSERT INTO telefone SET Residencial = :telefone, Celular = :celular, Contato_idContato = :contato");
+        $sql->bindValue(":telefone", $telefone);
+        $sql->bindValue(":celular", $celular);
         $sql->bindValue(":contato", $idContato);
         $sql->execute();
         
-        if ($tipo == "cpf") {
-            $sql = $this->db->prepare("INSERT INTO pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, CPF = :cpf, RG = :rg, Contato_idContato = :contato");
-            $sql->bindValue(":nascimento", $dataNascimento);
+        $sql = $this->db->prepare("INSERT INTO pessoa_fisica SET Nome = :nome, Data_Nasc = :nascimento, CPF = :cpf, RG = :rg, Titulo_de_Eleitor = :titulo, CNH = :cnh, Contato_idContato = :contatoT");
+            $sql->bindValue(":nascimento", $data_nasc);
             $sql->bindValue(":nome", $nome);
-            $sql->bindValue(":cpf", $cp);
+            $sql->bindValue(":cpf", $cpf_cnpj);
             $sql->bindValue(":rg", $rg);
-            $sql->bindValue(":contato", $idContato);
+            $sql->bindValue(":titulo", $titulo_de_eleitor);
+            $sql->bindValue(":cnh", $cnh);
+            $sql->bindValue(":contatoT", $idContato);
             $sql->execute();
-        } else {
-            $sql = $this->db->prepare("INSERT INTO pessoa_juridica SET CNPJ = :cnpj, Contato_idContato = :contato");
-            $sql->bindValue(":cnpj", $cp);
-            $sql->bindValue(":contato", $idContato);
-            $sql->execute();
-        }
-        
     }
     
+    public function addPessoaJuridica($cep, $logradouro, $numero, $bairro, $complemento, $cidade, $estado, $email, $telefone, $celular, $nome, $insc_municipal, $insc_estadual, $cpf_cnpj){
+        $sql = $this->db->prepare("INSERT INTO endereco SET CEP = :cep, Numero = :numero, Bairro = :bairro, Cidade = :cidade, Complemento = :comp, Logradouro = :rua, UF = :uf");
+        $sql->bindvalue(":cep", $cep);
+        $sql->bindvalue(":numero", $numero);
+        $sql->bindvalue(":bairro", $bairro);
+        $sql->bindvalue(":cidade", $cidade);
+        $sql->bindvalue(":comp", $complemento);
+        $sql->bindvalue(":rua", $logradouro);
+        $sql->bindvalue(":uf", $estado);
+        $sql->execute();
+        
+        $idEndereco = $this->db->lastInsertId();
+        
+        $sql = $this->db->prepare("INSERT INTO contato SET Email = :email, idEndereco = :endereco");
+        $sql->bindValue(":email", $email);
+        $sql->bindValue(":endereco", $idEndereco);
+        $sql->execute();
+        
+        $idContato = $this->db->lastInsertId();
+        
+        $sql = $this->db->prepare("INSERT INTO telefone SET Residencial = :telefone, Celular = :celular, Contato_idContato = :contato");
+        $sql->bindValue(":telefone", $telefone);
+        $sql->bindValue(":celular", $celular);
+        $sql->bindValue(":contato", $idContato);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("INSERT INTO pessoa_juridica SET CNPJ = :cnpj, Nome_Fantasia = :nome, Insc_Estadual = :estadual, Insc_Municipal = :municipal, Contato_idContato = :contato");
+            $sql->bindValue(":cnpj", $cpf_cnpj);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue(":estadual", $insc_estadual);
+            $sql->bindValue(":municipal", $insc_municipal);
+            $sql->bindValue(":contato", $idContato);
+            $sql->execute();
+    }
+        
     public function getClientes() {
         $array = array();
         
@@ -209,31 +270,46 @@ class Cliente extends Model{
         return $array;
     }
     
-    public function deleteCliente($id) {
-        $contato = $this->getFullClienteById($id);
+    public function deletePessoaFisica($cpf) {
+        $pessoaFisica = $this->getPessoaFisicaByCPF($cpf);
         
-        $sql = $this->db->prepare("DELETE FROM endereco WHERE idEndereco = :id");
-        $sql->bindValue(":id", $contato['endereco']['idEndereco']);
+        $sql = $this->db->prepare("DELETE FROM pessoa_fisica WHERE CPF = :cpf");
+        $sql->bindValue(":cpf", $cpf);
         $sql->execute();
         
         $sql = $this->db->prepare("DELETE FROM telefone WHERE Contato_idContato = :id");
-        $sql->bindValue(":id", $id);
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
         $sql->execute();
-        
-        $pessoa = $this->getPessoaFisicaByContato($id);
-        if (count($pessoa) > 0) {
-            $sql = $this->db->prepare("DELETE FROM pessoa_fisica WHERE Contato_idContato = :id");
-            $sql->bindValue(":id", $id);
-            $sql->execute();
-        }else{
-            $sql = $this->db->prepare("DELETE FROM pessoa_juridica WHERE Contato_idContato = :id");
-            $sql->bindValue(":id", $id);
-            $sql->execute();
-        }
         
         $sql = $this->db->prepare("DELETE FROM contato WHERE idContato = :id");
-        $sql->bindValue(":id", $id);
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
         $sql->execute();
+        
+        $sql = $this->db->prepare("DELETE FROM endereco WHERE idEndereco = :id");
+        $sql->bindValue(":id", $pessoaFisica['idEndereco']);
+        $sql->execute();
+     
+    }
+    
+    public function deletePessoaJuridica($cnpj) {
+        $pessoaFisica = $this->getPessoaJuridicaByCNPJ($cnpj);
+        
+        $sql = $this->db->prepare("DELETE FROM pessoa_juridica WHERE CNPJ = :cnpj");
+        $sql->bindValue(":cnpj", $cnpj);
+        $sql->execute();
+        
+         $sql = $this->db->prepare("DELETE FROM telefone WHERE Contato_idContato = :id");
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("DELETE FROM contato WHERE idContato = :id");
+        $sql->bindValue(":id", $pessoaFisica['Contato_idContato']);
+        $sql->execute();
+        
+        $sql = $this->db->prepare("DELETE FROM endereco WHERE idEndereco = :id");
+        $sql->bindValue(":id", $pessoaFisica['idEndereco']);
+        $sql->execute();
+        
     }
     
     public function getPessoaFisicaByCPF($cpf) {
