@@ -21,7 +21,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="14" required="required" data-validate-length-range="14" class="form-control col-md-7 col-xs-12">
+                                            <input id="cpf_cnpf" type="text" onkeyup="mascaraCPF(this)" name="cpf_cnpf" size="14" required="required" data-validate-length-range="14" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
@@ -242,8 +242,22 @@
                 <!-- Custom Theme Scripts -->
                 <script src="<?= HOME; ?>/assets/js/custom.min.js"></script>
                 
-                
+                <script src="<?= HOME; ?>/assets/js/jquery.mask.min.js"></script>
                 <script src="<?= HOME; ?>/assets/js/script.js"></script>
+                <script>
+                    
+                    
+                    $(document).ready(function(){                        
+                        $('#tel').mask('(00) 0000-0000');
+                        $('#celular').mask('(00) 00000-0000');
+                        $('#cep').mask('00000-000');
+                        $('#rg').mask('00.000.000-0');
+                        $('#insc_estadual').mask('00.000.00-0');
+                        
+                    });
+                                        
+                    
+                </script>
 
                 </body>
                 </html>

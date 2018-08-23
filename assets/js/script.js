@@ -1,4 +1,18 @@
 $(function (){
+    
+     $("#cpf_cnpf").focus(function () {
+        $(this).unmask();
+        $(this).val($(this).val().replace(/\D/g, ""));
+        }).click(function () {
+            $(this).val($(this).val().replace(/\D/g, "")).unmask();
+        }).blur(function () {
+        if ($(this).val().length == 11) {
+            $(this).mask("999.999.999-99");
+        } else if ($(this).val().length == 14) {
+            $(this).mask("99.999.999/9999-99");
+        }
+    });
+    
     $("#cpf_cnpf").on("change", function(){
         var pessoa = $("#cpf_cnpf").val();
         
@@ -10,7 +24,7 @@ $(function (){
             success:function(json){
                 
                 if (json.erro === false) {
-                    if (pessoa.length > 11) {
+                    if (pessoa.length == 14) {
                         $('#pessoaJuridica').css('display', 'block');
                         $('#cpf_cnpf').val(json.cnpj);
                         $('#nome').val(json.nome_fantasia);
@@ -27,7 +41,7 @@ $(function (){
                         $('#cidade').val(json.cidade);
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
-                    }else{
+                    }else if(pessoa.length == 11){
                         $('#pessoaFisica').css('display', 'block');
                         $('#rg').val(json.rg);
                         $('#cnh').val(json.cnh);
@@ -47,28 +61,15 @@ $(function (){
                         $('#cidade').val(json.cidade);
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
+                    }else{
+                        $(".erro").css('display', 'block');
                     }
                 }else{
                     $(".erro").css('display', 'block');
                 }
-                
+                $("#cpf_cnpf").focus();
+                $("#nome").focus();
             }
         });
-    });
-});
-
-$(function (){
-    $("#cpf_cnpf").on("change", function(){
-        var pessoa = $("#cpf_cnpf").val();
-        
-        
-        if (pessoa.length == 11) {
-            $('#pessoaFisica').css('display', 'block');
-        }else if(pessoa.length == 14){
-            $('#pessoaJuridica').css('display', 'block');
-        }else{
-            $(".erro").css('display', 'block');
-        }
-        
     });
 });

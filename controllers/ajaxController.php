@@ -42,8 +42,8 @@ class ajaxController extends Controlador{
         $c = new Cliente();
         
         if (isset($_POST['pessoa']) && !empty($_POST['pessoa'])) {
-            $pessoa = addslashes($_POST['pessoa']);
-            
+            $pessoa = preg_replace("/[^0-9]/", "", addslashes($_POST['pessoa']));
+                        
             $brasil = array();
             
             if ($c->validar_cnpj($pessoa) && (strlen($pessoa) == 14)) {
