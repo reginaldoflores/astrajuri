@@ -212,7 +212,7 @@
                                         <div class="col-md-6 col-md-offset-3">
                                             <button id="send" type="submit" class="btn btn-primary">Atualizar</button>
                                             <button type="reset" class="btn btn-default">Cancelar</button>
-                                            <a href="<?= HOME; ?>/clientes/del/" class="btn btn-danger" id="botaoExcluir" name="excluir" value="deletar">Excluir</a>
+                                            <a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>
                                         </div>
                                     </div>
                                 </form>
@@ -254,10 +254,21 @@
                         $('#rg').mask('00.000.000-0');
                         $('#insc_estadual').mask('00.000.00-0');
                         
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Cliente<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este cliente?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
+                        
                     });
                                         
                     
                 </script>
-
+                
                 </body>
                 </html>

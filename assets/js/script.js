@@ -47,6 +47,7 @@ $(function (){
                         $('#cidade').val(json.cidade);
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/clientes/del/" + json.cnpj);
                     }else if(pessoa.length == 11){
                         $('#pessoaFisica').css('display', 'block');
                         $('#rg').val(json.rg);
@@ -67,6 +68,7 @@ $(function (){
                         $('#cidade').val(json.cidade);
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/clientes/del/" + json.cpf);
                     }else{
                         $(".erro").css('display', 'block');
                     }

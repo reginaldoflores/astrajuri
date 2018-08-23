@@ -27,7 +27,6 @@ class ClientesController extends Controlador{
             
                 $cpf_cnpj = preg_replace("/[^0-9]/", "", addslashes($_POST['cpf_cnpf']));
                 
-                echo $cpf_cnpj;exit;
                 $nome = utf8_decode(addslashes($_POST['nome']));
                 $email = addslashes($_POST['email']);
                                 
@@ -177,6 +176,8 @@ class ClientesController extends Controlador{
     }
     
     public function del($cpf_cnpj) {
+        
+        $cliente = new Cliente();
         
         $cpf_cnpj = preg_replace("/[^0-9]/", "", addslashes($cpf_cnpj));
         
