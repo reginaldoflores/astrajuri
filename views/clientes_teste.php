@@ -212,7 +212,7 @@
                                         <div class="col-md-6 col-md-offset-3">
                                             <button id="send" type="submit" class="btn btn-primary">Atualizar</button>
                                             <button type="reset" class="btn btn-default">Cancelar</button>
-                                            <button class="btn btn-danger" id="botaoExcluir" name="excluir" value="deletar">Excluir</button>
+                                            <a href="<?= HOME; ?>/clientes/del/" class="btn btn-danger" id="botaoExcluir" name="excluir" value="deletar">Excluir</a>
                                         </div>
                                     </div>
                                 </form>

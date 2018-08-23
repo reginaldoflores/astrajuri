@@ -16,6 +16,12 @@ $(function (){
     $("#cpf_cnpf").on("change", function(){
         var pessoa = $("#cpf_cnpf").val();
         
+        if (pessoa.length == 14) {
+            $('#pessoaJuridica').css('display', 'block');
+        }else if(pessoa.length == 11){
+            $('#pessoaFisica').css('display', 'block');
+        }
+        
         $.ajax({
             url:'http://localhost/astrajuri/ajax',
             type: 'POST',
