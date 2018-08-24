@@ -272,26 +272,25 @@
                 
                 <script>
                     
-                    $('cep').blur (function(e) {
+                    $('cep').blur(function(e) {
                         var cep=$('#cep').val();
                         var url="http://viacep.com.br/ws/" + cep + "/json/";
                         var retorno = pesquisarCEP(url);
-           
                     });
                     
                     function pesquisarCEP(endereco){
                         $.ajax({
                             type:"GET",
                             url:endereco,
-                            async:false          
+                            async:false
+                            
                         }).done(function(data){
                             $('#bairro').val(data.bairro);
                             $('#logradouro').val(data.lougradouro);
                             $('#cidade').val(data.localidade);
                             
-                        }.fail(function(){
+                        }).fail(function(){
                             console.log("erro");
-                            
                         });
                         
                     }
