@@ -23,34 +23,34 @@
         <div class="navbar nav_title" style="border: 0;">
             <h4><a href="" class="site_title"><i class="fa fa-paw"></i> Astrajuri!</a></h4>
         </div>
-          
+        <!-- 
         <a class="navbar-brand" href="#">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Equipe <span class="sr-only">(atual)</span></a>
+              <a class="nav-link" href="#">FAQ <span class="sr-only">(atual)</span></a>
             </li>
+            <!--
             <li class="nav-item">
               <a class="nav-link" href="#">Empresa</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Manual</a>
             </li>
+            -->
           </ul>
             
-            <form method="post" class="form-inline mt-2 mt-md-0">
-              
+          <form method="post" class="form-inline mt-2 mt-md-0"> 
             <div class="col">
                 <input type="text" class="form-control" placeholder="Usuário" name="login">
             </div>
             <div class="col">
                 <input type="password" class="form-control" placeholder="Senha" name="senha">
             </div>
-              
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
           </form>
         </div>
@@ -67,7 +67,7 @@
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="<?= HOME; ?>/assets/images/carousel1.jpg" alt="First slide">
+            <img class="first-slide" src="<?= HOME; ?>/assets/images/agilidade.jpeg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Agilidade</h1>
@@ -78,7 +78,7 @@
           </div>
             
           <div class="carousel-item">
-            <img class="second-slide" src="<?= HOME; ?>/assets/images/carousel2.jpg" alt="Second slide">
+            <img class="second-slide" src="<?= HOME; ?>/assets/images/produtividade.jpeg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
                 <h1>Produtividade<h1>
@@ -89,7 +89,7 @@
           </div>
             
           <div class="carousel-item">
-            <img class="third-slide" src="<?= HOME; ?>/assets/images/carousel3.jpg" alt="Third slide">
+            <img class="third-slide" src="<?= HOME; ?>/assets/images/facilidade.jpeg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
                 <h1>Facilidades</h1> 
@@ -140,8 +140,8 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h4>Gestão de Processos e Casos</h4>
-            <p class="lead">Armazene, gerencie e acesse todas as informações sobre seus casos e processos jurídicos em um único 
+            <h4>Gestão de Processos...</h4>
+            <p class="lead">Armazene, gerencie e acesse todas as informações sobre seus processos jurídicos em um único 
                 lugar! E o melhor, de forma prática e organizada de verdade. Com o Astrajuri você substitui as anotações da agenda, 
                 os registros nas planilhas e as pastas no computador por uma ferramenta digital completa, criada exclusivamente 
                 para atender as demandas da sua rotina jurídica. Garanta a segurança dos seus dados e comece a gerenciar seus 
@@ -172,10 +172,10 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-               <h4>Relátorios com Gráficos</h4>
+               <h4>Relátorios com Gráficos...</h4>
             <p class="lead">
-            Gera relatórios em gráficos para a tomada de decisão baseado no lucro mensal e anual, causas ganhas e perdidas do escrito e 
-            por advogado e relatórios de despesas fixas do escritório.
+            Gera relatórios com gráficos para a tomada de decisão baseado no lucro mensal e anual, causas ganhas e 
+            perdidas do escritório por advogado e despesas fixas do escritório.
 
             </p>
           </div>
@@ -186,33 +186,30 @@
 
         <hr class="featurette-divider">
 
-	<div class="row">
-            <div class="col-md-2"></div>		
-		<div class="col-md-6">	
+	<div class="row featurette">
+           		
+		<div class="col-md-6 order-md-2">	
+                    
                     <div class="title">
 			<h3>Fale conosco...</h3>
                     </div>		
-                    <hr>
 					
                     <form method="post">
 			<div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="inputEmail4">Nome</label>
                                 <input type="name" class="form-control col-md-12" id="inputEmail4" placeholder="Nome">
                             </div>
 			</div>
 						
 			<div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="inputAddress">E-mail</label>
                                 <input type="mail" class="form-control" id="inputAddress" placeholder="exemplo@mail.com">
                             </div>
 			</div>
 							
 			<div class="form-row">    
                             <div class="form-group col-md-12">
-                                <label for="inputAddress2">Assunto</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="Assunto">
                                 <br/>
                                 <textarea class="form-control" rows="3" id="inputAddress2" placeholder="Digite o texto..."></textarea>
                             </div>
@@ -220,6 +217,10 @@
 						
 			<button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
+                </div>
+            
+                <div class="col-md-6">
+                    <img src="<?= HOME; ?>/assets/images/fale.jpg" class="img-fluid" alt="Imagem responsiva"> 
                 </div>
         </div>
         <!-- /FIM DAS FEATUREZINHAS *-* -->
