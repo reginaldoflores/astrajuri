@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="<?= HOME; ?>/assets/images/favicon.ico">
+    <!--<link rel="icon" href="<?= HOME; ?>/assets/images/favicon.ico">-->
 
     <title>Astrajuri</title>
 
@@ -19,22 +19,29 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          
+        <div class="navbar nav_title" style="border: 0;">
+            <h4><a href="" class="site_title"><i class="fa fa-paw"></i> Astrajuri!</a></h4>
+        </div>
+          
         <a class="navbar-brand" href="#">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+            
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Sobre a Equipe <span class="sr-only">(atual)</span></a>
+              <a class="nav-link" href="#">Equipe <span class="sr-only">(atual)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">O Sistema</a>
+              <a class="nav-link" href="#">Empresa</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Manual</a>
             </li>
           </ul>
+            
             <form method="post" class="form-inline mt-2 mt-md-0">
               
             <div class="col">
@@ -63,32 +70,35 @@
             <img class="first-slide" src="<?= HOME; ?>/assets/images/carousel1.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>AstraJuri</h1>
+                <h1>Agilidade</h1>
                 <p>Agilize os seus processos internos. Organize sua agenda, clientes e despesas em um sistema Web.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais</a></p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
               </div>
             </div>
           </div>
+            
           <div class="carousel-item">
             <img class="second-slide" src="<?= HOME; ?>/assets/images/carousel2.jpg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Assinatura<h1>
-                <p>Conheça um plano perfeito para você e adquira uma assinatura e use o AstraJuri por até dois meses grátis. </p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Assinar Agora</a></p>
+                <h1>Produtividade<h1>
+                <p>Eleve sua produtividade com o Astrajuri, o melhor software jurídico online do mercado </p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
               </div>
             </div>
           </div>
+            
           <div class="carousel-item">
             <img class="third-slide" src="<?= HOME; ?>/assets/images/carousel3.jpg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1>Facilidades</h1>
-                <p>Conheça as facilidades e utilidades do AstraJuri.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Leia Mais</a></p>
+                <h1>Facilidades</h1> 
+                <p>O Astrajuri facilida a gestão dos seus processos jurídicos e garante a organização do seu escritório</p>
+                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
               </div>
             </div>
           </div>
+            
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -107,27 +117,22 @@
 
       <div class="container marketing">
 
-        <!-- Três colunas de texto, abaixo do carousel -->
-        <div class="row">
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="<?= HOME; ?>/assets/images/freature1.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Clientes</h2>
-            <p>Veja todos os escritórios que utilizam o sistema jurídico AstraJuri. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">Mais detalhes &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="<?= HOME; ?>/assets/images/freature2.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Flexivel e leve</h2>
-            <p>Uma das principais vantagens do AstraJuri é ser um sistema Web e que pode ser acessado por qualquer computador com acesso a internet sem precisar fazer nenhum download.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Mais detalhes &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="<?= HOME; ?>/assets/images/freature3.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Dúvidas</h2>
-            <p>Entenda o por que o AstraJuri é essencial para o seu escritório de advocacia, e como ele irá ajudar no gerenciamento dos advogados de todo o Brasil.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">Mais detalhes &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+        
+     
+       <div class="row">
+          <div class="text-center">
+            <h5 class="featurette-heading">O software jurídico online ideal para escritórios de advocacia 
+            e advogados autônomos </h5>
+              <br>
+            <p class="lead">O Astrajuri é desenvolvido para que a sua rotina jurídica seja organizada e prática de verdade! 
+                Completo e fácil de usar, o software jurídico web moderniza a gestão do seu escritório e torna seu 
+                controle de processos muito mais tranquilo e eficiente. Construído com as melhores tecnologias 
+                do mercado, o Astrea acompanha seu ritmo de trabalho 
+                dentro e fora do escritório. Basta computador conectado à internet!</p>
+          </div>
+         
+        </div>
+
 
         <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
 
@@ -135,25 +140,31 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading">Tenha total controle do seu ambiente. <span class="text-muted">Supreendente, não?!</span></h2>
-            <p class="lead">Organize a agenda, controle as despesas e controle os clientes do seu escritório.</p>
+            <h4>Gestão de Processos e Casos</h4>
+            <p class="lead">Armazene, gerencie e acesse todas as informações sobre seus casos e processos jurídicos em um único 
+                lugar! E o melhor, de forma prática e organizada de verdade. Com o Astrajuri você substitui as anotações da agenda, 
+                os registros nas planilhas e as pastas no computador por uma ferramenta digital completa, criada exclusivamente 
+                para atender as demandas da sua rotina jurídica. Garanta a segurança dos seus dados e comece a gerenciar seus 
+                processos e casos de forma inteligente!</p>
           </div>
           <div class="col-md-5">
-		    <img src="<?= HOME; ?>/assets/images/escritorio1.jpg" class="img-fluid" alt="Imagem responsiva">
-            <!--<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
+            <img src="<?= HOME; ?>/assets/images/freature3.jpg" class="img-fluid" alt="Imagem responsiva">
           </div>
         </div>
 
         <hr class="featurette-divider">
 
         <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Perfeito para o seu escritório <span class="text-muted">Você escolhe!</span></h2>
-            <p class="lead">Contrate as regiões que seu escritório irá cobrir, divido pelos estados, comarcas e foruns.</p>
+          <div class="col-md-6 order-md-2">
+              <h4>Esteja sempre por dentro do que acontece no escritório e tenha certeza de que todos os prazos serão 
+                cumpridos!</h4>
+            <p class="lead">Com o controle avançado do Astrajuri você gerencia os prazos do seu escritório do início ao fim, delega 
+                tarefas com facilidade e garante que todos os envolvidos cumpram suas atividades a tempo. É a tranquilidade que 
+                a sua gestão precisava! Afinal, você pode controlar quem acessa as informações críticas dos prazos e assegurar 
+                que, mesmo trabalhando de forma colaborativa, seu escritório jamais perca uma informação importante!</p>
           </div>
           <div class="col-md-5 order-md-1">
-		   <img src="<?= HOME; ?>/assets/images/escritorio2.jpg" class="img-fluid" alt="Imagem responsiva">
-           
+            <img src="<?= HOME; ?>/assets/images/escritorio2.jpg" class="img-fluid" alt="Imagem responsiva">
           </div>
         </div>
 
@@ -161,61 +172,56 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading">Relátorios <span class="text-muted">Sem gráficos de pizzas!</span></h2>
-            <p class="lead">Gere os relatórios de lucro anuais, mensais e semanais e o relatório de causas ganhas e perdidas</p>
+               <h4>Relátorios com Gráficos</h4>
+            <p class="lead">
+            Gera relatórios em gráficos para a tomada de decisão baseado no lucro mensal e anual, causas ganhas e perdidas do escrito e 
+            por advogado e relatórios de despesas fixas do escritório.
+
+            </p>
           </div>
           <div class="col-md-5">
-			<img src="<?= HOME; ?>/assets/images/escritorio3.jpg" class="img-fluid" alt="Imagem responsiva">
-            <!--<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">-->
+            <img src="<?= HOME; ?>/assets/images/escritorio3.jpg" class="img-fluid" alt="Imagem responsiva"> 
           </div>
         </div>
 
         <hr class="featurette-divider">
 
-       
-        
-        
- 
-			<div class="row">
-
-				<div class="col-md-3"></div>
-				
-				<div class="col-md-6">
-				
-					<div class="title">
-						<h3>Fale conosco...</h3>
-					</div>
+	<div class="row">
+            <div class="col-md-2"></div>		
+		<div class="col-md-6">	
+                    <div class="title">
+			<h3>Fale conosco...</h3>
+                    </div>		
+                    <hr>
 					
-					<hr>
-					
-                                        <form method="post">
-					  <div class="form-row">
-						<div class="form-group col-md-12">
-						  <label for="inputEmail4">Nome</label>
-						  <input type="name" class="form-control" id="inputEmail4" placeholder="Nome">
-						</div>
-					  </div>
-						
-						<div class="form-row">
-						  <div class="form-group col-md-12">
-							<label for="inputAddress">E-mail</label>
-							<input type="mail" class="form-control" id="inputAddress" placeholder="exemplo@mail.com">
-						  </div>
-						</div>
-							
-						<div class="form-row">    
-						  <div class="form-group col-md-12">
-							<label for="inputAddress2">Assunto</label>
-							<input type="text" class="form-control" id="inputAddress2" placeholder="">
-							<br/>
-							<textarea class="form-control" rows="3" id="inputAddress2" placeholder="Digite o texto..."></textarea>
-						  </div>
-						</div>
-						
-					  <button type="submit" class="btn btn-primary">Enviar</button>
-					</form>
-				</div>
+                    <form method="post">
+			<div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputEmail4">Nome</label>
+                                <input type="name" class="form-control col-md-12" id="inputEmail4" placeholder="Nome">
+                            </div>
 			</div>
+						
+			<div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="inputAddress">E-mail</label>
+                                <input type="mail" class="form-control" id="inputAddress" placeholder="exemplo@mail.com">
+                            </div>
+			</div>
+							
+			<div class="form-row">    
+                            <div class="form-group col-md-12">
+                                <label for="inputAddress2">Assunto</label>
+                                <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                                <br/>
+                                <textarea class="form-control" rows="3" id="inputAddress2" placeholder="Digite o texto..."></textarea>
+                            </div>
+			</div>
+						
+			<button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+        </div>
         <!-- /FIM DAS FEATUREZINHAS *-* -->
 		
 	  
