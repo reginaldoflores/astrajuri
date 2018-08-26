@@ -272,7 +272,7 @@
                 
                 <script>
                     
-                    $('cep').blur(function(e) {
+                    $('#cep').blur(function(e) {
                         var cep=$('#cep').val();
                         var url="http://viacep.com.br/ws/" + cep + "/json/";
                         var retorno = pesquisarCEP(url);
@@ -286,7 +286,7 @@
                             
                         }).done(function(data){
                             $('#bairro').val(data.bairro);
-                            $('#logradouro').val(data.lougradouro);
+                            $('#logradouro').val(data.logradouro);
                             $('#cidade').val(data.localidade);
                             
                         }).fail(function(){
