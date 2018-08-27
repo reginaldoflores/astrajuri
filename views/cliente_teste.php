@@ -59,9 +59,8 @@
                 
                 <script src="<?= HOME; ?>/assets/js/jquery.mask.min.js"></script>
                 <script src="<?= HOME; ?>/assets/js/script.js"></script>
-                <script>
-                    
-                    
+                
+                <script> 
                     $(document).ready(function(){                        
                         $('#tel').mask('(00) 0000-0000');
                         $('#celular').mask('(00) 00000-0000');
@@ -70,13 +69,10 @@
                         $('#insc_estadual').mask('00.000.00-0');
                         $('#pessoa').mask('000.000.000-00');
                         
-                    });
-                                        
-                    
+                    });                                    
                 </script>
                 
                 <script>
-                    
                     $('#cep').blur(function(e) {
                         var cep=$('#cep').val();
                         var url="http://viacep.com.br/ws/" + cep + "/json/";
@@ -95,13 +91,10 @@
                             $('#cidade').val(data.localidade);
                             $('#estado').val(data.uf);
                             
-                            
                         }).fail(function(){
                             console.log("erro");
                         });
-                        
-                    }
-                        
+                    }   
                 </script>
                 
                 </body>
