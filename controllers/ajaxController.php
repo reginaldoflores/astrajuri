@@ -15,27 +15,6 @@ class ajaxController extends Controlador{
     
     public function index(){
         $dados = array(
-            'cnpj' => '',
-            'nome_fantasia' => '',
-            'insc_estadual' => '',
-            'insc_municipal' => '',
-            'celular' => '',
-            'residencial' => '',
-            'comercial' => '',
-            'uf' => '',
-            'cep' => '',
-            'logradouro' => '',
-            'numero' => '',
-            'cidade' => '',
-            'bairro' => '',
-            'complemento' => '',
-            'cpf' => '',
-            'nome' => '',
-            'data_nasc' => '',
-            'cnh' => '',
-            'titulo_de_eleitor' => '',
-            'rg' => '',
-            'email' => '',
             'erro' => false
         );
 
@@ -48,7 +27,7 @@ class ajaxController extends Controlador{
             
             if ($c->validar_cnpj($pessoa) && (strlen($pessoa) == 14)) {
                 $brasil = $c->getPessoaJuridicaByCNPJ($pessoa);
-                                
+                
                 $dados['cnpj'] = $brasil['CNPJ'];
                 $dados['nome_fantasia'] = $brasil['Nome_Fantasia'];
                 $dados['insc_estadual'] = $brasil['Insc_Estadual'];

@@ -21,7 +21,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: <span class="required">*</span>
                                         </label>
                                         <div class="col-md-3 col-sm-6 col-xs-12">
-                                            <input id="cpf_cnpf" type="text" onkeyup="mascaraCPF(this)" name="cpf_cnpf" size="14" required="required" data-validate-length-range="14" class="form-control col-md-7 col-xs-12">
+                                            <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="14" required="required" data-validate-length-range="14" class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
 
