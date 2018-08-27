@@ -254,8 +254,6 @@
                         $('#rg').mask('00.000.000-0');
                         $('#insc_estadual').mask('00.000.00-0');
                         
-                        
-                        
                     });
                                         
                     
@@ -279,6 +277,8 @@
                             $('#bairro').val(data.bairro);
                             $('#logradouro').val(data.logradouro);
                             $('#cidade').val(data.localidade);
+                            $('#estado').val(data.uf);
+                            
                             
                         }).fail(function(){
                             console.log("erro");

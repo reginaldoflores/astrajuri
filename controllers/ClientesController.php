@@ -72,6 +72,31 @@ class ClientesController extends Controlador{
         }
         
         
+        
+//        if (isset($_POST['cpf_cnpj']) && !empty($_POST['cpf_cnpj'])) {
+//            
+//            
+//            print_r($_POST);exit;
+//            $cpf = preg_replace("/[^0-9]/", "", $_POST['cpf_cpnj']);
+//            
+//            $dados['exibi'] = "sim";
+//            
+//            if (strlen($cpf) == 11) {
+//                $dados['tipo'] = "fisica";
+//                echo "CHEGOU AQUI";exit;
+//                
+//            }elseif(strlen($cpf) == 14){
+//                $dados['tipo'] = "judica";
+//                echo "CHEGOU JURI";exit;
+//            }else{
+//                $dados['tipo'] = "erro";
+//            }
+//            
+//        }else{
+//            $dados['tipo'] = "erro";
+//        }
+        
+        
         $this->loadTemplate("clientes", $dados);
     }
 
