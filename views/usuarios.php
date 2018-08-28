@@ -22,9 +22,11 @@
                                     <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="18"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
-
+                            
+                            <div id="pessoaFisica">
+                                
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Cliente: </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Colaborador: </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="nome" class="form-control col-md-7 col-xs-12"  name="nome" type="text">
                                 </div>
@@ -37,26 +39,6 @@
                                 </div>
                             </div>
 
-                            <div id="pessoaJuridica">
-                                
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="insc_municipal">Inscrição Municipal: </label>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" id="insc_municipal" name="insc_municipal" size="15" class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="insc_estadual">Inscrição Estadual: </label>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input type="text" id="insc_estadual" name="insc_estadual" size="15"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                                
-                            </div>
-                                    
-                            <div id="pessoaFisica">
-                                
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rg">RG: </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
@@ -85,7 +67,7 @@
                                 </div>
                             </div>
                                 
-                            </div>
+                            
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tel">Telefone: </label>
@@ -100,6 +82,9 @@
                                     <input type="tel" id="celular" name="celular" pattern="\(\d{2}\)\d{4}-\d{4}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
+                                
+                            </div>
+                    
                         </div>
                     </div>
                 </div>
