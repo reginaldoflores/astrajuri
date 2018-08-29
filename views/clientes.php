@@ -19,7 +19,7 @@
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: * </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="18"  class="form-control col-md-7 col-xs-12">
+                                    <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="20"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
@@ -80,7 +80,7 @@
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento: </label>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-md-5 col-sm-7 col-xs-6">
                                     <input type="date" id="data_nasc" name="data_nasc"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
@@ -196,8 +196,10 @@
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
+                                    
                                     <button id="send" type="submit" class="btn btn-primary">Incluir</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
+                                    
                                     <span id="vemAqui"></span>
                                 </div>
                             </div>

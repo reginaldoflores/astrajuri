@@ -23,11 +23,18 @@
     <!-- Dropzone.js -->
     <link href="<?= HOME; ?>/assets/bootstrap/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
     
-    <!-- FullCalendar -->
+    <!-- FullCalendar-->
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
-
+    
+    <!--
+    <link href='<?= HOME; ?>/agenda/css/fullcalendar.min.css' rel='stylesheet' />
+    <link href='<?= HOME; ?>/agenda/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <link href='<?= HOME; ?>/agenda/css/personalizado.css' rel='stylesheet' />
+    <link href='<?= HOME; ?>/agenda/css/bootstrap.min.css' rel='stylesheet'>-->
+    
     <link href="<?= HOME ?>/assets/css/template.css" rel="stylesheet">
+
     
 </head>
 <body class="nav-md">
@@ -72,6 +79,7 @@
                                     <li><a href="#html">Advogado</a></li>
                                     <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
                                     <li><a href="<?= HOME; ?>/vara">Vara</a></li>
+                                     <li><a href="<?= HOME; ?>/agenda">teste agenda</a></li>
                             </ul>
                     </li>
 
