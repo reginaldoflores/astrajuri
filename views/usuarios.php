@@ -13,17 +13,21 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                        <div class="erro">CPF ou CNPJ Inválido</div>
-                    <!--<div class="alert alert-danger" role="alert">CPF ou CNPJ Inválido</div>
-                        <div class="alert alert-success" role="alert">Cadastrado com Sucesso</div>-->
+                            
+                            <?php if(isset($erro) && !empty($erro)):?>
+                                <div class="alert alert-danger" role="alert" id="erro" style="display: none;">CPF ou CNPJ Inválido</div>
+                            <?php endif; ?>
+                            
+                            <div class="alert alert-danger" role="alert" id="erro" style="display: none;">CPF ou CNPJ Inválido</div>
+                        <div class="alert alert-success" role="alert" id="sucesso" style="display: none;">Cadastrado com Sucesso</div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF  /  CNPJ: * </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF: * </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <input id="cpf_cnpf" type="text" name="cpf_cnpf" size="18"  class="form-control col-md-7 col-xs-12">
+                                    <input id="cpf" type="text" name="cpf" size="18"  class="form-control col-md-7 col-xs-12" required="required">
                                 </div>
                             </div>
                             
-                            <div id="pessoaFisica">
+                            <!--<div id="pessoaFisica">-->
                                 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nome">Colaborador: </label>
@@ -83,7 +87,7 @@
                                 </div>
                             </div>
                                 
-                            </div>
+                            <!--</div>-->
                     
                         </div>
                     </div>
@@ -176,6 +180,34 @@
                                 </div>
                             </div>
                             
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfil">Perfil: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="perfil" name="perfil"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="descricao" name="descricao"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">Login: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="login" name="login"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="senha">Senha: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="password" id="senha" name="senha"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
                             <input type="hidden" id="situacao" name="situacao" value="add">
 
                             <div class="ln_solid"></div>
@@ -183,7 +215,7 @@
                                 <div class="col-md-6 col-md-offset-3">
                                     <button id="send" type="submit" class="btn btn-primary">Incluir</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-                                    <span id="vemAqui"></span>
+                                    <a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?" style="visibility: hidden;">Excluir</a>
                                 </div>
                             </div>
                         </div>
@@ -209,19 +241,18 @@
 <script src="<?= HOME; ?>/assets/js/custom.min.js"></script>
 
 <script src="<?= HOME; ?>/assets/js/jquery.mask.min.js"></script>
-<script src="<?= HOME; ?>/assets/js/script.js"></script>
+
+
 <script>
-
-
-    $(document).ready(function(){                        
+    
+$(document).ready(function(){                        
+        $('#cpf').mask('000.000.000-00');
         $('#tel').mask('(00) 0000-0000');
         $('#celular').mask('(00) 00000-0000');
         $('#cep').mask('00000-000');
         $('#rg').mask('00.000.000-0');
-        $('#insc_estadual').mask('00.000.00-0');
 
     });
-
 
 </script>
 
@@ -251,8 +282,64 @@
         });
 
     }
+    
+    $("#cpf").on("change", function(){
+        var pessoa = $("#cpf").val();
+        $.ajax({
+            url:'http://localhost/astrajuri/ajax/usuarios',
+            type: 'POST',
+            data:{pessoa:pessoa},
+            dataType: 'json',
+            success:function(json){
+                
+                if (json.erro === false) {  
+                        $('#rg').val(json.rg);
+                        $('#cnh').val(json.cnh);
+                        $('#titulo_de_eleitor').val(json.titulo);
+                        $('#cpf').val(json.cpf);
+                        $('#nome').val(json.nome);
+                        $('#email').val(json.email);
+                        $('#tel').val(json.residencial);
+                        $('#celular').val(json.celular);
+                        $('#data_nasc').val(json.nascimento);
+                        $('#cep').val(json.cep);
+                        $('#logradouro').val(json.rua);
+                        $('#numero').val(json.numero);
+                        $('#bairro').val(json.bairro);
+                        $('#login').val(json.login);
+                        $('#perfil').val(json.nomePerfil);
+                        $('#descricao').val(json.descricao);
+                        $('#nome').val(json.nome);
+                        
+                        var compleme = json.complemento;
+                        
+                        if (compleme.length > 0) {
+                            $('#complemento').val(json.complemento);
+                        }
+                        
+                        $('#cidade').val(json.cidade);
+                        $('#estado').val(json.uf);
+                        $('#situacao').val("update");
+                        $("botaoExcluir").css('visibilty', 'visible');
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuairos/del/" + json.cpf);
+                        
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Cliente<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este usuario?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
+                        
+                    
+                }else{
+                    $("#erro").css('display', 'block');
+                }
+            }
+        });
+    });
 
 </script>
-
-</body>
-</html>

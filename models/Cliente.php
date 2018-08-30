@@ -273,6 +273,12 @@ class Cliente extends Model{
     public function deletePessoaFisica($cpf) {
         $pessoaFisica = $this->getPessoaFisicaByCPF($cpf);
         
+        // Ordem de Exclusão, inclusive do banco
+//        PESSOA FISICA
+//        TELEFONE
+//        CONTATO
+//        ENDEREÇO
+        
         $sql = $this->db->prepare("DELETE FROM pessoa_fisica WHERE CPF = :cpf");
         $sql->bindValue(":cpf", $cpf);
         $sql->execute();

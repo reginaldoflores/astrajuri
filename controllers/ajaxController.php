@@ -63,5 +63,61 @@ class ajaxController extends Controlador{
         exit;
     }
     
+    public function usuarios() {
+        $dados = array(
+            'erro' => true
+        );
+        
+        $c = new Cliente();
+        
+        if (isset($_POST['pessoa']) && !empty($_POST['pessoa'])) {
+            $cpf = preg_replace("/[^0-9]/", "", addslashes($_POST['pessoa']));
+                        
+            $usuario = new Usuario();
+            
+            $users = array();
+            
+            if ($c->validaCPF($cpf)) {
+                $users['pessoa_fisica']     = $usuario->getPessoaByCPF($cpf);
+                $users['usuario']           = $usuario->getUsuarioByIdPF($users['pessoa_fisica']['idPessoa_Fisica']);
+                $users['user_perfil']       = $usuario->getPerfilById($users['usuario']['idPerfil']);
+                $users['telefone'] = $usuario->getTelefoneByContato($users['pessoa_fisica']['Contato_idContato']);
+                $users['contato'] = $usuario->getContatoById($users['pessoa_fisica']['Contato_idContato']);
+                $users['endereco'] = $usuario->getEnderecoById($users['contato']['idEndereco']);
+                
+                $dados['login'] = $users['usuario']['Login'];
+                $dados['nomePerfil'] = $users['user_perfil']['Nome_Perfil'];
+                $dados['descricao'] = $users['user_perfil']['Descricao'];
+                $dados['cpf'] = $users['pessoa_fisica']['CPF'];
+                $dados['nome'] = $users['pessoa_fisica']['Nome'];
+                $dados['rg'] = $users['pessoa_fisica']['RG'];
+                $dados['cnh'] = $users['pessoa_fisica']['CNH'];
+                $dados['titulo'] = $users['pessoa_fisica']['Titulo_de_Eleitor'];
+                $dados['nascimento'] = $users['pessoa_fisica']['Data_Nasc'];
+                $dados['residencial'] = $users['telefone']['Residencial'];
+                $dados['celular'] = $users['telefone']['Celular'];
+                $dados['email'] = $users['contato']['Email'];
+                $dados['uf'] = $users['endereco']['UF'];
+                $dados['cep'] = $users['endereco']['CEP'];
+                $dados['rua'] = $users['endereco']['Logradouro'];
+                $dados['numero'] = $users['endereco']['Numero'];
+                $dados['bairro'] = $users['endereco']['Bairro'];
+                $dados['complamento'] = $users['endereco']['Complemento'];
+                $dados['cidade'] = $users['endereco']['Cidade'];
+                $dados['erro'] = false;
+                
+                print_r($dados);exit;
+
+            } else {
+                $dados['erro'] = true;
+                echo json_encode($dados);exit;
+            }
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+        
+    }
     
 }
