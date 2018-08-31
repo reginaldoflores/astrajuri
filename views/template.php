@@ -76,10 +76,9 @@
                             <ul class="nav child_menu">
                                     <li><a href="<?= HOME; ?>/clientes">Cliente</a></li>
                                     <li><a href="<?= HOME; ?>/usuarios">Usuário</a></li>
-                                    <li><a href="#html">Advogado</a></li>
                                     <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
                                     <li><a href="<?= HOME; ?>/vara">Vara</a></li>
-                                     <li><a href="<?= HOME; ?>/agenda">teste agenda</a></li>
+                                    
                             </ul>
                     </li>
 

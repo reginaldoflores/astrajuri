@@ -21,7 +21,7 @@
                             <div class="alert alert-danger" role="alert" id="erro" style="display: none;">CPF ou CNPJ Inválido</div>
                         <div class="alert alert-success" role="alert" id="sucesso" style="display: none;">Cadastrado com Sucesso</div>
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF: * </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF / OAB: * </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input id="cpf" type="text" name="cpf" size="18"  class="form-control col-md-7 col-xs-12" required="required">
                                 </div>
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Data Nascimento: </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="data_nasc">Nascimento: </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input type="date" id="data_nasc" name="data_nasc"  class="form-control col-md-7 col-xs-12">
                                 </div>
@@ -84,6 +84,34 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="celular">Celular: </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input type="tel" id="celular" name="celular" pattern="\(\d{2}\)\d{4}-\d{4}" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfil">Perfil: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="perfil" name="perfil"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="descricao" name="descricao"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">Login: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="login" name="login"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="senha">Senha: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="password" id="senha" name="senha"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                                 
@@ -180,33 +208,7 @@
                                 </div>
                             </div>
                             
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfil">Perfil: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="perfil" name="perfil"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
                             
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="descricao" name="descricao"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">Login: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="login" name="login"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
-                            
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="senha">Senha: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="password" id="senha" name="senha"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
                             
                             <input type="hidden" id="situacao" name="situacao" value="add">
 
