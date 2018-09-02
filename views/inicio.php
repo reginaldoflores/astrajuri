@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<link rel="icon" href="<?= HOME; ?>/assets/images/favicon.ico">-->
-
+    
+    <div data-spy="scroll" id="item1"></div>
     <title>Astrajuri</title>
 
     <!-- Principal CSS do Bootstrap -->
@@ -32,16 +33,21 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">FAQ <span class="sr-only">(atual)</span></a>
+              <a class="nav-link" href="#item1">Incio <span class="sr-only">(atual)</span></a>
             </li>
-            <!--
-            <li class="nav-item">
-              <a class="nav-link" href="#">Empresa</a>
+            
+            <li class="nav-item active">
+              <a class="nav-link" href="#item4">Sobre</a> 
             </li>
+            
+            <li class="nav-item active">
+              <a class="nav-link" href="#item5">Contato</a>
+            </li>
+
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Manual</a>
             </li>
-            -->
+            
           </ul>
             
           <form method="post" class="form-inline mt-2 mt-md-0"> 
@@ -57,6 +63,7 @@
       </nav>
     </header>
 
+    
     <main role="main">
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -72,7 +79,7 @@
               <div class="carousel-caption text-left">
                 <h1>Agilidade</h1>
                 <p>Agilize os seus processos internos. Organize sua agenda, clientes e despesas em um sistema Web.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
+                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
               </div>
             </div>
           </div>
@@ -83,7 +90,7 @@
               <div class="carousel-caption">
                 <h1>Produtividade<h1>
                 <p>Eleve sua produtividade com o Astrajuri, o melhor software jurídico online do mercado </p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
+                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
               </div>
             </div>
           </div>
@@ -94,7 +101,7 @@
               <div class="carousel-caption text-right">
                 <h1>Facilidades</h1> 
                 <p>O Astrajuri facilida a gestão dos seus processos jurídicos e garante a organização do seu escritório</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>
+                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
               </div>
             </div>
           </div>
@@ -114,11 +121,10 @@
       <!-- Mensagens de marketing e outras featurezinhas
       ================================================== -->
       <!-- Envolve o resto da página em outro container, para centralizar todo o conteúdo. -->
-
+      
+      <div data-spy="scroll" id="item4"></div>
       <div class="container marketing">
 
-        
-     
        <div class="row">
           <div class="text-center">
             <h5 class="featurette-heading">O software jurídico online ideal para escritórios de advocacia 
@@ -130,12 +136,11 @@
                 do mercado, o Astrea acompanha seu ritmo de trabalho 
                 dentro e fora do escritório. Basta computador conectado à internet!</p>
           </div>
-         
         </div>
 
 
         <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
-
+		
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -184,6 +189,7 @@
           </div>
         </div>
 
+        <div data-spy="scroll" id="item5"></div>
         <hr class="featurette-divider">
 
 	<div class="row featurette">
