@@ -11,6 +11,12 @@ class ComarcaController extends Controlador{
             header("Location: ".HOME."/login");
         }
         
+        $dados = $usuario->getDadosUser();
+        
+        if ($dados['idPerfil'] == 1) {
+            header("Location: ".HOME);
+        }
+        
     }
     
     public function index(){

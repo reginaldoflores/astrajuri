@@ -10,6 +10,12 @@ class UsuariosController extends Controlador{
         if (!$usuario->isLogged()) {
             header("Location: ".HOME."/login");
         }   
+        
+        $dados = $usuario->getDadosUser();
+        
+        if ($dados['idPerfil'] == 1) {
+            header("Location: ".HOME);
+        }
     }
     
     public function index(){
@@ -40,29 +46,51 @@ class UsuariosController extends Controlador{
             $complemento = utf8_decode(addslashes($_POST['complemento']));
             $cidade = utf8_decode(addslashes($_POST['cidade']));
             $estado = utf8_decode(addslashes($_POST['estado']));
-            $perfil = utf8_decode(addslashes($_POST['perfil']));
-            $descricao = utf8_decode(addslashes($_POST['descricao']));
+            $perfil = utf8_decode(addslashes($_POST['perfilTipo']));
             $login = utf8_decode(addslashes($_POST['login']));
             $senha = addslashes($_POST['senha']);
+            $oab = addslashes($_POST['oab']);
             $situacao = addslashes($_POST['situacao']);
-            
+            $idPF = addslashes($_POST['idUser']);
+                        
             if ((isset($situacao) && !empty($situacao)) && $situacao == "add") {
                                 
                 if ($c->validaCPF($cpf) == true) {
                     
-                    $usuario->addUsuario($estado, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $email, $tel, $celular, $cpf, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $perfil, $descricao, $login, $senha);
+                    $usuario->addUsuario($estado, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $email, $tel, $celular, $cpf, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $perfil, $oab, $login, $senha);
                     header("Location: ".HOME."/usuarios");
                     
                 }else{
                     $dados['erro'] = "CPF inválido";
                 }
                 
-            }
+            
                 
             }elseif((isset($situacao) && !empty($situacao)) && $situacao == "update"){
-                echo "UPDATE";exit;
+                
+                if ($c->validaCPF($cpf) == true){
+                    
+                    if (isset($senha) && !empty($senha) && isset($idPF) && !empty($idPF)) {
+                        
+                        $usuario->updateSenha($senha, $idPF);
+                        header("Location: ".HOME."/usuarios");
+                        
+                    }
+                    
+                    if (isset($idPF) && !empty($idPF)) {
+                        
+                        
+                        $usuario->editUsuario($estado, $cep, $logradouro, $numero, $bairro, $complemento, $cidade, $email, $tel, $celular, $cpf, $nome, $rg, $cnh, $titulo_de_eleitor, $data_nasc, $perfil, $oab, $login, $senha, $idPF);
+                        header("Location: ".HOME."/usuarios");
+                    }
+                    
+                }else{
+                    $dados['erro'] = "CPF inválido";
+                }
             }
+        }
         
+            $dados['perfis'] = $usuario->getPerfis();
         
         $this->loadTemplate("usuarios", $dados);
     }

@@ -75,15 +75,18 @@
                         
                             <ul class="nav child_menu">
                                     <li><a href="<?= HOME; ?>/clientes">Cliente</a></li>
-                                    <li><a href="<?= HOME; ?>/usuarios">Usuário</a></li>
-                                    <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
-                                    <li><a href="<?= HOME; ?>/vara">Vara</a></li>
-                                    
+                                    <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
+                                        <li><a href="<?= HOME; ?>/usuarios">Usuário</a></li>
+                                        <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
+                                        <li><a href="<?= HOME; ?>/vara">Vara</a></li>
+                                    <?php endif; ?>
                             </ul>
                     </li>
 
                     <li><a href="#.html"><i class="fa fa-money"></i> Despesas Fixas </a></li>
 
+                    
+                    <?php if($viewData['dados_user']['idPerfil'] == 3): ?>
                     <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
                                 <li><a href="chartjs.html">1</a></li>
@@ -93,6 +96,7 @@
                                 <li><a href="other_charts.html">5</a></li>
                             </ul>
                     </li>
+                    <?php endif; ?>
                   
                 </ul>
               </div>

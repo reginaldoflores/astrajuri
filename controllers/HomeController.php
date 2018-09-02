@@ -16,6 +16,7 @@ class HomeController extends Controlador{
         $dados = array();
         $usuario = new Usuario();
         $dados['dados_user'] = $usuario->getDadosUser();
+                
         //-----------------------------------------------------------------//
         
         

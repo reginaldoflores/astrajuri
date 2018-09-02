@@ -80,15 +80,20 @@ class ajaxController extends Controlador{
             if ($c->validaCPF($cpf)) {
                 $users['pessoa_fisica']     = $usuario->getPessoaByCPF($cpf);
                 $users['usuario']           = $usuario->getUsuarioByIdPF($users['pessoa_fisica']['idPessoa_Fisica']);
-                $users['user_perfil']       = $usuario->getPerfilById($users['usuario']['idPerfil']);
                 $users['telefone'] = $usuario->getTelefoneByContato($users['pessoa_fisica']['Contato_idContato']);
                 $users['contato'] = $usuario->getContatoById($users['pessoa_fisica']['Contato_idContato']);
                 $users['endereco'] = $usuario->getEnderecoById($users['contato']['idEndereco']);
                 
+                $users['advogado'] = $usuario->getAdvogadoByIdUsuario($users['usuario']['idUsuario']);
+                
+                if (count($users['advogado']) > 0) {
+                    $dados['oab'] = $users['advogado']['OAB'];
+                }
+                                
                 $dados['login'] = $users['usuario']['Login'];
-                $dados['nomePerfil'] = $users['user_perfil']['Nome_Perfil'];
-                $dados['descricao'] = $users['user_perfil']['Descricao'];
+                $dados['nomePerfil'] = $users['usuario']['idPerfil'];
                 $dados['cpf'] = $users['pessoa_fisica']['CPF'];
+                $dados['idPF'] = $users['pessoa_fisica']['idPessoa_Fisica'];
                 $dados['nome'] = $users['pessoa_fisica']['Nome'];
                 $dados['rg'] = $users['pessoa_fisica']['RG'];
                 $dados['cnh'] = $users['pessoa_fisica']['CNH'];
@@ -102,11 +107,11 @@ class ajaxController extends Controlador{
                 $dados['rua'] = $users['endereco']['Logradouro'];
                 $dados['numero'] = $users['endereco']['Numero'];
                 $dados['bairro'] = $users['endereco']['Bairro'];
-                $dados['complamento'] = $users['endereco']['Complemento'];
+                $dados['complemento'] = $users['endereco']['Complemento'];
                 $dados['cidade'] = $users['endereco']['Cidade'];
                 $dados['erro'] = false;
                 
-                print_r($dados);exit;
+                
 
             } else {
                 $dados['erro'] = true;

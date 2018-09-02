@@ -18,14 +18,43 @@
                                 <div class="alert alert-danger" role="alert" id="erro" style="display: none;">CPF ou CNPJ Inválido</div>
                             <?php endif; ?>
                             
+                            <!--
                             <div class="alert alert-danger" role="alert" id="erro" style="display: none;">CPF ou CNPJ Inválido</div>
-                        <div class="alert alert-success" role="alert" id="sucesso" style="display: none;">Cadastrado com Sucesso</div>
+                            <div class="alert alert-success" role="alert" id="sucesso" style="display: none;">Cadastrado com Sucesso</div>
+                            -->
+                            
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF / OAB: * </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfilTipo">Perfil: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                    <select id="perfilTipo" class="form-control col-md-7 col-xs-12" required name="perfilTipo">
+                                        <?php foreach($perfis as $perfil): ?>
+                                            <option value="<?= $perfil['idPerfil']; ?>"><?= utf8_encode($perfil['Nome_Perfil']); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                             <!--
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfil">Perfil: </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="perfil" name="perfil"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            -->
+                            
+                            <div class="item form-group" id="windowOAB" style="display: none;">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="oab">OAB: * </label>
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <input id="oab" type="text" name="oab" size="18"  class="form-control col-md-7 col-xs-12" required="required">
+                                </div>
+                            </div>
+                            
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cpf">CPF: * </label>
                                 <div class="col-md-4 col-sm-6 col-xs-12">
                                     <input id="cpf" type="text" name="cpf" size="18"  class="form-control col-md-7 col-xs-12" required="required">
                                 </div>
-                            </div>
+                            </div>  
                             
                             <!--<div id="pessoaFisica">-->
                                 
@@ -87,19 +116,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="perfil">Perfil: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="perfil" name="perfil"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
                             
-                            <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descricao">Descrição: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="descricao" name="descricao"  class="form-control col-md-7 col-xs-12">
-                                </div>
-                            </div>
                             
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="login">Login: </label>
@@ -211,6 +228,7 @@
                             
                             
                             <input type="hidden" id="situacao" name="situacao" value="add">
+                            <input type="hidden" id="idUser" name="idUser" value="0">
 
                             <div class="ln_solid"></div>
                             <div class="form-group">
@@ -285,6 +303,16 @@ $(document).ready(function(){
 
     }
     
+    $("#perfilTipo").on("select", function(){
+        
+        var perfilType = $("#perfilTipo").val();
+        
+        if (perfilType !== 1) {
+            $("#oab").css("display", "block");
+        }
+        
+    });
+    
     $("#cpf").on("change", function(){
         var pessoa = $("#cpf").val();
         $.ajax({
@@ -307,21 +335,20 @@ $(document).ready(function(){
                         $('#cep').val(json.cep);
                         $('#logradouro').val(json.rua);
                         $('#numero').val(json.numero);
+                        $('#estado').val(json.uf);
+                        $('#cidade').val(json.cidade);
                         $('#bairro').val(json.bairro);
                         $('#login').val(json.login);
-                        $('#perfil').val(json.nomePerfil);
-                        $('#descricao').val(json.descricao);
-                        $('#nome').val(json.nome);
+                        $('#perfilTipo').val(json.nomePerfil);
+                        $('#complemento').val(json.complemento);
                         
-                        var compleme = json.complemento;
-                        
-                        if (compleme.length > 0) {
-                            $('#complemento').val(json.complemento);
+                        if (json.oab != "") {
+                            $('#oab').val(json.oab);
+                            $("#windowOAB").css('display', 'block');
                         }
                         
-                        $('#cidade').val(json.cidade);
-                        $('#estado').val(json.uf);
                         $('#situacao').val("update");
+                        $('#idUser').val(json.idPF);
                         $("botaoExcluir").css('visibilty', 'visible');
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuairos/del/" + json.cpf);
                         
@@ -343,5 +370,18 @@ $(document).ready(function(){
             }
         });
     });
+    
+    $("#perfilTipo").on("change", function(){
+        
+        var perfilT = $("#perfilTipo").val();
+        
+        if (perfilT != 1) {
+            $("#windowOAB").css('display', 'block');
+        }else{
+            $("#windowOAB").css('display', 'none');
+        }
+        
+    });
+    
 
 </script>
