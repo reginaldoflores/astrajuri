@@ -37,11 +37,11 @@
             </li>
             
             <li class="nav-item active">
-              <a class="nav-link" href="#item4">Sobre</a> 
+              <a class="nav-link" href="#item2">Sobre</a> 
             </li>
             
             <li class="nav-item active">
-              <a class="nav-link" href="#item5">Contato</a>
+              <a class="nav-link" href="#item3">Contato</a>
             </li>
 
             <li class="nav-item">
@@ -77,9 +77,10 @@
             <img class="first-slide" src="<?= HOME; ?>/assets/images/agilidade.jpeg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Agilidade</h1>
-                <p>Agilize os seus processos internos. Organize sua agenda, clientes e despesas em um sistema Web.</p>
-                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
+                <h1>Gestão de Processos</h1>
+                <p>Armazene, gerencie e acesse todas as informações sobre seus processos jurídicos em um único 
+                lugar...</p>
+                <p><a class="btn btn-lg btn-primary" href="#item5" role="button">Saiba Mais</a></p>-->
               </div>
             </div>
           </div>
@@ -88,9 +89,9 @@
             <img class="second-slide" src="<?= HOME; ?>/assets/images/produtividade.jpeg" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Produtividade<h1>
-                <p>Eleve sua produtividade com o Astrajuri, o melhor software jurídico online do mercado </p>
-                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
+                <h1>Controle de Prazos<h1>
+                <p>Com o controle avançado do Astrajuri você gerencia os prazos do seu escritório do início ao fim...</p>
+                <p><a class="btn btn-lg btn-primary" href="#item6" role="button">Saiba Mais</a></p>
               </div>
             </div>
           </div>
@@ -99,9 +100,9 @@
             <img class="third-slide" src="<?= HOME; ?>/assets/images/facilidade.jpeg" alt="Third slide">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h1>Facilidades</h1> 
-                <p>O Astrajuri facilida a gestão dos seus processos jurídicos e garante a organização do seu escritório</p>
-                <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Saiba Mais...</a></p>-->
+                <h1>Relátorios com Gráficos</h1> 
+                <p>Gera relatórios com gráficos para a tomada de decisão baseado no lucro...</p>
+                <p><a class="btn btn-lg btn-primary" href="#item7" role="button">Saiba Mais</a></p>
               </div>
             </div>
           </div>
@@ -122,7 +123,7 @@
       ================================================== -->
       <!-- Envolve o resto da página em outro container, para centralizar todo o conteúdo. -->
       
-      <div data-spy="scroll" id="item4"></div>
+      <div data-spy="scroll" id="item2"></div>
       <div class="container marketing">
 
        <div class="row">
@@ -140,7 +141,7 @@
 
 
         <!-- COMEÇAM AS MENCIONADAS FEATUREZINHAS xD -->
-		
+	<div data-spy="scroll" id="item5"></div>	
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -156,13 +157,13 @@
             <img src="<?= HOME; ?>/assets/images/freature3.jpg" class="img-fluid" alt="Imagem responsiva">
           </div>
         </div>
-
+        
+        <div data-spy="scroll" id="item6"></div>
         <hr class="featurette-divider">
 
         <div class="row featurette">
           <div class="col-md-6 order-md-2">
-              <h4>Esteja sempre por dentro do que acontece no escritório e tenha certeza de que todos os prazos serão 
-                cumpridos!</h4>
+              <h4>Controle de Prazos...</h4>
             <p class="lead">Com o controle avançado do Astrajuri você gerencia os prazos do seu escritório do início ao fim, delega 
                 tarefas com facilidade e garante que todos os envolvidos cumpram suas atividades a tempo. É a tranquilidade que 
                 a sua gestão precisava! Afinal, você pode controlar quem acessa as informações críticas dos prazos e assegurar 
@@ -172,7 +173,8 @@
             <img src="<?= HOME; ?>/assets/images/escritorio2.jpg" class="img-fluid" alt="Imagem responsiva">
           </div>
         </div>
-
+        
+        <div data-spy="scroll" id="item7"></div>
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -189,7 +191,7 @@
           </div>
         </div>
 
-        <div data-spy="scroll" id="item5"></div>
+        <div data-spy="scroll" id="item3"></div>
         <hr class="featurette-divider">
 
 	<div class="row featurette">
