@@ -235,7 +235,8 @@
                                 <div class="col-md-6 col-md-offset-3">
                                     <button id="send" type="submit" class="btn btn-primary">Incluir</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-                                    <a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?" style="visibility: hidden;">Excluir</a>
+<!--                                    <a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?" style="visibility: hidden;">Excluir</a>-->
+                                    <span id="vemAqui"></span>
                                 </div>
                             </div>
                         </div>
@@ -349,8 +350,8 @@ $(document).ready(function(){
                         
                         $('#situacao').val("update");
                         $('#idUser').val(json.idPF);
-                        $("botaoExcluir").css('visibilty', 'visible');
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuairos/del/" + json.cpf);
+                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -370,6 +371,66 @@ $(document).ready(function(){
             }
         });
     });
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    
+    $("#oab").on("change", function(){
+        var pessoa = $("#oab").val();
+        $.ajax({
+            url:'http://localhost/astrajuri/ajax/usuariosOAB',
+            type: 'POST',
+            data:{pessoa:pessoa},
+            dataType: 'json',
+            success:function(json){
+                
+                if (json.erro === false) {  
+                        $('#rg').val(json.rg);
+                        $('#cnh').val(json.cnh);
+                        $('#titulo_de_eleitor').val(json.titulo);
+                        $('#cpf').val(json.cpf);
+                        $('#nome').val(json.nome);
+                        $('#email').val(json.email);
+                        $('#tel').val(json.residencial);
+                        $('#celular').val(json.celular);
+                        $('#data_nasc').val(json.nascimento);
+                        $('#cep').val(json.cep);
+                        $('#logradouro').val(json.rua);
+                        $('#numero').val(json.numero);
+                        $('#estado').val(json.uf);
+                        $('#cidade').val(json.cidade);
+                        $('#bairro').val(json.bairro);
+                        $('#login').val(json.login);
+                        $('#perfilTipo').val(json.nomePerfil);
+                        $('#complemento').val(json.complemento);
+                        
+                        $('#oab').val(json.oab);
+                        $("#windowOAB").css('display', 'block');
+                        
+                        $('#situacao').val("update");
+                        $('#idUser').val(json.idPF);
+                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
+                        
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Cliente<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este usuario?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
+                        
+                    
+                }else{
+                    $("#erro").css('display', 'block');
+                }
+            }
+        });
+    });
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////
     
     $("#perfilTipo").on("change", function(){
         

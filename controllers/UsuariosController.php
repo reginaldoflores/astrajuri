@@ -94,5 +94,12 @@ class UsuariosController extends Controlador{
         
         $this->loadTemplate("usuarios", $dados);
     }
+    
+    public function del($idPF) {
+        
+        $usuario = new Usuario();
+        $usuario->delUsuario($idPF);
+        header("Location: ".HOME."/usuarios");
+    }
 
 }

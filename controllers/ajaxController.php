@@ -37,7 +37,7 @@ class ajaxController extends Controlador{
                 $brasil = $c->getPessoaFisicaByCPF($pessoa);
                 
                 $dados['cpf'] = $brasil['CPF'];
-                $dados['nome'] = $brasil['Nome'];
+                $dados['nome'] = utf8_encode($brasil['Nome']);
                 $dados['data_nasc'] = $brasil['Data_Nasc'];
                 $dados['cnh'] = $brasil['CNH'];
                 $dados['titulo_de_eleitor'] = $brasil['Titulo_de_Eleitor'];
@@ -51,12 +51,12 @@ class ajaxController extends Controlador{
                 $dados['comercial'] = $brasil['telefone']['Comercial'];
                 $dados['uf'] = $brasil['endereco']['UF'];
                 $dados['cep'] = $brasil['endereco']['CEP'];
-                $dados['logradouro'] = $brasil['endereco']['Logradouro'];
+                $dados['logradouro'] = utf8_encode($brasil['endereco']['Logradouro']);
                 $dados['numero'] = $brasil['endereco']['Numero'];
-                $dados['cidade'] = $brasil['endereco']['Cidade'];
-                $dados['bairro'] = $brasil['endereco']['Bairro'];
-                $dados['complemento'] = $brasil['endereco']['Complemento'];
-                $dados['email'] = $brasil['email'];
+                $dados['cidade'] = utf8_encode($brasil['endereco']['Cidade']);
+                $dados['bairro'] = utf8_encode($brasil['endereco']['Bairro']);
+                $dados['complemento'] = utf8_encode($brasil['endereco']['Complemento']);
+                $dados['email'] = utf8_encode($brasil['email']);
         }
         
         echo json_encode($dados);
@@ -90,25 +90,25 @@ class ajaxController extends Controlador{
                     $dados['oab'] = $users['advogado']['OAB'];
                 }
                                 
-                $dados['login'] = $users['usuario']['Login'];
+                $dados['login'] = utf8_encode($users['usuario']['Login']);
                 $dados['nomePerfil'] = $users['usuario']['idPerfil'];
                 $dados['cpf'] = $users['pessoa_fisica']['CPF'];
                 $dados['idPF'] = $users['pessoa_fisica']['idPessoa_Fisica'];
-                $dados['nome'] = $users['pessoa_fisica']['Nome'];
+                $dados['nome'] = utf8_encode($users['pessoa_fisica']['Nome']);
                 $dados['rg'] = $users['pessoa_fisica']['RG'];
                 $dados['cnh'] = $users['pessoa_fisica']['CNH'];
                 $dados['titulo'] = $users['pessoa_fisica']['Titulo_de_Eleitor'];
                 $dados['nascimento'] = $users['pessoa_fisica']['Data_Nasc'];
                 $dados['residencial'] = $users['telefone']['Residencial'];
                 $dados['celular'] = $users['telefone']['Celular'];
-                $dados['email'] = $users['contato']['Email'];
+                $dados['email'] = utf8_encode($users['contato']['Email']);
                 $dados['uf'] = $users['endereco']['UF'];
                 $dados['cep'] = $users['endereco']['CEP'];
-                $dados['rua'] = $users['endereco']['Logradouro'];
+                $dados['rua'] = utf8_encode($users['endereco']['Logradouro']);
                 $dados['numero'] = $users['endereco']['Numero'];
-                $dados['bairro'] = $users['endereco']['Bairro'];
-                $dados['complemento'] = $users['endereco']['Complemento'];
-                $dados['cidade'] = $users['endereco']['Cidade'];
+                $dados['bairro'] = utf8_encode($users['endereco']['Bairro']);
+                $dados['complemento'] = utf8_encode($users['endereco']['Complemento']);
+                $dados['cidade'] = utf8_encode($users['endereco']['Cidade']);
                 $dados['erro'] = false;
                 
                 
@@ -117,6 +117,59 @@ class ajaxController extends Controlador{
                 $dados['erro'] = true;
                 echo json_encode($dados);exit;
             }
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+        
+    }
+    
+    public function usuariosOAB() {
+        $dados = array(
+            'erro' => true
+        );
+        
+        $c = new Cliente();
+        
+        if (isset($_POST['pessoa']) && !empty($_POST['pessoa'])) {
+            $oab = preg_replace("/[^0-9]/", "", addslashes($_POST['pessoa']));
+                        
+            $usuario = new Usuario();
+            
+            $users = array();
+            
+            
+                $users['advogado'] = $usuario->getAdvogadoByOAB($oab);
+                $users['usuario']           = $usuario->getUsuarioById($users['advogado']['Usuario_idUsuario']);
+                $users['pessoa_fisica']     = $usuario->getPessoaById($users['usuario']['Pessoa_Fisica_idPessoa_Fisica']);
+                
+                $users['telefone'] = $usuario->getTelefoneByContato($users['pessoa_fisica']['Contato_idContato']);
+                $users['contato'] = $usuario->getContatoById($users['pessoa_fisica']['Contato_idContato']);
+                $users['endereco'] = $usuario->getEnderecoById($users['contato']['idEndereco']);
+                
+                // Exibição dos Dados
+                $dados['oab'] = $users['advogado']['OAB'];            
+                $dados['login'] = utf8_encode($users['usuario']['Login']);
+                $dados['nomePerfil'] = $users['usuario']['idPerfil'];
+                $dados['cpf'] = $users['pessoa_fisica']['CPF'];
+                $dados['idPF'] = $users['pessoa_fisica']['idPessoa_Fisica'];
+                $dados['nome'] = utf8_encode($users['pessoa_fisica']['Nome']);
+                $dados['rg'] = $users['pessoa_fisica']['RG'];
+                $dados['cnh'] = $users['pessoa_fisica']['CNH'];
+                $dados['titulo'] = $users['pessoa_fisica']['Titulo_de_Eleitor'];
+                $dados['nascimento'] = $users['pessoa_fisica']['Data_Nasc'];
+                $dados['residencial'] = $users['telefone']['Residencial'];
+                $dados['celular'] = $users['telefone']['Celular'];
+                $dados['email'] = utf8_encode($users['contato']['Email']);
+                $dados['uf'] = $users['endereco']['UF'];
+                $dados['cep'] = $users['endereco']['CEP'];
+                $dados['rua'] = utf8_encode($users['endereco']['Logradouro']);
+                $dados['numero'] = $users['endereco']['Numero'];
+                $dados['bairro'] = utf8_encode($users['endereco']['Bairro']);
+                $dados['complemento'] = utf8_encode($users['endereco']['Complemento']);
+                $dados['cidade'] = utf8_encode($users['endereco']['Cidade']);
+                $dados['erro'] = false;
             
         }
         

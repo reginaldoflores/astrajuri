@@ -167,11 +167,68 @@ class Usuario extends Model{
         
     }
     
+    public function delUsuario($idPF) {
+        
+        $pessoa = $this->getPessoaById($idPF);
+        $usuario = $this->getUsuarioByIdPF($idPF);
+        $advogado = $this->getAdvogadoByIdUsuario($usuario['idUsuario']);
+        $contato = $this->getContatoById($pessoa['Contato_idContato']);
+        $telefone = $this->getTelefoneByContato($contato['idContato']);
+        $endereco = $this->getEnderecoById($contato['idEndereco']);
+        
+        
+//        ADVOGADO
+        $sql = $this->db->prepare("DELETE FROM advogado WHERE idAdvogado = :id");
+        $sql->bindValue(":id", $advogado['idAdvogado']);
+        $sql->execute();
+
+//        USUARIO
+        $sql = $this->db->prepare("DELETE FROM usuario WHERE idUsuario = :id");
+        $sql->bindValue(":id", $usuario['idUsuario']);
+        $sql->execute();
+        
+//        PESSOA FISICA
+        $sql = $this->db->prepare("DELETE FROM pessoa_fisica WHERE idPessoa_Fisica = :id");
+        $sql->bindValue(":id", $pessoa['idPessoa_Fisica']);
+        $sql->execute();
+
+//        TELEFONE
+        $sql = $this->db->prepare("DELETE FROM telefone WHERE idTelefone = :id");
+        $sql->bindValue(":id", $telefone['idTelefone']);
+        $sql->execute();
+
+//        CONTATO
+        $sql = $this->db->prepare("DELETE FROM contato WHERE idContato = :id");
+        $sql->bindValue(":id", $contato['idContato']);
+        $sql->execute();
+
+//        ENDERECO
+        $sql = $this->db->prepare("DELETE FROM endereco WHERE idEndereco = :id");
+        $sql->bindValue(":id", $endereco['idEndereco']);
+        $sql->execute();
+        
+        
+    }
+    
     public function getAdvogadoByIdUsuario($idUsuario) {
         $array = array();
         
         $sql = $this->db->prepare("SELECT * FROM advogado WHERE Usuario_idUsuario = :id");
         $sql->bindValue(":id", $idUsuario);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0 ) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
+    public function getAdvogadoByOAB($oab) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM advogado WHERE OAB = :id");
+        $sql->bindValue(":id", $oab);
         $sql->execute();
         
         if ($sql->rowCount() > 0 ) {
@@ -199,6 +256,20 @@ class Usuario extends Model{
         $array = array();
         
         $sql = $this->db->prepare("SELECT *, (select perfil.Nome_Perfil from perfil where perfil.idPerfil = usuario.idPerfil) as perfilNome FROM usuario WHERE Pessoa_Fisica_idPessoa_Fisica = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0 ) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
+    public function getUsuarioById($id) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM usuario WHERE idUsuario = :id");
         $sql->bindValue(":id", $id);
         $sql->execute();
         
