@@ -21,12 +21,25 @@ class Comarca extends Model{
         
         return $array;
     }
-    
+        
     public function getComarcaById($id) {
         $array = array();
         
         $sql = $this->db->prepare("SELECT * FROM comarca WHERE idComarca = :id");
         $sql->bindValue(":id", $id);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
+    public function getComarcaByNome($nome) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM comarca WHERE Nome like '%$nome%'");
         $sql->execute();
         
         if ($sql->rowCount() > 0) {

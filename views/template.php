@@ -78,7 +78,7 @@
                                     <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
                                         <li><a href="<?= HOME; ?>/usuarios">Usuário</a></li>
                                         <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
-                                        <li><a href="<?= HOME; ?>/vara">Vara</a></li>
+                                        <!--<li><a href="<?= HOME; ?>/vara">Vara</a></li>-->
                                     <?php endif; ?>
                             </ul>
                     </li>

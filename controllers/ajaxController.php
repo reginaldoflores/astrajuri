@@ -178,4 +178,60 @@ class ajaxController extends Controlador{
         
     }
     
+    public function comarca() {
+        $dados = array(
+            'erro' => true
+        );
+        
+        $c = new Comarca();
+        
+        if (isset($_POST['com']) && !empty($_POST['com'])) {
+            $comarca = addslashes(utf8_decode($_POST['com']));
+            
+            $comc = $c->getComarcaByNome($comarca);
+            
+            if (count($comc) > 0) {
+                $dados['idCom'] = $comc['idComarca'];
+                $dados['nome'] = utf8_encode($comc['Nome']);
+                $dados['endereco'] = utf8_encode($comc['Endereco']);
+                $dados['erro'] = false;
+            }else{
+                $dados['erro'] = true;
+            }
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+        
+    }
+    
+    public function vara() {
+        $dados = array(
+            'erro' => true
+        );
+        
+        $v = new Vara();
+        
+        if (isset($_POST['vara']) && !empty($_POST['vara'])) {
+            $var = addslashes(utf8_decode($_POST['vara']));
+            
+            $vars = $v->getVaraByNome($var);
+            
+            if (count($vars) > 0) {
+                $dados['varaId'] = $vars['idVara'];
+                $dados['varaNome'] = utf8_encode($vars['Nome']);
+                $dados['varaComarca'] = utf8_encode($vars['Comarca_idComarca']);
+                $dados['erro'] = false;
+            }else{
+                $dados['erro'] = true;
+            }
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+        
+    }
+    
 }
