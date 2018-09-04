@@ -74,16 +74,19 @@
                         <a><i class="fa fa-file-text-o"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
                         
                             <ul class="nav child_menu">
-                                    <li><a href="<?= HOME; ?>/clientes">Cliente</a></li>
+                                    <li><a href="<?= HOME; ?>/clientes">Clientes</a></li>
                                     <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
-                                        <li><a href="<?= HOME; ?>/usuarios">Usuário</a></li>
-                                        <li><a href="<?= HOME; ?>/comarca">Comarca</a></li>
-                                        <!--<li><a href="<?= HOME; ?>/vara">Vara</a></li>-->
+                                        <li><a href="<?= HOME; ?>/usuarios">Usuários</a></li>
+                                        <li><a href="<?= HOME; ?>/processos">Processos</a></li>    
+                                        <li><a href="<?= HOME; ?>/valores">Valores</a></li>
+                                        <li><a href="<?= HOME; ?>/andamentos">Andamentos</a></li>   
+                                        <li><a href="<?= HOME; ?>/arquivo">Arquivos</a></li>
+                                        <li><a href="<?= HOME; ?>/comarca">Comarcas</a></li>
                                     <?php endif; ?>
                             </ul>
                     </li>
 
-                    <li><a href="#.html"><i class="fa fa-money"></i> Despesas Fixas </a></li>
+                    <li><a href="#.html"><i class="fa fa-money"></i> Financeiro </a></li>
 
                     
                     <?php if($viewData['dados_user']['idPerfil'] == 3): ?>
