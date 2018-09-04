@@ -80,7 +80,7 @@
                 <h1>Gestão de Processos</h1>
                 <p>Armazene, gerencie e acesse todas as informações sobre seus processos jurídicos em um único 
                 lugar...</p>
-                <p><a class="btn btn-lg btn-primary" href="#item5" role="button">Saiba Mais</a></p>-->
+                <p><a class="btn btn-lg btn-primary" href="#item5" role="button">Saiba Mais</a></p>
               </div>
             </div>
           </div>
