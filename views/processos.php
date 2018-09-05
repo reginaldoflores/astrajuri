@@ -241,7 +241,6 @@
                                     <th>Arquivo</th>
                                     <th>Descrição</th>
                                     <th class="actions">Ações</th>
-                          
                                 </tr>
                             </thead>
                             <tbody>
@@ -276,8 +275,7 @@
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-                                    
-                                   
+
                                 </div>
                             </div>
 
