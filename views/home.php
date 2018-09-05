@@ -5,16 +5,15 @@
         <div class="col-md-12">
             <div class="x_panel">
                 
-                  <div class="x_title">
-                    <h2>Eventos</h2>
-                    <div class="clearfix"></div>
-                  </div>
+                <div class="x_title">
+                  <h2>Agenda</h2>
+                  <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                  <div id='calendar'></div>
+                </div>
                 
-                  <div class="x_content">
-
-                    <div id='calendar'></div>
-
-                  </div>
             </div>
         </div>
     </div>
@@ -36,6 +35,3 @@
 
     <!-- Custom Theme Scripts -->
     <script src="<?= HOME; ?>/assets/js/custom.min.js"></script>
- 
-  </body>
-</html>

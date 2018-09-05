@@ -38,123 +38,116 @@
     
 </head>
 <body class="nav-md">
-<div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-                <a href="<?= HOME; ?>" class="site_title"><span>Astrajuri</span></a>
-            </div>
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="<?= HOME; ?>" class="site_title"><span>Astrajuri</span></a>
+                    </div>
 
-            <div class="clearfix"></div>
+                    <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="<?= HOME; ?>/assets/images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Bem Vindo,</span>
-                <h2><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?></h2>
-              </div>
-            </div>
-            <!-- /menu profile quick info -->
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                      <div class="profile_pic">
+                        <img src="<?= HOME; ?>/assets/images/img.jpg" alt="..." class="img-circle profile_img">
+                      </div>
+                      <div class="profile_info">
+                        <span>Bem Vindo,</span>
+                        <h2><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?></h2>
+                      </div>
+                    </div>
+                    <!-- /menu profile quick info -->
 
-            <br />
+                    <br />
 
-            <!-- MENU LATERAL -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <!-- <h3>Geral</h3> -->
-                <ul class="nav side-menu">
-				
-                    <li><a href="<?= HOME; ?>/home"><i class="fa fa-calendar"></i> Agenda </a></li>
-                    
-                    <li>
-                        <a><i class="fa fa-file-text-o"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
-                        
-                            <ul class="nav child_menu">
-                                    <li><a href="<?= HOME; ?>/clientes">Clientes</a></li>
-                                    <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
-                                        <li><a href="<?= HOME; ?>/usuarios">Usuários</a></li>
-                                        <li><a href="<?= HOME; ?>/processos">Processos</a></li>    
-                                        <li><a href="<?= HOME; ?>/valores">Valores</a></li>
-                                        <li><a href="<?= HOME; ?>/andamentos">Andamentos</a></li>   
-                                        <li><a href="<?= HOME; ?>/arquivo">Arquivos</a></li>
-                                        <li><a href="<?= HOME; ?>/comarca">Comarcas</a></li>
-                                    <?php endif; ?>
+                    <!-- menu lateral -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+
+                            <li><a href="<?= HOME; ?>/home"><i class="fa fa-calendar"></i> Agenda </a></li>              
+                            <li>
+                            <a><i class="fa fa-file-text-o"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                        <li><a href="<?= HOME; ?>/clientes">Clientes</a></li>
+                                        <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
+                                            <li><a href="<?= HOME; ?>/usuarios">Usuários</a></li>
+                                            <li><a href="<?= HOME; ?>/processos">Processos</a></li>    
+
+                                            <li><a href="<?= HOME; ?>/comarca">Comarcas</a></li>
+                                        <?php endif; ?>
+                                </ul>
+                            </li>
+                            <li><a href="#.html"><i class="fa fa-money"></i> Financeiro </a></li>
+
+                            <?php if($viewData['dados_user']['idPerfil'] == 3): ?>
+                            <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="chartjs.html">1</a></li>
+                                    <li><a href="chartjs2.html">2</a></li>
+                                    <li><a href="morisjs.html">3</a></li>
+                                    <li><a href="echarts.html">4</a></li>
+                                    <li><a href="other_charts.html">5</a></li>
+                                </ul>
+                            </li>
+                            <?php endif; ?>
+
                             </ul>
-                    </li>
+                        </div>
+                    </div>
+                    <!-- /menu lateral -->
 
-                    <li><a href="#.html"><i class="fa fa-money"></i> Financeiro </a></li>
-
-                    
-                    <?php if($viewData['dados_user']['idPerfil'] == 3): ?>
-                    <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="chartjs.html">1</a></li>
-                                <li><a href="chartjs2.html">2</a></li>
-                                <li><a href="morisjs.html">3</a></li>
-                                <li><a href="echarts.html">4</a></li>
-                                <li><a href="other_charts.html">5</a></li>
-                            </ul>
-                    </li>
-                    <?php endif; ?>
-                  
-                </ul>
-              </div>
-            
-            </div>
-            <!-- /MENU LATERAL -->
-
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Configrações">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-
-                <a data-toggle="tooltip" data-placement="top" title="Sair" href="<?= HOME; ?>/login/logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?= HOME; ?>/assets/images/img.jpg" alt=""><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?>
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Perfil</a></li>
-                    <li>
-                      <a href="javascript:;">
-
-                        <span>Configurações</span>
+                    <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configrações">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                       </a>
+
+                        <a data-toggle="tooltip" data-placement="top" title="Sair" href="<?= HOME; ?>/login/logout">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                      </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="top_nav">
+              <div class="nav_menu">
+                <nav>
+                  <div class="nav toggle">
+                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                  </div>
+
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="">
+                      <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="<?= HOME; ?>/assets/images/img.jpg" alt=""><?= utf8_encode($viewData['dados_user']['pessoa']['Nome']); ?>
+                        <span class=" fa fa-angle-down"></span>
+                      </a>
+                      <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="javascript:;"> Perfil</a></li>
+                        <li>
+                          <a href="javascript:;">
+
+                            <span>Configurações</span>
+                          </a>
+                        </li>
+
+                        <li><a href="<?= HOME; ?>/login/logout"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+                      </ul>
                     </li>
 
-                    <li><a href="<?= HOME; ?>/login/logout"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                   </ul>
-                </li>
-
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-    <div>
-    <?php $this->loadViewInTemplate($viewName, $viewData); ?>
+                </nav>
+              </div>
+            </div>
+            
+            <div>
+            <?php $this->loadViewInTemplate($viewName, $viewData); ?>
+            </div>
+          
+        </div>   
     </div>
-
 </body>
 </html>
