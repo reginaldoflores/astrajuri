@@ -197,7 +197,7 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
                                     
-                                    <button id="send" type="submit" class="btn btn-primary">Incluir</button>
+                                    <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
                                     
                                     <span id="vemAqui"></span>

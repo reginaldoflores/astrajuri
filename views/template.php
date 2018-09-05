@@ -27,12 +27,6 @@
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
     
-    <!--
-    <link href='<?= HOME; ?>/agenda/css/fullcalendar.min.css' rel='stylesheet' />
-    <link href='<?= HOME; ?>/agenda/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    <link href='<?= HOME; ?>/agenda/css/personalizado.css' rel='stylesheet' />
-    <link href='<?= HOME; ?>/agenda/css/bootstrap.min.css' rel='stylesheet'>-->
-    
     <link href="<?= HOME ?>/assets/css/template.css" rel="stylesheet">
 
     
@@ -129,11 +123,9 @@
                         <li><a href="javascript:;"> Perfil</a></li>
                         <li>
                           <a href="javascript:;">
-
                             <span>Configurações</span>
                           </a>
                         </li>
-
                         <li><a href="<?= HOME; ?>/login/logout"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
                       </ul>
                     </li>
