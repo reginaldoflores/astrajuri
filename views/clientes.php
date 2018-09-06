@@ -13,7 +13,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
-                        <div class="erro">CPF ou CNPJ Inválido</div>
+                        <div class="erro">CPF / CNPJ Inválido</div>
                     <!--<div class="alert alert-danger" role="alert">CPF ou CNPJ Inválido</div>
                         <div class="alert alert-success" role="alert">Cadastrado com Sucesso</div>-->
                             <div class="item form-group">

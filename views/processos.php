@@ -21,21 +21,24 @@
                         <div class="alert alert-success" role="alert">Cadastrado com Sucesso</div>-->
 
                             <div class="col-md-6 col-sm-12 col-xs-12">
-
                                     <div class="x_content">
 
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proc">Número: * </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="cpf_cnpf" type="text" name="proc" size="20"  class="form-control col-md-7 col-xs-12">
+                                                <input id="proc" type="text" name="proc" size="20"  class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="origem">Origem: </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="text" class="form-control col-md-7 col-xs-12"  name="origem" type="text">
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instancia">Instância: </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                            <input type="text" id="instancia" name="instancia" list="listainstancia" class="form-control col-md-7 col-xs-12">
+                                            <datalist id="listainstancia">
+                                                <option value="1ª Instância">1ª Instância</option>
+                                                <option value="2ª Instância">2ª Instância</option>                                              
+                                            </datalist>
+                                        </div>
                                         </div>
 
                                         <div class="item form-group">
@@ -58,7 +61,7 @@
                                                 <input type="text" id="insc_estadual" name="reu"   class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
-
+                                        
                                         <div class="item form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="adv">Advogado: </label>
                                             <div class="col-md-9 col-sm-6 col-xs-12">
@@ -67,7 +70,6 @@
                                         </div>
 
                                     </div>
-
                             </div>
                            
                             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -88,10 +90,16 @@
                                     </div>
 
                                     <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="com">Comarca: </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                    <input type="text" id="com" name="com" size="11" class="form-control col-md-7 col-xs-12">
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comarca">Comarca: </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                            <input type="text" id="comarca" name="comarca" list="listacomarca" class="form-control col-md-7 col-xs-12">
+                                            <datalist id="listacomarca">
+                                                <option value="Regional de Campo Grande">Regional de Campo Grande</option>
+                                                <option value="Regional de Bangu">Regional de Bangu</option>
+                                                <option value="Regional de Santa Cruz">Regional de Santa Cruz</option>
+
+                                            </datalist>
+                                        </div>
                                     </div>
 
                                     <div class="item form-group">
@@ -102,28 +110,35 @@
                                     </div>
 
                                     <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vara">Serventia: </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                    <input type="text" id="vara" name="vara" size="12" class="form-control col-md-7 col-xs-12">
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vara">Vara: </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                            <input type="text" id="vara" name="vara" list="listavara" class="form-control col-md-7 col-xs-12">
+                                            <datalist id="listavara">
+                                                <option value="1ª Vara Cível">1ª Vara Cível</option>
+                                                <option value="2ª Vara Cível">2ª Vara Cível</option>
+                                                
+                                                <option value="1ª Vara de Família">1ª Vara de Família</option>
+                                                <option value="2ª Vara de Família">2ª Vara de Família</option>
+                                                <option value="3ª Vara de Família">3ª Vara de Família</option>
+                                            </datalist>
+                                        </div>
                                     </div>
 
                                     <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Fase: </label>
-                                            <div class="col-md-5 col-sm-3 col-xs-12">
-                                                    <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Fase: </label>
+                                        <div class="col-md-5 col-sm-3 col-xs-12">
+                                                <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
+                                        </div>
                                     </div>
 
                                     <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Conclusão: </label>
-                                            <div class="col-md-5 col-sm-3 col-xs-12">
-                                                    <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
-                                            </div>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Conclusão: </label>
+                                        <div class="col-md-5 col-sm-3 col-xs-12">
+                                                <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
+                                        </div>
                                     </div>
 
                                 </div>
-
                             </div>
                             
                         </div>
@@ -133,11 +148,11 @@
 
                 
                 <!-- Valor-->
-                <div class="col-md-12 col-sm-12 col-xs-12">    
+                <div class="col-md-12 col-sm-12 col-xs-12"> 
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-medium" data-toggle="modal" data-target="#valor">Incluir Valor</button>
+                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#valor">Incluir Valor</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -176,7 +191,7 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-medium" data-toggle="modal"  data-target="#and">Incluir Andamento</button>
+                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#and">Incluir Andamento</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -203,6 +218,7 @@
                                             <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
+                                
                                 <tr>
                                     <td>01/01/2010</td>
                                     <td>
@@ -229,7 +245,7 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-medium" data-toggle="modal"  data-target="#arq">Incluir Arquivo</button>
+                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#arq">Incluir Arquivo</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -250,20 +266,21 @@
                                     <td>Cópia do contrato</td>
 
                                     <td class="actions">
-                                            <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
+                                        <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
+                                
                                 <tr>
                                     <td>04/01/2017</td>
                                     <td>arquivo</td>
                                     <td>Cópia dos documentos pessoais do cliente</td>
 
                                     <td class="actions">
-                                            <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
+                                        <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -271,7 +288,7 @@
                             
                             <div class="ln_solid"></div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-5">
+                                <div class="col-md-12 col-md-offset-5">
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
