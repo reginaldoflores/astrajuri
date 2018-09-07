@@ -60,7 +60,7 @@ $(function (){
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
                         
-                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#vemAqui').css('visibility', 'visible');
                         
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/clientes/del/" + json.cnpj);
                         
@@ -102,7 +102,7 @@ $(function (){
                         $('#estado').val(json.uf);
                         $('#situacao').val("update");
                         
-                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#vemAqui').css('visibility', 'visible');
                         
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/clientes/del/" + json.cpf);
                         

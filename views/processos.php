@@ -24,34 +24,43 @@
                                     <div class="x_content">
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="proc">Número: * </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="numero">Número: * </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input id="proc" type="text" name="proc" size="20"  class="form-control col-md-7 col-xs-12">
+                                                <input id="numero" type="text" name="numero" size="20"  class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
 
                                         <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instancia">Instância: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12"> 
-                                            <input type="text" id="instancia" name="instancia" list="listainstancia" class="form-control col-md-7 col-xs-12">
-                                            <datalist id="listainstancia">
-                                                <option value="1ª Instância">1ª Instância</option>
-                                                <option value="2ª Instância">2ª Instância</option>                                              
-                                            </datalist>
+                                            <select id="instancia" name="instancia" class="form-control col-md-7 col-xs-12">
+                                                <?php foreach($instancias as $instancia): ?>
+                                                <option value="<?= $instancia['idInstancia']; ?>"><?= utf8_encode($instancia['Nome']); ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                         </div>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pos">Posição: </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="posicao">Posição do Cliente: </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
-                                                <input type="pos" id="email" name="pos" class="form-control col-md-7 col-xs-12">
+                                                <select id="posicao" name="posicao" class="form-control col-md-7 col-xs-12">
+                                                    <?php foreach($posicoes as $posicao): ?>
+                                                    <option value="<?= $posicao['idPosicao']; ?>"><?= utf8_encode($posicao['Posicao']); ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="autor">Autor:  </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente">Cliente:  </label>
                                             <div class="col-md-9 col-sm-6 col-xs-12">
-                                                <input type="text" id="autor" name="autor" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" id="cliente" list="listaCliente" name="cliente" class="form-control col-md-7 col-xs-12">
+                                                <datalist id="listaCliente">
+                                                    <?php foreach($clientes as $cliente): ?>
+                                                        <option value="<?= utf8_encode($cliente['Nome']); ?>"><?= $cliente['CPF']; ?></option>
+                                                    <?php endforeach; ?>
+                                                </datalist>
                                             </div>
                                         </div>
 
@@ -94,10 +103,9 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12"> 
                                             <input type="text" id="comarca" name="comarca" list="listacomarca" class="form-control col-md-7 col-xs-12">
                                             <datalist id="listacomarca">
-                                                <option value="Regional de Campo Grande">Regional de Campo Grande</option>
-                                                <option value="Regional de Bangu">Regional de Bangu</option>
-                                                <option value="Regional de Santa Cruz">Regional de Santa Cruz</option>
-
+                                                <?php foreach($comarcas as $comarca): ?>
+                                                <option value="<?= utf8_encode($comarca['Nome']) ?>"><?= utf8_encode($comarca['Nome']); ?></option>
+                                                <?php endforeach; ?>
                                             </datalist>
                                         </div>
                                     </div>
@@ -110,31 +118,34 @@
                                     </div>
 
                                     <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="vara">Vara: </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="varaLista">Vara: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12"> 
-                                            <input type="text" id="vara" name="vara" list="listavara" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" id="varaLista" name="varaLista" list="listavara" class="form-control col-md-7 col-xs-12">
                                             <datalist id="listavara">
-                                                <option value="1ª Vara Cível">1ª Vara Cível</option>
-                                                <option value="2ª Vara Cível">2ª Vara Cível</option>
-                                                
-                                                <option value="1ª Vara de Família">1ª Vara de Família</option>
-                                                <option value="2ª Vara de Família">2ª Vara de Família</option>
-                                                <option value="3ª Vara de Família">3ª Vara de Família</option>
                                             </datalist>
+                                            <span id="comRel"></span>
                                         </div>
                                     </div>
 
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Fase: </label>
                                         <div class="col-md-5 col-sm-3 col-xs-12">
-                                                <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
+                                            <select id="fase" name="fase" class="form-control col-md-7 col-xs-12">
+                                                <?php foreach($fases as $fase): ?>
+                                                <option id="optFase" value="<?= $fase['idStatus']; ?>"><?= utf8_encode($fase['Status']); ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
 
-                                    <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Conclusão: </label>
+                                    <div class="item form-group" id="exibeConclusao" style="display: none;">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="conclusao">Conclusão: </label>
                                         <div class="col-md-5 col-sm-3 col-xs-12">
-                                                <input type="text" id="tel" name="fase"  class="form-control col-md-7 col-xs-12">
+                                            <select name="conclusao" id="conclusao" class="form-control col-md-7 col-xs-12">
+                                                <?php foreach($conclusoes as $conclusao): ?>
+                                                <option value="<?= $conclusao['idConclusao']; ?>"><?= utf8_encode($conclusao['Nome']); ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -484,4 +495,43 @@
 <script src="<?= HOME; ?>/assets/js/custom.min.js"></script>
 
 <script src="<?= HOME; ?>/assets/js/jquery.mask.min.js"></script>
-<script src="<?= HOME; ?>/assets/js/script.js"></script>
+
+<script>
+    $("#comarca").on("change", function(){
+        var comar = $("#comarca").val();
+                    
+        $.ajax({
+            url:'http://localhost/astrajuri/ajax/getVara',
+            type: 'POST',
+            data:{comar:comar},
+            dataType: 'json',
+            success:function(json){
+  
+                if (json.erro === false) {
+               
+                    $("#end").val(json.endereco);
+               
+                    $("#listavara").remove();
+                    $("#comRel").append('<datalist id="listavara"></datalist>');
+               
+                    for (var i = 0; i < json.vara.length; i++) {
+                        $("#listavara").append('<option id="comarcasRelacionadas" value="'+json.vara[i]+'"> ' + json.vara[i] + '</option>');
+                    }
+                    
+                }else{
+                    $(".erro").css('display', 'block');
+                }
+            }
+        });
+    });
+    
+    $("#fase").on("change", function(){
+        
+        var fase = $("#fase option:selected").val();
+                
+        if (fase == 7) {
+            $("#exibeConclusao").css('display', 'block');
+        }
+        
+    });
+</script>

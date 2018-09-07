@@ -47,9 +47,12 @@ class ComarcaController extends Controlador{
         if (isset($_POST['vara']) && !empty($_POST['vara'])) {
                         
             $vara = utf8_decode(addslashes($_POST['vara']));
-            $comc = addslashes($_POST['comarcaLista']);
+            $comNome = addslashes($_POST['comarcaLista']);
             $situacao = addslashes($_POST['situacao']);
             
+            $comar = $com->getComarcaByNome(utf8_decode($comNome));
+            $comc = $comar['idComarca'];
+                        
             if (isset($situacao) && !empty($situacao)) {
                 if ($situacao == "add") {
                     $var->addVara($vara, $comc);
@@ -65,7 +68,7 @@ class ComarcaController extends Controlador{
             }
             
         }
-        
+                
         $dados['varas'] = $var->getVaras();
         $dados['comarcas'] = $com->getComarcas();
         

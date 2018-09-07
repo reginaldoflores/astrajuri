@@ -212,6 +212,7 @@ class ajaxController extends Controlador{
         );
         
         $v = new Vara();
+        $c = new Comarca();
         
         if (isset($_POST['vara']) && !empty($_POST['vara'])) {
             $var = addslashes(utf8_decode($_POST['vara']));
@@ -221,7 +222,43 @@ class ajaxController extends Controlador{
             if (count($vars) > 0) {
                 $dados['varaId'] = $vars['idVara'];
                 $dados['varaNome'] = utf8_encode($vars['Nome']);
-                $dados['varaComarca'] = utf8_encode($vars['Comarca_idComarca']);
+                $comarca = $c->getComarcaById($vars['Comarca_idComarca']);
+                $dados['varaComarca'] = utf8_encode($comarca['Nome']);
+                $dados['erro'] = false;
+            }else{
+                $dados['erro'] = true;
+            }
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+        
+    }
+    
+    public function getVara() {
+        $dados = array(
+            'erro' => true
+        );
+        
+        $v = new Vara();
+        
+        if (isset($_POST['comar']) && !empty($_POST['comar'])) {
+            $comNome = addslashes(utf8_decode($_POST['comar']));
+            
+            $com = new Comarca();
+            
+            $comar = $com->getComarcaByNome($comNome);
+            $idComarca = $comar['idComarca'];
+            $dados['endereco'] = utf8_encode($comar['Endereco']);
+            
+            $vars = $v->getVaraByComarca($idComarca);
+                        
+            if (count($vars) > 0) {
+                                    
+                    foreach ($vars as $vara):
+                        $dados['vara'][] = utf8_encode($vara['Nome']);
+                    endforeach;
                 $dados['erro'] = false;
             }else{
                 $dados['erro'] = true;

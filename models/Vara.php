@@ -49,6 +49,20 @@ class Vara extends Model{
         return $array;
     }
     
+    public function getVaraByComarca($comar) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM vara WHERE Comarca_idComarca = :id");
+        $sql->bindValue(":id", $comar);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
     public function updateVara($vara, $id) {
         $sql = $this->db->prepare("UPDATE vara SET Nome = :nome WHERE idVara = :id");
         $sql->bindValue(":id", $id);

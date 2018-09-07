@@ -63,7 +63,7 @@
                                     <input type="text" id="comarcaLista" name="comarcaLista" list="listacomarca" class="form-control col-md-7 col-xs-12">
                                     <datalist id="listacomarca">
                                         <?php foreach ($comarcas as $comarca): ?>
-                                        <option value="<?= $comarca['idComarca'] ?>"><?= utf8_encode($comarca['Nome']); ?></option>
+                                        <option value="<?= utf8_encode($comarca['Nome']); ?>"><?= utf8_encode($comarca['Nome']); ?></option>
                                         <?php endforeach; ?>
                                     </datalist>
                                 </div>
@@ -75,9 +75,10 @@
                                     <input type="text" id="vara" name="vara" list="varaLista"  class="form-control col-md-7 col-xs-12">
                                     <datalist id="varaLista">
                                         <?php foreach ($varas as $vara): ?>
-                                            <option value="<?= utf8_encode($vara['Nome']) ?>"><?= utf8_encode($vara['Nome']); ?></option>
+                                        <option id="comarcasRelacionadas" value="<?= utf8_encode($vara['Nome']) ?>"><?= utf8_encode($vara['Nome']); ?></option>
                                         <?php endforeach; ?>
                                     </datalist>
+                                    <span id="comRel"></span>
                                 </div>
                             </div>
                             
@@ -93,7 +94,7 @@
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-                                    <span id="vemAqui2"></span>
+                                    <span id="vemAqui2" style="visibility: hidden;"><a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a></span>
                                 </div>
                             </div>
                         </div>
@@ -179,7 +180,52 @@
                         
                         $('#situacao').val("update");
                         
-                        $('#vemAqui2').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#vemAqui2').css('visibility', 'visible');
+                        
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/comarca/delVara/" + json.varaId);
+                        
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Vara<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir esta Vara?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Excluir</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
+                    
+                }else{
+                    $(".erro").css('display', 'block');
+                }
+            }
+        });
+    });
+    
+    // varas relacionadas Comarcas
+    
+    $("#comarcaLista").on("change", function(){
+        var comar = $("#comarcaLista").val();
+                    
+        $.ajax({
+            url:'http://localhost/astrajuri/ajax/getVara',
+            type: 'POST',
+            data:{comar:comar},
+            dataType: 'json',
+            success:function(json){
+  
+                if (json.erro === false) {
+               
+                    $("#varaLista").remove();
+                    $("#comRel").append('<datalist id="varaLista"></datalist>');
+                    
+                    for (var i = 0; i < json.vara.length; i++) {
+                        $("#varaLista").append('<option id="comarcasRelacionadas" value="'+json.vara[i]+'"> ' + json.vara[i] + '</option>');
+                    }
+                    
+                        $('#situacao').val("update");
+                        
+                        $('#vemAqui2').css('visibility', 'visible');
                         
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/comarca/delVara/" + json.varaId);
                         
@@ -202,3 +248,4 @@
     });
 
 </script>
+

@@ -236,7 +236,7 @@
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
 <!--                                    <a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?" style="visibility: hidden;">Excluir</a>-->
-                                    <span id="vemAqui"></span>
+                                    <span id="vemAqui" style="visibility: hidden;"><a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a></span>
                                 </div>
                             </div>
                         </div>
@@ -267,17 +267,13 @@
 <script>
     
 $(document).ready(function(){                        
-        $('#cpf').mask('000.000.000-00');
+        $("#cpf").mask('000.000.000-00');
         $('#tel').mask('(00) 0000-0000');
         $('#celular').mask('(00) 00000-0000');
         $('#cep').mask('00000-000');
         $('#rg').mask('00.000.000-0');
 
-    });
 
-</script>
-
-<script>
 
     $('#cep').blur(function(e) {
         var cep=$('#cep').val();
@@ -348,9 +344,15 @@ $(document).ready(function(){
                             $("#windowOAB").css('display', 'block');
                         }
                         
+                        if (json.nomePerfil != 1) {
+                            $("#windowOAB").css('display', 'block');
+                        }else{
+                            $("#windowOAB").css('display', 'none');
+                        }
+                        
                         $('#situacao').val("update");
                         $('#idUser').val(json.idPF);
-                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#vemAqui').css('visibility', 'visible');
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
                         
                         $('a[data-confirm]').click(function(){
@@ -364,10 +366,12 @@ $(document).ready(function(){
                             return false;
                         });
                         
-                    
+                     
                 }else{
                     $("#erro").css('display', 'block');
                 }
+                $('#cpf').mask('000.000.000-00');
+                $('#cpf').focus();
             }
         });
     });
@@ -408,7 +412,7 @@ $(document).ready(function(){
                         
                         $('#situacao').val("update");
                         $('#idUser').val(json.idPF);
-                        $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
+                        $('#vemAqui').css('visibility', 'visible');
                         $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
                         
                         $('a[data-confirm]').click(function(){
@@ -444,5 +448,5 @@ $(document).ready(function(){
         
     });
     
-
+});
 </script>

@@ -12,7 +12,7 @@ class ClientesController extends Controlador{
         }
         
     }
-    
+        
     public function index(){
         $dados = array();
         $usuario = new Usuario();

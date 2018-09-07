@@ -144,6 +144,19 @@ class Cliente extends Model{
             $sql->execute();
     }
         
+    public function getClientesFull() {
+        $array = array();
+        
+        $sql = $this->db->prepare("select pessoa_fisica.Nome, CPF from pessoa_fisica union select Nome_Fantasia, CNPJ from pessoa_juridica");
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
     public function getClientes() {
         $array = array();
         
