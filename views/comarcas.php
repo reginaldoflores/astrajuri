@@ -28,14 +28,14 @@
                             
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="endereco">Endereço: </label>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="col-md-8 col-sm-6 col-xs-12">
                                     <input type="text" id="endereco" name="endereco"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             
                              <div class="ln_solid"></div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-12">
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
@@ -59,7 +59,7 @@
                             
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comarcaLista">Comarca: </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12"> 
+                                <div class="col-md-4 col-sm-6 col-xs-12"> 
                                     <input type="text" id="comarcaLista" name="comarcaLista" list="listacomarca" class="form-control col-md-7 col-xs-12">
                                     <datalist id="listacomarca">
                                         <?php foreach ($comarcas as $comarca): ?>
@@ -90,7 +90,7 @@
 
                             <div class="ln_solid"></div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-12">
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>

@@ -59,22 +59,36 @@
                                                 <datalist id="listaCliente">
                                                     <?php foreach($clientes as $cliente): ?>
                                                         <option value="<?= utf8_encode($cliente['Nome']); ?>"><?= $cliente['CPF']; ?></option>
+                                                        <input type="hidden" name="idCli" id="idCli" value="<?= $cliente['idContato']; ?>" />
                                                     <?php endforeach; ?>
                                                 </datalist>
                                             </div>
                                         </div>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="reu">Réu: </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pessoa2"><span id="tela1">Autor:</span><span style="display: none;" id="tela2">Réu:</span><span style="display: none;" id="tela3">Requerido:</span><span style="display: none;" id="tela4">Requerente:</span></label>
                                             <div class="col-md-9 col-sm-6 col-xs-12">
-                                                <input type="text" id="insc_estadual" name="reu"   class="form-control col-md-7 col-xs-12">
+                                                <input type="text" id="pessoa2" name="pessoa2"   class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="adv">Advogado: </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado">Advogado (Func): </label>
                                             <div class="col-md-9 col-sm-6 col-xs-12">
-                                                <input type="text" id="adv" name="adv" class="form-control col-md-7 col-xs-12">         
+                                                <input type="text" id="advogado" list="listaAdvogado" name="advogado" class="form-control col-md-7 col-xs-12">
+                                                <datalist id="listaAdvogado">
+                                                    <?php foreach($advogados as $advogado): ?>
+                                                        <option value="<?= utf8_encode($advogado['nome']); ?>"><?= $advogado['OAB']; ?></option>
+                                                        <input type="hidden" name="idAdv" id="idAdv" value="<?= $advogado['idAdvogado']; ?>" />
+                                                    <?php endforeach; ?>
+                                                </datalist>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="item form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado2">Advogado: </label>
+                                            <div class="col-md-7 col-sm-6 col-xs-12">
+                                                    <input type="text" id="advogado2" name="advogado2" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
 
@@ -91,12 +105,7 @@
                                             </div>
                                     </div>
 
-                                    <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="forum">Fórum: </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
-                                                    <input type="text" id="forum" name="forum" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                    </div>
+                                    
 
                                     <div class="item form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="comarca">Comarca: </label>
@@ -313,6 +322,7 @@
                  <!-- / Arquivo-->
             
             </div>
+            <input type="hidden" id="situacao" name="situacao" value="add">
         </form>
     </div>
       
@@ -469,7 +479,6 @@
                             </div>
                         </div>
                     </div>
-
                     <br><br>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -497,6 +506,12 @@
 <script src="<?= HOME; ?>/assets/js/jquery.mask.min.js"></script>
 
 <script>
+    
+    
+    $(document).ready(function(){                        
+        $('#numero').mask('0000000-00.0000.0.00.0000');
+    });
+    
     $("#comarca").on("change", function(){
         var comar = $("#comarca").val();
                     
@@ -531,6 +546,34 @@
                 
         if (fase == 7) {
             $("#exibeConclusao").css('display', 'block');
+        }
+        
+    });
+    
+    $("#posicao").on("change", function(){
+        
+        var fase = $("#posicao option:selected").val();
+                
+        if (fase == 1) {
+            $("#tela1").css('display', 'block');
+            $("#tela2").css('display', 'none');
+            $("#tela3").css('display', 'none');
+            $("#tela4").css('display', 'none');
+        }else if (fase == 2){
+            $("#tela1").css('display', 'none');
+            $("#tela2").css('display', 'block');
+            $("#tela3").css('display', 'none');
+            $("#tela4").css('display', 'none');
+        }else if (fase == 3){
+            $("#tela1").css('display', 'none');
+            $("#tela2").css('display', 'none');
+            $("#tela3").css('display', 'block');
+            $("#tela4").css('display', 'none');
+        }else if (fase == 4){
+            $("#tela1").css('display', 'none');
+            $("#tela2").css('display', 'none');
+            $("#tela3").css('display', 'none');
+            $("#tela4").css('display', 'block');
         }
         
     });

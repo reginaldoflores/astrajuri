@@ -147,7 +147,7 @@ class Cliente extends Model{
     public function getClientesFull() {
         $array = array();
         
-        $sql = $this->db->prepare("select pessoa_fisica.Nome, CPF from pessoa_fisica union select Nome_Fantasia, CNPJ from pessoa_juridica");
+        $sql = $this->db->prepare("select Nome,  CPF, (select contato.idContato from contato where contato.idContato = pessoa_fisica.Contato_idContato) as idContato  from pessoa_fisica union select Nome_Fantasia, CNPJ, (select contato.idContato from contato where contato.idContato = pessoa_juridica.Contato_idContato) as idContato from pessoa_juridica;");
         $sql->execute();
         
         if ($sql->rowCount() > 0) {
@@ -227,6 +227,34 @@ class Cliente extends Model{
         return $array;
     }
     
+//    public function getClientePFByName($nome) {
+//        $array = array();
+//        
+//        $sql = $this->db->prepare("SELECT * FROM pessoa_fisica WHERE Nome = :nome");
+//        $sql->bindValue(":nome", $nome);
+//        $sql->execute();
+//        
+//        if ($sql->rowCount() > 0) {
+//            $array = $sql->fetch();
+//        }
+//        
+//        return $array;
+//    }
+//    
+//    public function getClientePJByName($nome) {
+//        $array = array();
+//        
+//        $sql = $this->db->prepare("SELECT * FROM pessoa_juridica WHERE Nome = :nome");
+//        $sql->bindValue(":nome", $nome);
+//        $sql->execute();
+//        
+//        if ($sql->rowCount() > 0) {
+//            $array = $sql->fetch();
+//        }
+//        
+//        return $array;
+//    }
+//    
     public function getTelefoneByContato($id) {
         $array = array();
         

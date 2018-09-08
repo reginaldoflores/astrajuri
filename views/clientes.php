@@ -246,11 +246,6 @@
 
     });
 
-
-</script>
-
-<script>
-
     $('#cep').blur(function(e) {
         var cep=$('#cep').val();
         var url="http://viacep.com.br/ws/" + cep + "/json/";
