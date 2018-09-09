@@ -68,7 +68,7 @@
                                         <li><a href="<?= HOME; ?>/clientes">Clientes</a></li>
                                         <?php if($viewData['dados_user']['idPerfil'] != 1): ?>
                                             <li><a href="<?= HOME; ?>/usuarios">Usuários</a></li>
-                                            <li><a href="<?= HOME; ?>/processo">Processos</a></li>    
+                                            <li><a href="<?= HOME; ?>/processofull">Processos</a></li>    
 
                                             <li><a href="<?= HOME; ?>/comarca">Comarcas</a></li>
                                         <?php endif; ?>
