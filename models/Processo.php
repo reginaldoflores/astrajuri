@@ -14,6 +14,20 @@ class Processo extends Model{
         return $array;
     }
     
+    public function getProcessoByNum($num) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM status_processo");
+        $sql->bindValue(":num", $num);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
     public function getFases() {
         $array = array();
         
@@ -33,6 +47,29 @@ class Processo extends Model{
         
         if ($sql->rowCount() > 0) {
             $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
+    public function getClienteByNome($nome) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM pessoa_fisica WHERE Nome = :nome");
+        $sql->bindValue(":nome", $nome);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }else{
+            $sql = $this->db->prepare("SELECT * FROM pessoa_jurica WHERE Nome_Fantasia = :nome");
+            $sql->bindValue(":nome", $nome);
+            $sql->execute();
+            
+            if ($sql->rowCount() > 0) {
+                $array = $sql->fetch();
+            }
+            
         }
         
         return $array;

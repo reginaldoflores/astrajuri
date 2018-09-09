@@ -59,7 +59,6 @@
                                                 <datalist id="listaCliente">
                                                     <?php foreach($clientes as $cliente): ?>
                                                         <option value="<?= utf8_encode($cliente['Nome']); ?>"><?= $cliente['CPF']; ?></option>
-                                                        <input type="hidden" name="idCli" id="idCli" value="<?= $cliente['idContato']; ?>" />
                                                     <?php endforeach; ?>
                                                 </datalist>
                                             </div>

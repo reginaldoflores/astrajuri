@@ -271,4 +271,32 @@ class ajaxController extends Controlador{
         
     }
     
+    public function processo() {
+        $dados = array(
+            'erro' => TRUE
+        );
+        
+        if (isset($_POST['numero']) && !empty($_POST['numero'])) {
+            $numero = preg_replace("/[^0-9]/", "", addslashes($_POST['numero']));
+            
+//            numero
+//            instancia
+//            posicao
+//            cliente
+//            pessoa2
+//            adv
+//            adv2
+//            juiz
+//            vara
+//            fase
+//            conclusao
+            
+            
+            
+        }
+        
+        echo json_encode($dados);
+        exit;
+    }
+    
 }

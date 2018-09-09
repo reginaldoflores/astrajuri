@@ -147,7 +147,7 @@ class Cliente extends Model{
     public function getClientesFull() {
         $array = array();
         
-        $sql = $this->db->prepare("select Nome,  CPF, (select contato.idContato from contato where contato.idContato = pessoa_fisica.Contato_idContato) as idContato  from pessoa_fisica union select Nome_Fantasia, CNPJ, (select contato.idContato from contato where contato.idContato = pessoa_juridica.Contato_idContato) as idContato from pessoa_juridica;");
+        $sql = $this->db->prepare("select Contato_idContato, Nome,  CPF, (select contato.idContato from contato where contato.idContato = pessoa_fisica.Contato_idContato) as idContato  from pessoa_fisica union select Contato_idContato, Nome_Fantasia, CNPJ, (select contato.idContato from contato where contato.idContato = pessoa_juridica.Contato_idContato) as idContato from pessoa_juridica");
         $sql->execute();
         
         if ($sql->rowCount() > 0) {
