@@ -283,6 +283,20 @@ class Cliente extends Model{
         return $array;
     }
     
+    public function getPessoaFisicaById($id) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM pessoa_fisica WHERE idPessoa_Fisica = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
     public function getPessoaFisicaByContato($contato) {
         $array = array();
         

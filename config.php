@@ -8,12 +8,12 @@ global $config;
 $config = array();
 
 if(ENVIRONMENT == "development"):
-    $config['dbname']   =   "mydb";
+    $config['dbname']   =   "astrajuri";
     $config['host']     =   "localhost";
     $config['dbuser']   =   "root";
     $config['dbpass']   =   "";
 else:
-    $config['dbname']   =   "mydb";
+    $config['dbname']   =   "astrajuri";
     $config['host']     =   "localhost";
     $config['dbuser']   =   "root";
     $config['dbpass']   =   "";

@@ -133,7 +133,7 @@ class ajaxController extends Controlador{
         $c = new Cliente();
         
         if (isset($_POST['pessoa']) && !empty($_POST['pessoa'])) {
-            $oab = preg_replace("/[^0-9]/", "", addslashes($_POST['pessoa']));
+            $oab = addslashes($_POST['pessoa']);
                         
             $usuario = new Usuario();
             
@@ -278,21 +278,44 @@ class ajaxController extends Controlador{
         
         if (isset($_POST['numero']) && !empty($_POST['numero'])) {
             $numero = preg_replace("/[^0-9]/", "", addslashes($_POST['numero']));
+
+            $processo = new Processo();
+            $c = new Cliente();
+            $vara = new Vara();
+            $comarca = new Comarca();
             
-//            numero
-//            instancia
-//            posicao
-//            cliente
-//            pessoa2
-//            adv
-//            adv2
-//            juiz
-//            vara
-//            fase
-//            conclusao
+            $proc = $processo->getProcessoByNum($numero);
             
+            $cliente = $processo->getClienteByContato($proc['idContato']);
+            $advogado = $processo->getAdvogadoById($proc['idAdvogado']);
+            $dadosAdvogado = $c->getPessoaFisicaById($advogado['PF']);
+            $var = $vara->getVaraById($proc['idVara']);
+            $comc = $comarca->getComarcaById($var['Comarca_idComarca']);
             
+            //------------------------//
             
+            $dados['numero'] = utf8_encode($proc['NumeroProcesso']);
+            
+            $dados['posicao'] = $proc['idPosicao'];
+            
+            if ($dados['posicao'] == 1 || $dados['posicao'] == 2) {
+                $dados['instancia'] = 1;
+            }else{
+                $dados['instancia'] = 2;
+            }
+            $dados['cliente'] = utf8_encode($cliente['Nome']);
+            $dados['comarca'] = utf8_encode($comc['Nome']);
+            $dados['endereco'] = utf8_encode($comc['Endereco']);
+            $dados['vara'] = utf8_encode($var['Nome']);
+            $dados['advogado'] = utf8_encode($dadosAdvogado['Nome']);
+            $dados['pessoa2'] = utf8_encode($proc['pessoa2']);
+            $dados['advogado2'] = utf8_encode($proc['advogado2']);
+            $dados['juiz'] = utf8_encode($proc['Juiz']);
+            $dados['fase'] = $proc['idStatus_Processo'];
+            $dados['conclusao'] = $proc['Conclusao_idConclusao'];
+            $dados['idProcesso'] = $proc['idProcesso'];
+            $dados['idVara'] = $proc['idVara'];
+            $dados['erro'] = false;
         }
         
         echo json_encode($dados);

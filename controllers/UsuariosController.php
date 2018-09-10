@@ -13,7 +13,7 @@ class UsuariosController extends Controlador{
         
         $dados = $usuario->getDadosUser();
         
-        if ($dados['idPerfil'] == 1) {
+        if ($dados['idPerfil'] != 3) {
             header("Location: ".HOME);
         }
     }

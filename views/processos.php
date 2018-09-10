@@ -31,9 +31,10 @@
                                         </div>
 
                                         <div class="item form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instancia">Instância: </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instancia">Origem: </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12"> 
                                             <select id="instancia" name="instancia" class="form-control col-md-7 col-xs-12">
+                                                <option value="0" disabled selected=""></option>
                                                 <?php foreach($instancias as $instancia): ?>
                                                 <option value="<?= $instancia['idInstancia']; ?>"><?= utf8_encode($instancia['Nome']); ?></option>
                                                 <?php endforeach; ?>
@@ -42,11 +43,12 @@
                                         </div>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="posicao">Posição do Cliente: </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="posicao">Posição: </label>
                                             <div class="col-md-4 col-sm-6 col-xs-12">
                                                 <select id="posicao" name="posicao" class="form-control col-md-7 col-xs-12">
+                                                    <option value="0" disabled selected=""></option>
                                                     <?php foreach($posicoes as $posicao): ?>
-                                                    <option value="<?= $posicao['idPosicao']; ?>"><?= utf8_encode($posicao['Posicao']); ?></option>
+                                                        <option value="<?= $posicao['idPosicao']; ?>"><?= utf8_encode($posicao['Posicao']); ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -72,7 +74,7 @@
                                         </div>
                                         
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado">Advogado (Func): </label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado">Advogado(s): </label>
                                             <div class="col-md-9 col-sm-6 col-xs-12">
                                                 <input type="text" id="advogado" list="listaAdvogado" name="advogado" class="form-control col-md-7 col-xs-12">
                                                 <datalist id="listaAdvogado">
@@ -85,8 +87,8 @@
                                         </div>
                                         
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado2">Advogado: </label>
-                                            <div class="col-md-7 col-sm-6 col-xs-12">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="advogado2"> </label>
+                                            <div class="col-md-9 col-sm-6 col-xs-12">
                                                     <input type="text" id="advogado2" name="advogado2" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
@@ -132,6 +134,7 @@
                                             <datalist id="listavara">
                                             </datalist>
                                             <span id="comRel"></span>
+                                            <input type="hidden" value="0" name="idVara" id="idVara"/>
                                         </div>
                                     </div>
 
@@ -139,6 +142,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fase">Fase: </label>
                                         <div class="col-md-5 col-sm-3 col-xs-12">
                                             <select id="fase" name="fase" class="form-control col-md-7 col-xs-12">
+                                                <option value="0" disabled selected=""></option>
                                                 <?php foreach($fases as $fase): ?>
                                                 <option id="optFase" value="<?= $fase['idStatus']; ?>"><?= utf8_encode($fase['Status']); ?></option>
                                                 <?php endforeach; ?>
@@ -146,10 +150,13 @@
                                         </div>
                                     </div>
 
+                                    <input type="hidden" value="0" name="idProc" id="idProc"/>
+                                    
                                     <div class="item form-group" id="exibeConclusao" style="display: none;">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="conclusao">Conclusão: </label>
                                         <div class="col-md-5 col-sm-3 col-xs-12">
                                             <select name="conclusao" id="conclusao" class="form-control col-md-7 col-xs-12">
+                                                <option value="0" disabled selected=""></option>
                                                 <?php foreach($conclusoes as $conclusao): ?>
                                                 <option value="<?= $conclusao['idConclusao']; ?>"><?= utf8_encode($conclusao['Nome']); ?></option>
                                                 <?php endforeach; ?>
@@ -307,11 +314,11 @@
                             
                             <div class="ln_solid"></div>
                             <div class="form-group">
-                                <div class="col-md-12 col-md-offset-5">
+                                <div class="col-md-12">
                                     
                                     <button id="send" type="submit" class="btn btn-primary">Salvar</button>
                                     <button type="reset" class="btn btn-default">Cancelar</button>
-
+                                    <span id="vemAqui2" style="visibility: hidden;"><a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a></span>
                                 </div>
                             </div>
 
@@ -524,13 +531,65 @@
                 if (json.erro === false) {
                
                     $("#end").val(json.endereco);
-               
                     $("#listavara").remove();
                     $("#comRel").append('<datalist id="listavara"></datalist>');
-               
+                    
                     for (var i = 0; i < json.vara.length; i++) {
                         $("#listavara").append('<option id="comarcasRelacionadas" value="'+json.vara[i]+'"> ' + json.vara[i] + '</option>');
                     }
+                    
+                }
+            }
+        });
+    });
+    
+    $("#numero").on("change", function(){
+        var numero = $("#numero").val();
+                    
+        $.ajax({
+            url:'http://localhost/astrajuri/ajax/processo',
+            type: 'POST',
+            data:{numero:numero},
+            dataType: 'json',
+            success:function(json){
+  
+                if (json.erro === false) {
+               
+                    $("#numero").val(json.numero);
+                    $("#instancia").val(json.instancia);
+                    $("#posicao").val(json.posicao);
+                    $("#cliente").val(json.cliente);
+                    $("#pessoa2").val(json.pessoa2);
+                    $("#advogado").val(json.advogado);
+                    $("#juiz").val(json.juiz);
+                    $("#fase").val(json.fase);
+                    $("#advogado2").val(json.advogado2);
+                    $("#varaLista").val(json.vara);
+                    $("#comarca").val(json.comarca);
+                    $("#end").val(json.endereco);
+                    $("#idProc").val(json.idProcesso);
+                    $("#idVara").val(json.idVara);
+                    $("#situacao").val("update");
+                    
+                    if (json.fase == 7) {
+                        $("#conclusao").val(json.conclusao);
+                        $("#exibeConclusao").css('display', 'block');
+                    }
+               
+                    $('#vemAqui2').css('visibility', 'visible');
+                        
+                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/processofull/del/" + json.idProcesso);
+                        
+                        $('a[data-confirm]').click(function(){
+                            var href = $(this).attr('href');
+                            
+                            if (!$('#confirm-delete').length) {
+                                $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Processo<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir este Processo?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Excluir</a></div></div></div></div>');
+                            }
+                            $('#dataConfirmOk').attr('href', href);
+                            $('#confirm-delete').modal({show:true});
+                            return false;
+                        });
                     
                 }else{
                     $(".erro").css('display', 'block');
@@ -545,6 +604,8 @@
                 
         if (fase == 7) {
             $("#exibeConclusao").css('display', 'block');
+        }else{
+            $("#exibeConclusao").css('display', 'none');
         }
         
     });
