@@ -90,6 +90,7 @@
                     </div>
                   </div>
                 </div>
+                <div data-spy="scroll" id="item2"></div>
             </div>
             
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -102,7 +103,6 @@
             </a>
         </div>
 
-        <div data-spy="scroll" id="item2"></div>
         
         <div class="container marketing">
 
