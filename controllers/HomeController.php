@@ -19,7 +19,9 @@ class HomeController extends Controlador{
                 
         //-----------------------------------------------------------------//
         
+        $celke = new Celke();
         
+        $dados['eventos'] = $celke->getTodosEventos();
         $this->loadTemplate("home", $dados);
     }
 

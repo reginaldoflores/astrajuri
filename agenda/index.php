@@ -3,6 +3,7 @@ session_start();
 include_once("conexao.php");
 $result_events = "SELECT id, title, color, start, end FROM events";
 $resultado_events = mysqli_query($conn, $result_events);
+print_r($resultado_events);exit;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -116,7 +117,7 @@ $resultado_events = mysqli_query($conn, $result_events);
 			}
 			?>
 		
-			<div id='calendar'></div>
+                    <div id='calendar'></div>
 		</div>
 
 		<div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static">
