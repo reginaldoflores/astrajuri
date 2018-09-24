@@ -118,10 +118,24 @@ class Processo extends Model{
     public function getAdvogadosFull() {
         $array = array();
         
-        $sql = $this->db->query("select *, (select (select pessoa_fisica.Nome from pessoa_fisica where usuario.Pessoa_Fisica_idPessoa_Fisica = pessoa_fisica.idPessoa_Fisica) as nome from usuario where usuario.idUsuario = advogado.Usuario_idUsuario) as nome from advogado;");
+        $sql = $this->db->query("select *, (select (select pessoa_fisica.Nome from pessoa_fisica where usuario.Pessoa_Fisica_idPessoa_Fisica = pessoa_fisica.idPessoa_Fisica) as nome from usuario where usuario.idUsuario = advogado.Usuario_idUsuario) as nome from advogado");
         
         if ($sql->rowCount() > 0) {
             $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
+    public function getAdvogadosFullById($id) {
+        $array = array();
+        
+        $sql = $this->db->prepare("select *, (select (select pessoa_fisica.Nome from pessoa_fisica where usuario.Pessoa_Fisica_idPessoa_Fisica = pessoa_fisica.idPessoa_Fisica) as nome from usuario where usuario.idUsuario = advogado.Usuario_idUsuario) as nome from advogado WHERE idAdvogado = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
         }
         
         return $array;

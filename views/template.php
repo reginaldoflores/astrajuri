@@ -28,6 +28,7 @@
     <link href="<?= HOME; ?>/assets/bootstrap/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
     
     <link href="<?= HOME ?>/assets/css/template.css" rel="stylesheet">
+    <link href='<?= HOME; ?>/assets/cssCK/personalizado.css' rel='stylesheet' />
 
     
 </head>
