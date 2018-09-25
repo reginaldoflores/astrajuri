@@ -178,7 +178,7 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#valor">Incluir Valor</button>
+                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#valor">Incluir Valor</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -201,8 +201,8 @@
                                     
                                     <td class="actions">
                                             <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -217,7 +217,7 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#and">Incluir Andamento</button>
+                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#and">Incluir Andamento</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -240,8 +240,8 @@
                                     </td>
                                     <td class="actions">
                                             <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                                 
@@ -254,8 +254,8 @@
                                     </td>
                                     <td class="actions">
                                             <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -271,7 +271,7 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#arq">Incluir Arquivo</button>
+                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#arq">Incluir Arquivo</button>
                         </div>   
                         <hr>
                         <div class="x_content">
@@ -293,8 +293,8 @@
 
                                     <td class="actions">
                                         <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                        <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                        <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                                 
@@ -305,8 +305,8 @@
 
                                     <td class="actions">
                                         <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                        <a class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
+                                        <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -316,9 +316,15 @@
                             <div class="form-group">
                                 <div class="col-md-12">
                                     
-                                    <button id="send" type="submit" class="btn btn-primary">Salvar</button>
-                                    <button type="reset" class="btn btn-default">Cancelar</button>
+                                    <button id="btnPrint" id="send" type="submit" class="btn btn-primary">Salvar</button>
+                                    
+                                    <button id="btnPrint" type="reset" class="btn btn-default">Cancelar</button>
+                                    
                                     <span id="vemAqui2" style="visibility: hidden;"><a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a></span>
+                                    
+                                    <button id="btnPrint" name="print" type="button" class="btn btn-default" value="Imprimir" ONCLICK="varitext()">Imprimir</button>
+
+                                   
                                 </div>
                             </div>
 
@@ -487,8 +493,8 @@
                     </div>
                     <br><br>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
                     </div>
 
                 </div>
@@ -637,4 +643,24 @@
         }
         
     });
+ 
+
 </script>
+
+    
+<script>
+    function varitext(text){
+        text=document
+        print(text)
+    }
+</script>
+
+<style>
+@media print {
+    
+    nav, footer, #btnPrint{ 
+    display:none; 
+    }
+
+}
+</style>
