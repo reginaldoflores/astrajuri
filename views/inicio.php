@@ -17,24 +17,19 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <div class="navbar nav_title" style="border: 0;">
-                    <h4><a href="" class="site_title"><i class="fa fa-paw"></i> Astrajuri!</a></h4>
+                <div class="navbar " >
+                    <h4><a href="" class="site_title"><i class=""></i> Astrajuri!</a></h4>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#item1">Inicio</a>
-                      </li>
                       <li class="nav-item active">
                         <a class="nav-link" href="#item2">Sobre</a> 
                       </li>
                       <li class="nav-item active">
                         <a class="nav-link" href="#item3">Contato</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Manual</a>
-                      </li>
+                      
                     </ul>
 
                     <form method="post" class="form-inline mt-2 mt-md-0"> 
