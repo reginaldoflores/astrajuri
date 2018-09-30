@@ -69,9 +69,13 @@ class HomeController extends Controlador{
                 $end_sem_barra = $data_sem_barra . " " . $hora;
                 
                 $comp->updateComprimisso($compromisso, $cor, $start_sem_barra, $end_sem_barra, $texto, $cli['Contato_idContato'], $idAdvogado, $dados['dados_user']['idUsuario'], $idCompromisso);
+                
+                 header("Location: ".HOME);
+                
                 }else{
                     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao editar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
                 }
+               
                 
             }else{
                 if(!empty($compromisso) && !empty($cor) && !empty($start) && !empty($end) && !empty($texto) && !empty($idAdvogado)){
@@ -90,6 +94,9 @@ class HomeController extends Controlador{
                     $end_sem_barra = $data_sem_barra . " " . $hora;
                     
                     $comp->addComprimisso($compromisso, $cor, $start_sem_barra, $end_sem_barra, $texto, $cli['Contato_idContato'], $idAdvogado, $dados['dados_user']['idUsuario']);
+                    
+                     header("Location: ".HOME);
+                    
                 }else{
                     $_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao cadastrar o evento <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
                 }
