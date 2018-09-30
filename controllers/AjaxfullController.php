@@ -1,6 +1,6 @@
 <?php
 
-class ajaxController extends Controlador{
+class AjaxfullController extends Controlador{
     
      public function __construct() {
         parent::__construct();
@@ -303,6 +303,7 @@ class ajaxController extends Controlador{
             }else{
                 $dados['instancia'] = 2;
             }
+            
             $dados['cliente'] = utf8_encode($cliente['Nome']);
             $dados['comarca'] = utf8_encode($comc['Nome']);
             $dados['endereco'] = utf8_encode($comc['Endereco']);
@@ -315,6 +316,40 @@ class ajaxController extends Controlador{
             $dados['conclusao'] = $proc['Conclusao_idConclusao'];
             $dados['idProcesso'] = $proc['idProcesso'];
             $dados['idVara'] = $proc['idVara'];
+            
+            $despesas = $processo->getDespesaByProcesso($proc['idProcesso']);
+            
+            $dados['qtdDespesas'] = count($despesas);
+                        
+            foreach ($despesas as $desp):
+                $dados['tipodesp'][] = $desp['Tipo'];
+                $dados['valordesp'][] = $desp['Valor'];
+                $dados['datadesp'][] = $desp['DataDespesa'];
+                $dados['notasdesp'][] = $desp['Descricao'];
+                $dados['iddesp'][] = $desp['idDespesas'];
+            endforeach;
+            
+            $andamento = $processo->getAndamentoByProcesso($proc['idProcesso']);
+            
+            $dados['qtdAndamento'] = count($andamento);
+                        
+            foreach ($andamento as $and):
+                $dados['dataAndamento'][] = $and['DataAndamento'];
+                $dados['textoAndamento'][] = $and['Texto'];
+                $dados['idAndamento'][] = $and['idAndamento'];
+            endforeach;
+            
+            $arquivo = $processo->getArquivoByProcesso($proc['idProcesso']);
+            
+            $dados['qtdArquivo'] = count($arquivo);
+                        
+            foreach ($arquivo as $arq):
+                $dados['dataAndamento'][] = $arq['DataArquivo'];
+                $dados['nomeArquivo'][] = $arq['Arquivo'];
+                $dados['textoDescricao'][] = $arq['Descricao'];
+                $dados['idArquivo'][] = $arq['idArquivo'];
+            endforeach;
+            
             $dados['erro'] = false;
         }
         
