@@ -53,7 +53,7 @@
             
             $cli = $processo->getClienteByNome($clienteNome);
             $idCliente = $cli['Contato_idContato'];
-            
+             
             if (isset($situacao) && !empty($situacao)) {
                 if ($situacao == "add") {
                     $processo->addProcesso($numero, $juiz, $idAdvogado, $advogado2, $idCliente, $pessoa2, $fase, $idVara, $posicao);
@@ -61,16 +61,97 @@
                 }elseif ($situacao == "update") {
                     if (isset($_POST['idProc']) && !empty($_POST['idProc'])) {
                         $idProcesso = addslashes($_POST['idProc']);
+                        
+                        // DESPESAS
+                        if (isset($_POST['tipo-despesa']) && !empty($_POST['tipo-despesa'])) {
+                            $tipoDespesa = $processo->getTipoDespesaByNome(utf8_decode(addslashes($_POST['tipo-despesa'])));
+                            $despesa = $tipoDespesa['idTipo_Despesas'];
+                            $dataDespesa = addslashes($_POST['data-despesa']);
+                            $valorDespesa = addslashes($_POST['valor-despesa']);
+                            $notasDespesa = utf8_decode(addslashes($_POST['valor-notas']));
+                            $processo->addDespesa($valorDespesa, $notasDespesa, $dataDespesa, $despesa, $idProcesso);
+                        } elseif(isset ($_POST['idIncValor']) && !empty ($_POST['idIncValor'])) {
+                            $idDespesa = addslashes($_POST['idIncValor']);
+                            $tipoDespesaEdit = $processo->getTipoDespesaByNome(utf8_decode(addslashes($_POST['tipo-despesaEdit'])));
+                            $despesaEdit = $tipoDespesaEdit['idTipo_Despesas'];
+                            $dataDespesaEdit = addslashes($_POST['data-despesaEdit']);
+                            $valorDespesaEdit = addslashes($_POST['valor-despesaEdit']);
+                            $notasDespesaEdit = utf8_decode(addslashes($_POST['valor-notasEdit']));
+                            $processo->editDespesa($valorDespesaEdit, $notasDespesaEdit, $dataDespesaEdit, $despesaEdit, $idProcesso, $idDespesa);
+                        }
+                        
+                        // ANDAMENTO
+                        if (isset($_POST['dataAndamento']) && !empty($_POST['dataAndamento'])) {
+                            $dataAndamento = addslashes['dataAndamento'];
+                            $textoAndamento = utf8_decode(addslashes['textoDescricao']);
+                            $processo->addAndamento($dataAndamento, $textoAndamento, $idProcesso);
+                        } elseif(isset ($_POST['idAndamento']) && !empty ($_POST['idAndamento'])) {
+                            $idAndamento = addslashes($_POST['idAndamento']);
+                            $dataAndamentoEdit = addslashes($_POST['dataAndamentoEdit']);
+                            $textoAndamentoEdit = utf8_decode(addslashes($_POST['textoDescricaoEdit']));
+                            $processo->editAndamento($dataAndamentoEdit, $textoAndamentoEdit, $idProcesso, $idAndamento);
+                        }
+                        
+                        // ARQUIVO
+                        if (isset($_POST['dataArquivo']) && !empty($_POST['dataArquivo'])) {
+                            $dataArquivo = addslashes($_POST['dataArquivo']);
+                            $descricaoArquivo = utf8_decode(addslashes($_POST['descricaoArquivo']));
+                                             
+                            if (isset($_FILES['arquivo']) && !empty($_FILES['arquivo']['tmp_name'])) {
+            
+                                $formatos = array('application/pdf');
+
+                                if (in_array($_FILES['arquivo']['type'], $formatos)) {
+
+                                    $nome = md5($_FILES['arquivo']['name'].time().rand(0,999)).'.pdf';
+
+                                    move_uploaded_file($_FILES['arquivo']['tmp_name'], 'assets/arquivos/'.$nome);
+
+                                }
+
+                            }
+                            
+                            
+                            $processo->addArquivo($dataArquivo, $descricaoArquivo, $nome, $idProcesso);
+                        } elseif(isset ($_POST['idArquivo']) && !empty ($_POST['idArquivo'])) {
+                            $idArquivo = addslashes($_POST['idArquivo']);
+                            $dataArquivoEdit = addslashes($_POST['dataArquivoEdit']);
+                            $descricaoArquivoEdit = utf8_decode(addslashes($_POST['descricaoArquivoEdit']));
+                            
+                            $arquivoAntetior = addslashes($_POST['arquivoAnteriorEdit']);
+                            
+                            if (isset($_FILES['arquivoEdit']) && !empty($_FILES['arquivoEdit']['tmp_name'])) {
+            
+                                $formatos = array('application/pdf');
+
+                                if (in_array($_FILES['arquivoEdit']['type'], $formatos)) {
+
+                                    $nome = md5($_FILES['arquivoEdit']['name'].time().rand(0,999)).'.pdf';
+
+                                    move_uploaded_file($_FILES['arquivoEdit']['tmp_name'], 'assets/arquivos/'.$nome);
+                                    
+                                    unlink("assets/arquivos/".$arquivoAntetior);
+                                    
+                                    $processo->editArquivo($dataArquivoEdit, $descricaoArquivoEdit, $nome, $idProcesso, $idArquivo);
+
+                                }
+
+                            }else{
+                                $processo->editSemArquivo($dataArquivoEdit, $descricaoArquivoEdit, $idProcesso, $idArquivo);
+                            }
+                            
+                        }
+                        
                         $processo->editProcesso($numero, $juiz, $idAdvogado, $advogado2, $idCliente, $pessoa2, $fase, $idVara, $posicao, $conclusao, $idProcesso);
                         header("Location: ".HOME."/processofull");
-                        
                     }
-                    
                 }
             }
             
+            
         }
         
+        $dados['despesas'] = $processo->getDespesas();
         $dados['clientes'] = $cliente->getClientesFull();
         $dados['conclusoes'] = $processo->getConclusoes();
         $dados['advogados'] = $processo->getAdvogadosFull();
@@ -86,6 +167,27 @@
     public function del($idProcesso) {
         $processo = new Processo();
         $processo->delProcesso($idProcesso);
+        header("Location: ".HOME."/processofull");
+    }
+    public function deldespesa($idDepesa) {
+        $processo = new Processo();
+        $processo->delDespesa($idDepesa);
+        header("Location: ".HOME."/processofull");
+    }
+    
+    public function delandamento($idandamento) {
+        $processo = new Processo();
+        $processo->delAndamento($idandamento);
+        header("Location: ".HOME."/processofull");
+    }
+    
+    public function delarquivo($idarquivo) {
+        $processo = new Processo();
+        
+        $arquivo = $processo->getArquivoById($idarquivo);
+        unlink("assets/arquivos/".$arquivo['Arquivo']);
+                
+        $processo->delArquivo($idarquivo);
         header("Location: ".HOME."/processofull");
     }
     

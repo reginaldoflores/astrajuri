@@ -14,6 +14,18 @@ class Processo extends Model{
         return $array;
     }
     
+    public function getDespesas() {
+        $array = array();
+        
+        $sql = $this->db->query("SELECT * FROM tipo_despesas");
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
     public function getProcessoByNum($num) {
         $array = array();
         
@@ -69,6 +81,38 @@ class Processo extends Model{
             if ($sql->rowCount() > 0) {
                 $array = $sql->fetch();
             }
+            
+        }
+        
+        return $array;
+    }
+    
+    public function getTipoDespesaByNome($nome) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM tipo_despesas WHERE Tipo = :nome");
+        $sql->bindValue(":nome", $nome);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }else{
+            
+        }
+        
+        return $array;
+    }
+    
+    public function getDespesaByProcesso($processo) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM astrajuri.despesas as desp left join tipo_despesas as t on t.idTipo_Despesas = desp.idTipo_Despesa WHERE idProcesso = :id");
+        $sql->bindValue(":id", $processo);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }else{
             
         }
         
@@ -157,6 +201,37 @@ class Processo extends Model{
         
     }
     
+    public function addDespesa($valor, $descricao, $DataDespesa, $idTipo_Despesa, $idProcesso) {
+        
+        $sql = $this->db->prepare("INSERT INTO despesas SET Valor = :valor, Descricao = :descricao, DataDespesa = :dataDesp, idTipo_Despesa = :tipo, idProcesso = :processo");
+        $sql->bindvalue(":valor", $valor);
+        $sql->bindvalue(":descricao", $descricao);
+        $sql->bindvalue(":dataDesp", $DataDespesa);
+        $sql->bindvalue(":tipo", $idTipo_Despesa);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->execute();
+        
+    }
+    
+    public function editDespesa($valor, $descricao, $DataDespesa, $idTipo_Despesa, $idProcesso, $idDespesa) {
+        
+        $sql = $this->db->prepare("UPDATE despesas SET Valor = :valor, Descricao = :descricao, DataDespesa = :dataDesp, idTipo_Despesa = :tipo WHERE idDespesas = :idDesp AND idProcesso = :processo");
+        $sql->bindValue(":valor", $valor);
+        $sql->bindValue(":descricao", $descricao);
+        $sql->bindValue(":dataDesp", $DataDespesa);
+        $sql->bindValue(":tipo", $idTipo_Despesa);
+        $sql->bindValue(":processo", $idProcesso);
+        $sql->bindValue(":idDesp", $idDespesa);
+        $sql->execute();
+    }
+    
+    public function delDespesa($idDespesa) {
+        
+        $sql = $this->db->prepare("DELETE FROM despesas WHERE idDespesas = :idDesp");
+        $sql->bindValue(":idDesp", $idDespesa);
+        $sql->execute();
+    }
+    
     public function editProcesso($num, $juiz, $adv, $adv2, $cliente, $pessoa2, $fase, $vara, $posicao, $conclusao, $idProcesso) {
         
         
@@ -185,6 +260,119 @@ class Processo extends Model{
         $sql = $this->db->prepare("DELETE FROM processo WHERE idProcesso = :id");
         $sql->bindValue(":id", $idProcesso);
         $sql->execute();
+    }
+    
+    public function addAndamento($data, $texto, $idProcesso) {
+        
+        $sql = $this->db->prepare("INSERT INTO andamento SET DataAndamento = :dataAndamento, Texto = :texto, Processo_idProcesso = :processo");
+        $sql->bindvalue(":dataAndamento", $data);
+        $sql->bindvalue(":texto", $texto);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->execute();
+        
+    }
+    
+    public function addArquivo($data, $texto, $arquivo, $idProcesso) {
+        
+        $sql = $this->db->prepare("INSERT INTO arquivo SET DataArquivo = :dataArq, Arquivo = :arq, Descricao = :descricao, idProcesso = :processo");
+        $sql->bindvalue(":dataArq", $data);
+        $sql->bindvalue(":arq", $arquivo);
+        $sql->bindvalue(":descricao", $texto);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->execute();
+        
+    }
+    
+    public function editArquivo($data, $texto, $arquivo, $idProcesso, $idArquivo) {
+        
+        $sql = $this->db->prepare("UPDATE arquivo SET DataArquivo = :dataArq, Arquivo = :arq, Descricao = :descricao WHERE idArquivo = :idArq AND idProcesso = :processo");
+        $sql->bindvalue(":dataArq", $data);
+        $sql->bindvalue(":arq", $arquivo);
+        $sql->bindvalue(":idArq", $idArquivo);
+        $sql->bindvalue(":descricao", $texto);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->execute();
+        
+    }
+    
+    public function editSemArquivo($data, $texto, $idProcesso, $idArquivo) {
+        
+        $sql = $this->db->prepare("UPDATE arquivo SET DataArquivo = :dataArq, Descricao = :descricao WHERE idArquivo = :idArq AND idProcesso = :processo");
+        $sql->bindvalue(":dataArq", $data);
+        $sql->bindvalue(":idArq", $idArquivo);
+        $sql->bindvalue(":descricao", $texto);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->execute();
+        
+    }
+    
+    public function delArquivo($idArquivo) {
+        
+        $sql = $this->db->prepare("DELETE FROM arquivo WHERE idArquivo = :idArq");
+        $sql->bindvalue(":idArq", $idArquivo);
+        $sql->execute();
+        
+    }
+    
+    public function getArquivoById($idArquivo) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM arquivo WHERE idArquivo = :idArq");
+        $sql->bindvalue(":idArq", $idArquivo);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetch();
+        }
+        
+        return $array;
+    }
+    
+    public function editAndamento($data, $texto, $idProcesso, $idAndamento) {
+        
+        $sql = $this->db->prepare("UPDATE andamento SET DataAndamento = :dataAndamento, Texto = :texto WHERE idAndamento = :idAnd AND Processo_idProcesso = :processo");
+        $sql->bindvalue(":dataAndamento", $data);
+        $sql->bindvalue(":texto", $texto);
+        $sql->bindvalue(":processo", $idProcesso);
+        $sql->bindvalue(":idAnd", $idAndamento);
+        $sql->execute();
+    }
+    
+    public function delAndamento($idAndamento) {
+        
+        $sql = $this->db->prepare("DELETE FROM andamento WHERE idAndamento = :idAnd");
+        $sql->bindvalue(":idAnd", $idAndamento);
+        $sql->execute();
+    }
+    
+    public function getAndamentoByProcesso($processo) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM andamento WHERE Processo_idProcesso = :id");
+        $sql->bindValue(":id", $processo);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        
+        return $array;
+    }
+    
+    public function getArquivoByProcesso($processo) {
+        $array = array();
+        
+        $sql = $this->db->prepare("SELECT * FROM arquivo WHERE idProcesso = :id");
+        $sql->bindValue(":id", $processo);
+        $sql->execute();
+        
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }else{
+            
+        }
+        
+        return $array;
     }
     
 }

@@ -312,7 +312,7 @@ $(document).ready(function(){
     $("#cpf").on("change", function(){
         var pessoa = $("#cpf").val();
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/usuarios',
+            url:'<?= HOME; ?>/ajax/usuarios',
             type: 'POST',
             data:{pessoa:pessoa},
             dataType: 'json',
@@ -352,7 +352,7 @@ $(document).ready(function(){
                         $('#situacao').val("update");
                         $('#idUser').val(json.idPF);
                         $('#vemAqui').css('visibility', 'visible');
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/usuarios/del/" + json.idPF);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -380,7 +380,7 @@ $(document).ready(function(){
     $("#oab").on("change", function(){
         var pessoa = $("#oab").val();
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/usuariosOAB',
+            url:'<?= HOME; ?>/ajax/usuariosOAB',
             type: 'POST',
             data:{pessoa:pessoa},
             dataType: 'json',
@@ -412,7 +412,7 @@ $(document).ready(function(){
                         $('#situacao').val("update");
                         $('#idUser').val(json.idPF);
                         $('#vemAqui').css('visibility', 'visible');
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/usuarios/del/" + json.idPF);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/usuarios/del/" + json.idPF);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');

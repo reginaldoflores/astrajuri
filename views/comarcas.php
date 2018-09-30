@@ -128,7 +128,7 @@
         var com = $("#comarca").val();
                 
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/comarca',
+            url:'<?= HOME; ?>/ajax/comarca',
             type: 'POST',
             data:{com:com},
             dataType: 'json',
@@ -143,7 +143,7 @@
                         
                         $('#vemAqui').append('<a href="#" class="btn btn-danger" id="botaoExcluir" name="excluir" data-confirm="Tem Certeza que Deseja Excluir o Item Selecionado?">Excluir</a>');
                         
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/comarca/delComarca/" + json.idCom);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/comarca/delComarca/" + json.idCom);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -167,7 +167,7 @@
         var vara = $("#vara").val();
                 
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/vara',
+            url:'<?= HOME; ?>/ajax/vara',
             type: 'POST',
             data:{vara:vara},
             dataType: 'json',
@@ -182,7 +182,7 @@
                         
                         $('#vemAqui2').css('visibility', 'visible');
                         
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/comarca/delVara/" + json.varaId);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/comarca/delVara/" + json.varaId);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -208,7 +208,7 @@
         var comar = $("#comarcaLista").val();
                     
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/getVara',
+            url:'<?= HOME; ?>/ajax/getVara',
             type: 'POST',
             data:{comar:comar},
             dataType: 'json',
@@ -227,7 +227,7 @@
                         
                         $('#vemAqui2').css('visibility', 'visible');
                         
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/comarca/delVara/" + json.varaId);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/comarca/delVara/" + json.varaId);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');

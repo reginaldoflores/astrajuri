@@ -2,7 +2,7 @@
 <div class="clearfix"></div>
 
     <div id="main" class="container-fluid">
-        <form method="post" class="form-horizontal form-label-left" novalidate>
+        <form method="post" class="form-horizontal form-label-left" enctype="multipart/form-data" novalidate>
             <div class="row">
                 
                 <!-- Processo -->
@@ -178,12 +178,16 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#valor">Incluir Valor</button>
+                             <button id="btnIncValor" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#valor" data-whatever="">Incluir Valor</button>
+                             <!--<button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="' + json.entradaId[i] + '" data-whatevervalor="' + json.valueEntrada[i] + '" data-whateverqtd="' + json.qtdEntrada[i] + '" data-whateverdata="' + json.dataEntrada[i] + '" data-whateverhora="' + json.horaEntrada[i] + '">Editar</button>-->
                         </div>   
                         <hr>
-                        <div class="x_content">
+                        <div id="msgValor">
+                            <h4>Não Valores no Processo!</h4>
+                        </div>
+                        <div class="x_content" id="valorEditLista" style="display: none;">
                             <table class="table table-striped" cellspacing="0" cellpadding="0">
-                            <thead>
+                                <thead id="">
                                 <tr>
                                     <th>Data</th>
                                     <th>Valor</th>
@@ -192,19 +196,8 @@
                                     <th class="actions">Ações</th>                        
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01/01/2010</td>
-                                    <td>2000,00</td>
-                                    <td>Contratual</td>
-                                    <td>Valor decidido após reunião com o cliente</td>
-                                    
-                                    <td class="actions">
-                                            <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
+                            <tbody id="linha-valor">
+                                
                             </tbody>
                             </table>
                         </div>
@@ -217,10 +210,13 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#and">Incluir Andamento</button>
+                             <button id="btnAndamento" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#andamento" data-whatever="">Incluir Andamento</button>
                         </div>   
                         <hr>
-                        <div class="x_content">
+                        <div id="msgAndamento">
+                            <h4>Não Andamento no Processo!</h4>
+                        </div>
+                        <div class="x_content" id="andamentoEditLista" style="display: none;">
 
                             <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
@@ -230,34 +226,8 @@
                                     <th class="actions">Ações</th>                     
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01/01/2010</td>
-                                    <td>
-                                    <p>Juntada - Petição</p>
-                                    <p>Data da juntada: 17/10/2012</p>
-                                    <p>Número do Documento: 201205337129 - Prog Comarca de Niterói</p>
-                                    </td>
-                                    <td class="actions">
-                                            <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
+                            <tbody id="linhaAndamento">
                                 
-                                <tr>
-                                    <td>01/01/2010</td>
-                                    <td>
-                                    <p>Juntada - Petição</p>
-                                    <p>Data da juntada: 17/10/2012</p>
-                                    <p>Número do Documento: 201205337129 - Prog Comarca de Niterói</p>
-                                    </td>
-                                    <td class="actions">
-                                            <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                            <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                            <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
                             </tbody>
                             </table>
 
@@ -271,10 +241,13 @@
                     <div class="x_panel">
                         
                         <div class="nav">
-                             <button id="btnPrint" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#arq">Incluir Arquivo</button>
+                             <button id="btnArquivo" type="button" class="btn btn-primary btn-xs" data-toggle="modal"  data-target="#arquivos" data-whatever="">Incluir Arquivo</button>
                         </div>   
                         <hr>
-                        <div class="x_content">
+                        <div id="msgArquivo">
+                            <h4>Não Arquivos no Processo!</h4>
+                        </div>
+                        <div class="x_content" id="arquivoEditLista"  style="display: none;">
 
                             <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
@@ -285,34 +258,13 @@
                                     <th class="actions">Ações</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01/01/2010</td>
-                                    <td>arquivo</td>
-                                    <td>Cópia do contrato</td>
-
-                                    <td class="actions">
-                                        <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                        <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                        <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
+                            <tbody id="linhaArquivo">
                                 
-                                <tr>
-                                    <td>04/01/2017</td>
-                                    <td>arquivo</td>
-                                    <td>Cópia dos documentos pessoais do cliente</td>
-
-                                    <td class="actions">
-                                        <!-- <a class="btn btn-success btn-xs" href="view.html">Visualizar</a> -->
-                                        <a id="btnPrint" class="btn btn-warning btn-xs" href="edit.html">Editar</a>
-                                        <a id="btnPrint" class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
                             </tbody>
                             </table>
                             
-                            <div class="ln_solid"></div>
+                        </div>
+                        <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     
@@ -327,21 +279,19 @@
                                    
                                 </div>
                             </div>
-
-                        </div>
                     </div>
                 </div>
                  <!-- / Arquivo-->
             
             </div>
             <input type="hidden" id="situacao" name="situacao" value="add">
-        </form>
+        
     </div>
       
 </div>  
 
     <!--modal Andamento-->
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" id="and" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal fade bs-example-modal-sm" id="andamento" tabindex="-1" id="and" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             
@@ -358,7 +308,7 @@
                         <div class="form-group">
                         <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="date" id="data" name="data"  class="form-control col-md-7 col-xs-12">
+                                <input type="datetime" id="dataAndamento" name="dataAndamento"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                 
@@ -367,17 +317,17 @@
                         <div class="form-group">
                             <label class="control-label col-md-6 col-sm-6 col-xs-12">Texto: </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <textarea class="resizable_textarea form-control" placeholder="Digite o andamento..."></textarea>
+                                <textarea class="resizable_textarea form-control" name="textoDescricao" id="textoDescricao" placeholder="Digite o andamento..."></textarea>
                             </div>
                         </div>
                 
                     </div>
                 </div>
-          
+                          
                 <br><br>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary">Salvar</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
             
             </div>
@@ -386,12 +336,59 @@
 
 </div>
 
+    <!--modal Andamento EDIT-->
+    <div class="modal fade bs-example-modal-sm" id="andamentoEdit" tabindex="-1" id="and" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">Editar Andamento</h4>
+            </div>
+            <div class="modal-body">
+          
+                <div class="row">
+            
+                    <div class="col-md-12">
+            
+                        <div class="form-group">
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <input type="datetime" id="dataAndamentoEdit" name="dataAndamentoEdit"  class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+                
+                        <br><br><br>
+                        
+                        <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-12">Texto: </label>
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                <textarea class="resizable_textarea form-control" name="textoDescricaoEdit" id="textoDescricaoEdit" placeholder="Digite o andamento..."></textarea>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+          
+                <input type="hidden" name="idAndamento" id="idAndamento">
+                
+                <br><br>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+</div>
     
     <!--modal valor-->
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="valor" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-            
+
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="gridSystemModalLabel">Incluir Valor</h4>
@@ -403,9 +400,14 @@
                         <div class="col-md-12">
 
                             <div class="form-group">
-                            <label class="control-label col-md-6 col-sm-6 col-xs-12">Tipo: </label>
+                                <label class="control-label col-md-6 col-sm-6 col-xs-12">Tipo: </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" id="data" name="data"  class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="tipo-despesa" name="tipo-despesa"  class="form-control col-md-7 col-xs-12" list="listDespesas">
+                                    <datalist id="listDespesas">
+                                        <?php foreach($despesas as $desp): ?>
+                                        <option value="<?= utf8_encode($desp['Tipo']); ?>"><?= utf8_encode($desp['Tipo']); ?></option>
+                                        <?php endforeach; ?>
+                                    </datalist>
                                 </div>
                             </div>
 
@@ -414,7 +416,7 @@
                             <div class="form-group">
                             <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="date" id="data" name="data"  class="form-control col-md-7 col-xs-12">
+                                    <input type="date" id="data-despesa" name="data-despesa" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
 
@@ -425,7 +427,7 @@
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group">
                                         <span class="input-group-addon">R$</span>
-                                        <input type="text"  id="com" name="com" class="form-control" aria-label="Amount (to the nearest dollar)">      
+                                        <input type="text"  id="valor-despesa" name="valor-despesa" class="form-control" aria-label="Amount (to the nearest dollar)">      
                                     </div>
                                 </div>
                             </div>
@@ -435,27 +437,104 @@
                             <div class="form-group">
                                 <label class="control-label col-md-6 col-sm-6 col-xs-12">Notas: </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                  <textarea class="resizable_textarea form-control" placeholder="Digite notas..."></textarea>
+                                    <textarea class="resizable_textarea form-control" name="valor-notas" id="valor-notas" placeholder="Digite notas..."></textarea>
                                 </div>
                             </div>
 
                         </div>
                     </div>
 
+                    <input type="hidden" name="idIncValor" id="idIncValor">
+
                     <br><br>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-primary">Salvar</button>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     </div>
     
+    <!--modal valorEdit-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="valorEdit" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Incluir Valor</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-12">Tipo: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="text" id="tipo-despesaEdit" name="tipo-despesaEdit"  class="form-control col-md-7 col-xs-12" list="listDespesas">
+                                    <datalist id="listDespesas">
+                                        <?php foreach($despesas as $desp): ?>
+                                        <option value="<?= utf8_encode($desp['Tipo']); ?>"><?= utf8_encode($desp['Tipo']); ?></option>
+                                        <?php endforeach; ?>
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            <br><br><br>
+
+                            <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="date" id="data-despesaEdit" name="data-despesaEdit" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <br><br><br>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-12" for="com">Valor: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">R$</span>
+                                        <input type="text"  id="valor-despesaEdit" name="valor-despesaEdit" class="form-control" aria-label="Amount (to the nearest dollar)">      
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br><br><br>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-12">Notas: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <textarea class="resizable_textarea form-control" name="valor-notasEdit" id="valor-notasEdit" placeholder="Digite notas..."></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="idIncValor" id="idIncValor">
+
+                    <br><br>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+  
+    
     <!--modal arquivo-->
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="arq" aria-labelledby="mySmallModalLabel">
+    <div class="modal fade bs-example-modal-sm" id="arquivos" tabindex="-1" role="dialog" id="arq" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
             
@@ -472,7 +551,7 @@
                             <div class="form-group">
                             <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" id="data" name="data"  class="form-control col-md-7 col-xs-12">
+                                    <input type="date" id="dataArquivo" name="dataArquivo"  class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <br><br><br>
@@ -486,7 +565,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-6 col-sm-6 col-xs-12">Descrição: </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                  <textarea class="resizable_textarea form-control" placeholder="Digite a descrição..."></textarea>
+                                    <textarea class="resizable_textarea form-control" id="descricaoArquivo" name="descricaoArquivo" placeholder="Digite a descrição..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -494,14 +573,66 @@
                     <br><br>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
-  
+    
+    <!--modal arquivoEDIT-->
+    <div class="modal fade bs-example-modal-sm" id="arquivosEdit" tabindex="-1" role="dialog" id="arq" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Editar Arquivo</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="date" id="dataArquivoEdit" name="dataArquivoEdit"  class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="form-group">
+                            <label class="control-label col-md-6 col-sm-6 col-xs-12">Arquivo: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <input type="file" id="arquivoEdit" name="arquivoEdit">
+                                </div>
+                            </div>
+                            <br><br><br>
+                            <div class="form-group">
+                                <label class="control-label col-md-6 col-sm-6 col-xs-12">Descrição: </label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <textarea class="resizable_textarea form-control" id="descricaoArquivoEdit" name="descricaoArquivoEdit" placeholder="Digite a descrição..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" name="idArquivo" id="idArquivo">
+                    <input type="hidden" name="arquivoAnteriorEdit" id="arquivoAnteriorEdit">
+                    
+                    <br><br>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <!-- jQuery -->
 <script src="<?= HOME; ?>/assets/bootstrap/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -522,13 +653,16 @@
     
     $(document).ready(function(){                        
         $('#numero').mask('0000000-00.0000.0.00.0000');
+        $("#valor-despesa").mask('#.##0,00', {reverse: true});
+        $("#valor-despesaEdit").mask('#.##0,00', {reverse: true});
+                
     });
     
     $("#comarca").on("change", function(){
         var comar = $("#comarca").val();
                     
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/getVara',
+            url:'<?= HOME; ?>/ajax/getVara',
             type: 'POST',
             data:{comar:comar},
             dataType: 'json',
@@ -543,7 +677,7 @@
                     for (var i = 0; i < json.vara.length; i++) {
                         $("#listavara").append('<option id="comarcasRelacionadas" value="'+json.vara[i]+'"> ' + json.vara[i] + '</option>');
                     }
-                    
+                                        
                 }
             }
         });
@@ -553,7 +687,7 @@
         var numero = $("#numero").val();
                     
         $.ajax({
-            url:'http://localhost/astrajuri/ajax/processo',
+            url:'<?= HOME; ?>/ajax/processo',
             type: 'POST',
             data:{numero:numero},
             dataType: 'json',
@@ -575,16 +709,73 @@
                     $("#end").val(json.endereco);
                     $("#idProc").val(json.idProcesso);
                     $("#idVara").val(json.idVara);
+                    $("#btnIncValor").attr('data-whatever', json.idProcesso);
+                    $("#btnAndamento").attr('data-whatever', json.idProcesso);
+                    $("#btnArquivo").attr('data-whatever', json.idProcesso);
                     $("#situacao").val("update");
                     
                     if (json.fase == 7) {
                         $("#conclusao").val(json.conclusao);
                         $("#exibeConclusao").css('display', 'block');
                     }
+                    
+                    if (json.qtdDespesas > 0) {
+                        $("#msgValor").css('display', 'none');
+                        $("#valorEditLista").css('display', 'block');
+                        for(i=0; i<json.qtdDespesas; i++){
+                            $('#linha-valor').append('<tr><td>'+json.datadesp[i]+'</td><td>'+json.valordesp[i]+'</td><td>'+json.tipodesp[i]+'</td><td>'+json.notasdesp[i]+'</td><td class="actions"><button type="button" id="editDespVal" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#valorEdit" data-whatever="' + json.iddesp[i] + '" data-whatevervalor="' + json.valordesp[i] + '" data-whatevertipo="' + json.tipodesp[i] + '" data-whateverdescricao="' + json.notasdesp[i] + '" data-whateverdata="' + json.datadesp[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/deldespesa/' + json.iddesp[i] + '" id="valorExcluir" data-confirm="Tem Certeza que Deseja Excluir a Despesa Selecionada?">Excluir</a></td></tr>');
+                            
+                            $('a[data-confirm]').click(function(){
+                                var href = $(this).attr('href');
+                                if (!$('#confirm-delete').length) {
+                                    $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Entrada de Material<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir esta Entrada de Material?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                                }
+                                $('#dataConfirmOk').attr('href', href);
+                                $('#confirm-delete').modal({show:true});
+                                return false;
+                            });
+                        }
+                    }
+               
+                    if (json.qtdAndamento > 0) {
+                        $("#msgAndamento").css('display', 'none');
+                        $("#andamentoEditLista").css('display', 'block');
+                        for(i=0; i<json.qtdAndamento; i++){
+                        $('#linhaAndamento').append('<tr><td>'+json.dataAndamento[i]+'</td><td>'+json.textoAndamento[i]+'</td><td class="actions"><button type="button" id="editAndamento" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#andamentoEdit" data-whatever="' + json.idAndamento[i] + '" data-whateverdata="' + json.dataAndamento[i] + '" data-whatevertexto="' + json.textoAndamento[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delandamento/' + json.idAndamento[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Andamento Selecionado?">Excluir</a></td></tr>');
+
+                            $('a[data-confirm]').click(function(){
+                                var href = $(this).attr('href');
+                                if (!$('#confirm-delete').length) {
+                                    $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Entrada de Material<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir esta Entrada de Material?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                                }
+                                $('#dataConfirmOk').attr('href', href);
+                                $('#confirm-delete').modal({show:true});
+                                return false;
+                            });
+                        }
+                    }
+               
+                    if (json.qtdArquivo > 0) {
+                        $("#msgArquivo").css('display', 'none');
+                        $("#arquivoEditLista").css('display', 'block');
+                        for(i=0; i<json.qtdArquivo; i++){
+                            $('#linhaArquivo').append('<tr><td>'+json.dataAndamento[i]+'</td><td><a href="<?= HOME; ?>/assets/arquivos/'+json.nomeArquivo[i]+'">Arquivo</a></td><td>'+json.textoDescricao[i]+'</td><td class="actions"><button type="button" id="editArquivo" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#arquivosEdit" data-whatever="' + json.idArquivo[i] + '" data-whateverdata="' + json.dataAndamento[i] + '" data-whateverdescricao="' + json.textoDescricao[i] + '" data-whateverarq="' + json.nomeArquivo[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delarquivo/' + json.idArquivo[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Arquivo Selecionado?">Excluir</a></td></tr>');
+
+                            $('a[data-confirm]').click(function(){
+                                var href = $(this).attr('href');
+                                if (!$('#confirm-delete').length) {
+                                    $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Entrada de Material<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir esta Entrada de Material?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+                                }
+                                $('#dataConfirmOk').attr('href', href);
+                                $('#confirm-delete').modal({show:true});
+                                return false;
+                            });
+                        }
+                    }
                
                     $('#vemAqui2').css('visibility', 'visible');
                         
-                        $('#botaoExcluir').attr("href", "http://localhost/astrajuri/processofull/del/" + json.idProcesso);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/processofull/del/" + json.idProcesso);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -603,7 +794,59 @@
             }
         });
     });
+        
+    $('#valorEdit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        var recipientvalor = button.data('whatevervalor');
+        var recipientdescricao = button.data('whateverdescricao');
+        var recipientdata = button.data('whateverdata');
+        var recipienttipo = button.data('whatevertipo');
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        // modal.find('.modal-title').text('ID ' + recipient);
+        modal.find('#idIncValor').val(recipient);
+        modal.find('#valor-notasEdit').val(recipientdescricao);
+        modal.find('#valor-despesaEdit').val(recipientvalor);
+        modal.find('#data-despesaEdit').val(recipientdata);
+        modal.find('#tipo-despesaEdit').val(recipienttipo);
+
+
+    });
     
+    $('#andamentoEdit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        var recipientdata = button.data('whateverdata');
+        var recipienttexto = button.data('whatevertexto');
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        // modal.find('.modal-title').text('ID ' + recipient);
+        modal.find('#idAndamento').val(recipient);
+        modal.find('#dataAndamentoEdit').val(recipientdata);
+        modal.find('#textoDescricaoEdit').val(recipienttexto);
+
+    });
+    
+    $('#arquivosEdit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever'); // Extract info from data-* attributes
+        var recipientdata = button.data('whateverdata');
+        var recipientdescricao = button.data('whateverdescricao');
+        var recipientarq = button.data('whateverarq');
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        // modal.find('.modal-title').text('ID ' + recipient);
+        modal.find('#idArquivo').val(recipient);
+        modal.find('#dataArquivoEdit').val(recipientdata);
+        modal.find('#descricaoArquivoEdit').val(recipientdescricao);
+        modal.find('#arquivoAnteriorEdit').val(recipientarq);
+
+    });
+     
     $("#fase").on("change", function(){
         
         var fase = $("#fase option:selected").val();
@@ -644,7 +887,7 @@
         
     });
  
-
+    
 </script>
 
     
