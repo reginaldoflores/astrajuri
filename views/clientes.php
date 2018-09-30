@@ -300,7 +300,7 @@ $(function (){
         }
         
         $.ajax({
-            url:'<?= HOME; ?>/astrajuri/ajax',
+            url:'<?= HOME; ?>/ajax',
             type: 'POST',
             data:{pessoa:pessoa},
             dataType: 'json',
@@ -339,7 +339,7 @@ $(function (){
                         
                         $('#vemAqui').css('visibility', 'visible');
                         
-                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/astrajuri/clientes/del/" + json.cnpj);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/clientes/del/" + json.cnpj);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');
@@ -381,7 +381,7 @@ $(function (){
                         
                         $('#vemAqui').css('visibility', 'visible');
                         
-                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/astrajuri/clientes/del/" + json.cpf);
+                        $('#botaoExcluir').attr("href", "<?= HOME; ?>/clientes/del/" + json.cpf);
                         
                         $('a[data-confirm]').click(function(){
                             var href = $(this).attr('href');

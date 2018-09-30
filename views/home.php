@@ -146,7 +146,7 @@
                         <div class="col-sm-10">
                             <select name="color" class="form-control" id="color">
                             <option value="">Selecione</option>			
-                            <option style="color:#FFD700;" value="#FFD700">Reunião</option>	
+                            <option style="color:#3CB371;" value="#3CB371">Reunião</option>	
                             <option style="color:#FF4500;" value="#FF4500">Audiência</option>
                             <option style="color:#436EEE;" value="#436EEE">Outros</option>
                             <option style="color:#8B0000;" value="#8B0000">Prazo</option>
