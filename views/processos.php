@@ -308,7 +308,7 @@
                         <div class="form-group">
                         <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="datetime" id="dataAndamento" name="dataAndamento"  class="form-control col-md-7 col-xs-12">
+                                <input type="datetime-local" id="dataAndamento" name="dataAndamento"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                 
@@ -354,7 +354,7 @@
                         <div class="form-group">
                         <label class="control-label col-md-6 col-sm-6 col-xs-12">Data: </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="datetime" id="dataAndamentoEdit" name="dataAndamentoEdit"  class="form-control col-md-7 col-xs-12">
+                                <input type="datetime-local" id="dataAndamentoEdit" name="dataAndamentoEdit"  class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
                 
@@ -723,7 +723,7 @@
                         $("#msgValor").css('display', 'none');
                         $("#valorEditLista").css('display', 'block');
                         for(i=0; i<json.qtdDespesas; i++){
-                            $('#linha-valor').append('<tr><td>'+json.datadesp[i]+'</td><td>'+json.valordesp[i]+'</td><td>'+json.tipodesp[i]+'</td><td>'+json.notasdesp[i]+'</td><td class="actions"><button type="button" id="editDespVal" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#valorEdit" data-whatever="' + json.iddesp[i] + '" data-whatevervalor="' + json.valordesp[i] + '" data-whatevertipo="' + json.tipodesp[i] + '" data-whateverdescricao="' + json.notasdesp[i] + '" data-whateverdata="' + json.datadesp[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/deldespesa/' + json.iddesp[i] + '" id="valorExcluir" data-confirm="Tem Certeza que Deseja Excluir a Despesa Selecionada?">Excluir</a></td></tr>');
+                            $('#linha-valor').append('<tr><td>'+json.datadespView[i]+'</td><td>'+json.valordesp[i]+'</td><td>'+json.tipodesp[i]+'</td><td>'+json.notasdesp[i]+'</td><td class="actions"><button type="button" id="editDespVal" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#valorEdit" data-whatever="' + json.iddesp[i] + '" data-whatevervalor="' + json.valordesp[i] + '" data-whatevertipo="' + json.tipodesp[i] + '" data-whateverdescricao="' + json.notasdesp[i] + '" data-whateverdata="' + json.datadesp[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/deldespesa/' + json.iddesp[i] + '" id="valorExcluir" data-confirm="Tem Certeza que Deseja Excluir a Despesa Selecionada?">Excluir</a></td></tr>');
                             
                             $('a[data-confirm]').click(function(){
                                 var href = $(this).attr('href');
@@ -741,7 +741,7 @@
                         $("#msgAndamento").css('display', 'none');
                         $("#andamentoEditLista").css('display', 'block');
                         for(i=0; i<json.qtdAndamento; i++){
-                        $('#linhaAndamento').append('<tr><td>'+json.dataAndamento[i]+'</td><td>'+json.textoAndamento[i]+'</td><td class="actions"><button type="button" id="editAndamento" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#andamentoEdit" data-whatever="' + json.idAndamento[i] + '" data-whateverdata="' + json.dataAndamento[i] + '" data-whatevertexto="' + json.textoAndamento[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delandamento/' + json.idAndamento[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Andamento Selecionado?">Excluir</a></td></tr>');
+                        $('#linhaAndamento').append('<tr><td>'+json.dataAndamentoView[i]+'</td><td>'+json.textoAndamento[i]+'</td><td class="actions"><button type="button" id="editAndamento" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#andamentoEdit" data-whatever="' + json.idAndamento[i] + '" data-whateverdata="' + json.dataAndamento[i] + '" data-whatevertexto="' + json.textoAndamento[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delandamento/' + json.idAndamento[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Andamento Selecionado?">Excluir</a></td></tr>');
 
                             $('a[data-confirm]').click(function(){
                                 var href = $(this).attr('href');
@@ -759,7 +759,7 @@
                         $("#msgArquivo").css('display', 'none');
                         $("#arquivoEditLista").css('display', 'block');
                         for(i=0; i<json.qtdArquivo; i++){
-                            $('#linhaArquivo').append('<tr><td>'+json.dataAndamento[i]+'</td><td><a href="<?= HOME; ?>/assets/arquivos/'+json.nomeArquivo[i]+'">Arquivo</a></td><td>'+json.textoDescricao[i]+'</td><td class="actions"><button type="button" id="editArquivo" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#arquivosEdit" data-whatever="' + json.idArquivo[i] + '" data-whateverdata="' + json.dataAndamento[i] + '" data-whateverdescricao="' + json.textoDescricao[i] + '" data-whateverarq="' + json.nomeArquivo[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delarquivo/' + json.idArquivo[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Arquivo Selecionado?">Excluir</a></td></tr>');
+                            $('#linhaArquivo').append('<tr><td>'+json.dataArquivoView[i]+'</td><td><a href="<?= HOME; ?>/assets/arquivos/'+json.nomeArquivo[i]+'">Arquivo</a></td><td>'+json.textoDescricao[i]+'</td><td class="actions"><button type="button" id="editArquivo" class="btn btn btn-warning btn-xs" data-toggle="modal" data-target="#arquivosEdit" data-whatever="' + json.idArquivo[i] + '" data-whateverdata="' + json.dataArquivo[i] + '" data-whateverdescricao="' + json.textoDescricao[i] + '" data-whateverarq="' + json.nomeArquivo[i] + '">Editar</button><a id="valorDel" class="btn btn-danger btn-xs"  href="<?= HOME; ?>/processofull/delarquivo/' + json.idArquivo[i] + '" id="andamentoExcluir" data-confirm="Tem Certeza que Deseja Excluir o Arquivo Selecionado?">Excluir</a></td></tr>');
 
                             $('a[data-confirm]').click(function(){
                                 var href = $(this).attr('href');

@@ -49,6 +49,7 @@
                         <dd id="cliente"></dd>
                     </dl>
                     <button class="btn btn-canc-vis btn-warning">Editar</button>
+                    <a href="#" id="btExcluirEvento" class="btn btn-danger" data-confirm="Tem Certeza que Deseja Excluir o Compromisso Selecionado?">Excluir</a>
                 </div>
                 <div class="form">
                     <form class="form-horizontal" method="POST">
@@ -399,6 +400,7 @@
                             $('#visualizar #advogado').val(event.idAdv);
                             $('#visualizar #texto').text(event.texto);
                             $('#visualizar #texto').val(event.texto);
+                            $('#btExcluirEvento').attr('href', 'http://localhost/astrajuri/home/del/'+event.id);
                             $('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
                             $('#visualizar #start').val(event.start.format('DD/MM/YYYY HH:mm:ss'));
                             $('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
@@ -468,6 +470,16 @@
                     event.returnValue = false;
             }
     }
+
+    $('a[data-confirm]').click(function(){
+        var href = $(this).attr('href');
+        if (!$('#confirm-delete').length) {
+            $('body').append('<div class="modal fade" id="confirm-delete" tabindex="1" role="dialog" aria-labelledby="modalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header">Excluir Entrada de Material<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que deseja realmente excluir esta Entrada de Material?</div><div class="modal-footer"><button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>');
+        }
+        $('#dataConfirmOk').attr('href', href);
+        $('#confirm-delete').modal({show:true});
+        return false;
+    });
 
     
     </script>

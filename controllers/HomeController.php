@@ -110,6 +110,11 @@ class HomeController extends Controlador{
         $dados['clientes'] = $cliente->getClientesFull();
         $this->loadTemplate("home", $dados);
     }
-    
+ 
+    public function del($idCompromisso) {
+        $c = new Compromisso();
+        $c->delCompromisso($idCompromisso);
+        header("Location: ".HOME);
+    }
 
 }

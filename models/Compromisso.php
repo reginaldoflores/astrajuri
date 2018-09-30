@@ -86,4 +86,10 @@ class Compromisso extends Model{
         
     }
     
+    public function delCompromisso($idCompromisso) {
+        $sql = $this->db->prepare("DELETE FROM compromisso WHERE idCompromisso = :id");
+        $sql->bindValue(":id", $idCompromisso);
+        $sql->execute();
+    }
+    
 }

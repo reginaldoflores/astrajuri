@@ -325,6 +325,7 @@ class AjaxfullController extends Controlador{
                 $dados['tipodesp'][] = $desp['Tipo'];
                 $dados['valordesp'][] = $desp['Valor'];
                 $dados['datadesp'][] = $desp['DataDespesa'];
+                $dados['datadespView'][] = date('d/m/Y', strtotime($desp['DataDespesa']));
                 $dados['notasdesp'][] = $desp['Descricao'];
                 $dados['iddesp'][] = $desp['idDespesas'];
             endforeach;
@@ -334,7 +335,8 @@ class AjaxfullController extends Controlador{
             $dados['qtdAndamento'] = count($andamento);
                         
             foreach ($andamento as $and):
-                $dados['dataAndamento'][] = $and['DataAndamento'];
+                $dados['dataAndamentoView'][] = date('d/m/Y', strtotime($and['DataAndamento']))." ".date('H:i', strtotime($and['DataAndamento']));
+                $dados['dataAndamento'][] = date('Y-m-d', strtotime($and['DataAndamento']))."T".date('H:i:s', strtotime($and['DataAndamento']));
                 $dados['textoAndamento'][] = $and['Texto'];
                 $dados['idAndamento'][] = $and['idAndamento'];
             endforeach;
@@ -344,7 +346,8 @@ class AjaxfullController extends Controlador{
             $dados['qtdArquivo'] = count($arquivo);
                         
             foreach ($arquivo as $arq):
-                $dados['dataAndamento'][] = $arq['DataArquivo'];
+                $dados['dataArquivo'][] = $arq['DataArquivo'];
+                $dados['dataArquivoView'][] = date('d/m/Y', strtotime($arq['DataArquivo']));
                 $dados['nomeArquivo'][] = $arq['Arquivo'];
                 $dados['textoDescricao'][] = $arq['Descricao'];
                 $dados['idArquivo'][] = $arq['idArquivo'];

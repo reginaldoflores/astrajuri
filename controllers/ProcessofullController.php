@@ -82,12 +82,14 @@
                         
                         // ANDAMENTO
                         if (isset($_POST['dataAndamento']) && !empty($_POST['dataAndamento'])) {
-                            $dataAndamento = addslashes['dataAndamento'];
-                            $textoAndamento = utf8_decode(addslashes['textoDescricao']);
+                            $dataAnd = explode('T',addslashes($_POST['dataAndamento']));
+                            $dataAndamento = $dataAnd[0]." ".$dataAnd[1].":00";
+                            $textoAndamento = utf8_decode(addslashes($_POST['textoDescricao']));
                             $processo->addAndamento($dataAndamento, $textoAndamento, $idProcesso);
                         } elseif(isset ($_POST['idAndamento']) && !empty ($_POST['idAndamento'])) {
                             $idAndamento = addslashes($_POST['idAndamento']);
-                            $dataAndamentoEdit = addslashes($_POST['dataAndamentoEdit']);
+                            $dataAndEdit = explode('T',addslashes($_POST['dataAndamentoEdit']));
+                            $dataAndamentoEdit = $dataAndEdit[0]." ".$dataAndEdit[1].":00";
                             $textoAndamentoEdit = utf8_decode(addslashes($_POST['textoDescricaoEdit']));
                             $processo->editAndamento($dataAndamentoEdit, $textoAndamentoEdit, $idProcesso, $idAndamento);
                         }
