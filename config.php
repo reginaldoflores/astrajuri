@@ -2,7 +2,6 @@
 require 'enviroment.php';
 
 define("HOME", "http://localhost/astrajuri");
-/*define("HOME", "http://astrajuri.online");*/
 
 global $config;
 
@@ -15,9 +14,9 @@ if(ENVIRONMENT == "development"):
     $config['dbpass']   =   "";
 else:
     $config['dbname']   =   "astrajuri";
-    $config['host']     =   "mysql942.umbler.com";
-    $config['dbuser']   =   "reginaldo";
-    $config['dbpass']   =   "Regi1234";
+    $config['host']     =   "localhost";
+    $config['dbuser']   =   "root";
+    $config['dbpass']   =   "";
 endif;
 
 global $pdo;
