@@ -380,7 +380,7 @@ $(document).ready(function(){
     $("#oab").on("change", function(){
         var pessoa = $("#oab").val();
         $.ajax({
-            url:'<?= HOME; ?>/ajax/usuariosOAB',
+            url:'<?= HOME; ?>/ajaxfull/usuariosOAB',
             type: 'POST',
             data:{pessoa:pessoa},
             dataType: 'json',
