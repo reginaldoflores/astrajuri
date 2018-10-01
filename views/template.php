@@ -77,9 +77,10 @@
                                         
                                 </ul>
                             </li>
-                            <li><a href="#.html"><i class="fa fa-money"></i> Financeiro </a></li>
+                           
 
                             <?php if($viewData['dados_user']['idPerfil'] == 3): ?>
+                             <li><a href="<?= HOME; ?>/financeiro"><i class="fa fa-money"></i> Financeiro </a></li>
                             <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="chartjs.html">1</a></li>

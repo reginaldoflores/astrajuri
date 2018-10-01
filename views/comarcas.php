@@ -167,7 +167,7 @@
         var vara = $("#vara").val();
                 
         $.ajax({
-            url:'<?= HOME; ?>/ajax/vara',
+            url:'<?= HOME; ?>/ajaxfull/vara',
             type: 'POST',
             data:{vara:vara},
             dataType: 'json',
@@ -208,7 +208,7 @@
         var comar = $("#comarcaLista").val();
                     
         $.ajax({
-            url:'<?= HOME; ?>/ajax/getVara',
+            url:'<?= HOME; ?>/ajaxfull/getVara',
             type: 'POST',
             data:{comar:comar},
             dataType: 'json',

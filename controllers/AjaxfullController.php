@@ -332,6 +332,8 @@ class AjaxfullController extends Controlador{
             
             $andamento = $processo->getAndamentoByProcesso($proc['idProcesso']);
             
+            
+            
             $dados['qtdAndamento'] = count($andamento);
                         
             foreach ($andamento as $and):
@@ -342,6 +344,8 @@ class AjaxfullController extends Controlador{
             endforeach;
             
             $arquivo = $processo->getArquivoByProcesso($proc['idProcesso']);
+            
+            
             
             $dados['qtdArquivo'] = count($arquivo);
                         
